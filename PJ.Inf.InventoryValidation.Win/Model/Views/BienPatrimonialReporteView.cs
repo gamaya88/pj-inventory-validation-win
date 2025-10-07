@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PJ.Inf.InventoryValidation.Win.Model.Views
+{
+    internal class BienPatrimonialReporteView
+    {
+        Guid BptId { get; set; }
+
+        public string DebDescripcion { get; set; } = null!;
+
+        public string MarDescripcion { get; set; } = null!;
+
+        public string ModDescripcion { get; set; } = null!;
+
+        public string BptCodigoPatrimonial { get; set; } = null!;
+
+        public byte BptEstadoConservacionTipo { get; set; }
+
+        public string BptEstadoConservacionDescripcionTipo { get; set; }
+
+        public byte BptColorTipo { get; set; }
+
+        public string BptColorDescripcionTipo { get; set; }
+
+        public string? BptSerie { get; set; }
+    }
+}

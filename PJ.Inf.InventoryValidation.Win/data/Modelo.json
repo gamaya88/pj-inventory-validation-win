@@ -1,0 +1,2406 @@
+[
+  {
+    "id": "1",
+    "descripcion": "VERSA"
+  },
+  {
+    "id": "2",
+    "descripcion": "HI LUX"
+  },
+  {
+    "id": "3",
+    "descripcion": "HILUX4X4"
+  },
+  {
+    "id": "4",
+    "descripcion": "NP300 FRONTIER 4X4"
+  },
+  {
+    "id": "5",
+    "descripcion": "HILUX 4X4 D/C 1 GD SRV"
+  },
+  {
+    "id": "6",
+    "descripcion": "EL-1331URVAN"
+  },
+  {
+    "id": "7",
+    "descripcion": "HIACE COMMUTER"
+  },
+  {
+    "id": "8",
+    "descripcion": "CGL125"
+  },
+  {
+    "id": "9",
+    "descripcion": "XTZ125"
+  },
+  {
+    "id": "10",
+    "descripcion": "SPEX150"
+  },
+  {
+    "id": "11",
+    "descripcion": "XR150L"
+  },
+  {
+    "id": "12",
+    "descripcion": "CTX200"
+  },
+  {
+    "id": "13",
+    "descripcion": "STORM"
+  },
+  {
+    "id": "14",
+    "descripcion": "WX150GY-2"
+  },
+  {
+    "id": "15",
+    "descripcion": "EOS-REBELT6"
+  },
+  {
+    "id": "16",
+    "descripcion": "LUMIX"
+  },
+  {
+    "id": "17",
+    "descripcion": "SIN MODELO"
+  },
+  {
+    "id": "18",
+    "descripcion": "DSC-W180"
+  },
+  {
+    "id": "19",
+    "descripcion": "EOS 90D"
+  },
+  {
+    "id": "20",
+    "descripcion": "JP-880-C"
+  },
+  {
+    "id": "21",
+    "descripcion": "PD6500I"
+  },
+  {
+    "id": "22",
+    "descripcion": "MX-710DN"
+  },
+  {
+    "id": "23",
+    "descripcion": "MX710DHE"
+  },
+  {
+    "id": "24",
+    "descripcion": "MS3550IDN"
+  },
+  {
+    "id": "25",
+    "descripcion": "M3655IDN"
+  },
+  {
+    "id": "26",
+    "descripcion": "MX912DXE"
+  },
+  {
+    "id": "27",
+    "descripcion": "MX622 36S0922"
+  },
+  {
+    "id": "28",
+    "descripcion": "TASKALFA 4012"
+  },
+  {
+    "id": "29",
+    "descripcion": "TASKALFA 7003I"
+  },
+  {
+    "id": "30",
+    "descripcion": "MX722"
+  },
+  {
+    "id": "31",
+    "descripcion": "TASKALFA 5501I"
+  },
+  {
+    "id": "32",
+    "descripcion": "5501I"
+  },
+  {
+    "id": "33",
+    "descripcion": "TCC242"
+  },
+  {
+    "id": "34",
+    "descripcion": "LINEA 98"
+  },
+  {
+    "id": "35",
+    "descripcion": "GXCF04PFB"
+  },
+  {
+    "id": "36",
+    "descripcion": "GXCF05PFS"
+  },
+  {
+    "id": "37",
+    "descripcion": "EQC152MBHS"
+  },
+  {
+    "id": "38",
+    "descripcion": ""
+  },
+  {
+    "id": "39",
+    "descripcion": "PRODESK 400 G7 SFF"
+  },
+  {
+    "id": "40",
+    "descripcion": "SECRETARIA"
+  },
+  {
+    "id": "41",
+    "descripcion": "E01"
+  },
+  {
+    "id": "42",
+    "descripcion": "THINKCENTRE M920S"
+  },
+  {
+    "id": "43",
+    "descripcion": "MS821DN"
+  },
+  {
+    "id": "44",
+    "descripcion": "M-09"
+  },
+  {
+    "id": "45",
+    "descripcion": "FCLSD-1004"
+  },
+  {
+    "id": "46",
+    "descripcion": "FI-5530C2"
+  },
+  {
+    "id": "47",
+    "descripcion": "SCANFRONT 330"
+  },
+  {
+    "id": "48",
+    "descripcion": "F1-6670"
+  },
+  {
+    "id": "49",
+    "descripcion": "FI-7480"
+  },
+  {
+    "id": "50",
+    "descripcion": "FI6800"
+  },
+  {
+    "id": "51",
+    "descripcion": "FI-7900"
+  },
+  {
+    "id": "52",
+    "descripcion": "FI-7180"
+  },
+  {
+    "id": "53",
+    "descripcion": "I4650"
+  },
+  {
+    "id": "54",
+    "descripcion": "P3800A"
+  },
+  {
+    "id": "55",
+    "descripcion": "PP25L"
+  },
+  {
+    "id": "56",
+    "descripcion": "PP36S"
+  },
+  {
+    "id": "57",
+    "descripcion": "VOSTRO 1320"
+  },
+  {
+    "id": "58",
+    "descripcion": "PP37L"
+  },
+  {
+    "id": "59",
+    "descripcion": "VOSTRO"
+  },
+  {
+    "id": "60",
+    "descripcion": "PROBOOK 450 G4"
+  },
+  {
+    "id": "61",
+    "descripcion": "COMPAQ"
+  },
+  {
+    "id": "62",
+    "descripcion": "TRINKPAD"
+  },
+  {
+    "id": "63",
+    "descripcion": "THINKPADT580"
+  },
+  {
+    "id": "64",
+    "descripcion": "LATITUDE 3500"
+  },
+  {
+    "id": "65",
+    "descripcion": "TDY-19E1NG"
+  },
+  {
+    "id": "66",
+    "descripcion": "THINKCENTRE"
+  },
+  {
+    "id": "67",
+    "descripcion": "B52184M"
+  },
+  {
+    "id": "68",
+    "descripcion": "THINKBOOK"
+  },
+  {
+    "id": "69",
+    "descripcion": "THINKBOOK 15G2"
+  },
+  {
+    "id": "70",
+    "descripcion": "LCD"
+  },
+  {
+    "id": "71",
+    "descripcion": "ZBC-66"
+  },
+  {
+    "id": "72",
+    "descripcion": "FX-1050"
+  },
+  {
+    "id": "73",
+    "descripcion": "MSO 300"
+  },
+  {
+    "id": "74",
+    "descripcion": "MS0300"
+  },
+  {
+    "id": "75",
+    "descripcion": "FX105"
+  },
+  {
+    "id": "76",
+    "descripcion": "FW-340"
+  },
+  {
+    "id": "77",
+    "descripcion": "IDEMIA"
+  },
+  {
+    "id": "78",
+    "descripcion": "ZT410"
+  },
+  {
+    "id": "79",
+    "descripcion": "M188A"
+  },
+  {
+    "id": "80",
+    "descripcion": "TMU-220A"
+  },
+  {
+    "id": "81",
+    "descripcion": "TTP 2410MT"
+  },
+  {
+    "id": "82",
+    "descripcion": "C31C513A8901"
+  },
+  {
+    "id": "83",
+    "descripcion": "MS610DE"
+  },
+  {
+    "id": "84",
+    "descripcion": "MS610DN"
+  },
+  {
+    "id": "85",
+    "descripcion": "T654DN"
+  },
+  {
+    "id": "86",
+    "descripcion": "MS415DN"
+  },
+  {
+    "id": "87",
+    "descripcion": "T652DN"
+  },
+  {
+    "id": "88",
+    "descripcion": "MS315DN"
+  },
+  {
+    "id": "89",
+    "descripcion": "MS810DN"
+  },
+  {
+    "id": "90",
+    "descripcion": "MS622DE"
+  },
+  {
+    "id": "91",
+    "descripcion": "LASERJET MANAGED E82560DN"
+  },
+  {
+    "id": "92",
+    "descripcion": "P3115DN"
+  },
+  {
+    "id": "93",
+    "descripcion": "ECOSYS"
+  },
+  {
+    "id": "94",
+    "descripcion": "ECOSYS P3155DN"
+  },
+  {
+    "id": "95",
+    "descripcion": "M634DN"
+  },
+  {
+    "id": "96",
+    "descripcion": "OPTIPLEX 9020"
+  },
+  {
+    "id": "97",
+    "descripcion": "MS632"
+  },
+  {
+    "id": "98",
+    "descripcion": "P361U"
+  },
+  {
+    "id": "99",
+    "descripcion": "LS -2208"
+  },
+  {
+    "id": "100",
+    "descripcion": "CS2208"
+  },
+  {
+    "id": "101",
+    "descripcion": "LS2208"
+  },
+  {
+    "id": "102",
+    "descripcion": "EW178WFPC"
+  },
+  {
+    "id": "103",
+    "descripcion": "5500,00"
+  },
+  {
+    "id": "104",
+    "descripcion": "L1706"
+  },
+  {
+    "id": "105",
+    "descripcion": "E178WFPC"
+  },
+  {
+    "id": "106",
+    "descripcion": "E1708WFPC"
+  },
+  {
+    "id": "107",
+    "descripcion": "E178WCPC"
+  },
+  {
+    "id": "108",
+    "descripcion": "LT2013SWA"
+  },
+  {
+    "id": "109",
+    "descripcion": "E943FWSK"
+  },
+  {
+    "id": "110",
+    "descripcion": "185LM00012"
+  },
+  {
+    "id": "111",
+    "descripcion": "V201"
+  },
+  {
+    "id": "112",
+    "descripcion": "THINKVISION"
+  },
+  {
+    "id": "113",
+    "descripcion": "E2016H"
+  },
+  {
+    "id": "114",
+    "descripcion": "E2216HF"
+  },
+  {
+    "id": "115",
+    "descripcion": "E2016HB"
+  },
+  {
+    "id": "116",
+    "descripcion": "P2003"
+  },
+  {
+    "id": "117",
+    "descripcion": "TDY-19E81NG"
+  },
+  {
+    "id": "118",
+    "descripcion": "THINKVISION E21-10"
+  },
+  {
+    "id": "119",
+    "descripcion": "E-21-110"
+  },
+  {
+    "id": "120",
+    "descripcion": "C21-10"
+  },
+  {
+    "id": "121",
+    "descripcion": "E21-10"
+  },
+  {
+    "id": "122",
+    "descripcion": "THINKVISION E21E-20"
+  },
+  {
+    "id": "123",
+    "descripcion": "LC27R500"
+  },
+  {
+    "id": "124",
+    "descripcion": "P24 G5"
+  },
+  {
+    "id": "125",
+    "descripcion": "HSTND 3921F"
+  },
+  {
+    "id": "126",
+    "descripcion": "185LM00013"
+  },
+  {
+    "id": "127",
+    "descripcion": "E1709WC"
+  },
+  {
+    "id": "128",
+    "descripcion": "E6W38A"
+  },
+  {
+    "id": "129",
+    "descripcion": "HSTND-3921-F"
+  },
+  {
+    "id": "130",
+    "descripcion": "HP V201"
+  },
+  {
+    "id": "131",
+    "descripcion": "E1709WCC"
+  },
+  {
+    "id": "132",
+    "descripcion": "E1912C"
+  },
+  {
+    "id": "133",
+    "descripcion": "E1700WC"
+  },
+  {
+    "id": "134",
+    "descripcion": "E178FPC"
+  },
+  {
+    "id": "135",
+    "descripcion": "E170SC"
+  },
+  {
+    "id": "136",
+    "descripcion": "E1709SC"
+  },
+  {
+    "id": "137",
+    "descripcion": "E1642CA"
+  },
+  {
+    "id": "138",
+    "descripcion": "170C"
+  },
+  {
+    "id": "139",
+    "descripcion": "E1913C"
+  },
+  {
+    "id": "140",
+    "descripcion": "P190SB"
+  },
+  {
+    "id": "141",
+    "descripcion": "E943"
+  },
+  {
+    "id": "142",
+    "descripcion": "U201"
+  },
+  {
+    "id": "143",
+    "descripcion": "E1708WC"
+  },
+  {
+    "id": "144",
+    "descripcion": "E1913E"
+  },
+  {
+    "id": "145",
+    "descripcion": "E20016HB"
+  },
+  {
+    "id": "146",
+    "descripcion": "E1709WF"
+  },
+  {
+    "id": "147",
+    "descripcion": "LT2013S"
+  },
+  {
+    "id": "148",
+    "descripcion": "HP P24H G5"
+  },
+  {
+    "id": "149",
+    "descripcion": "PRODESK 600 GI SFF"
+  },
+  {
+    "id": "150",
+    "descripcion": "ELITEDESK 800"
+  },
+  {
+    "id": "151",
+    "descripcion": "POWER EDGE R740"
+  },
+  {
+    "id": "152",
+    "descripcion": "SC5020"
+  },
+  {
+    "id": "153",
+    "descripcion": "DK-3590U"
+  },
+  {
+    "id": "154",
+    "descripcion": "HA-613"
+  },
+  {
+    "id": "155",
+    "descripcion": "1366"
+  },
+  {
+    "id": "156",
+    "descripcion": "SK-8120"
+  },
+  {
+    "id": "157",
+    "descripcion": "SK-8115"
+  },
+  {
+    "id": "158",
+    "descripcion": "KB 4021"
+  },
+  {
+    "id": "159",
+    "descripcion": "KB-4021"
+  },
+  {
+    "id": "160",
+    "descripcion": "SK 8120"
+  },
+  {
+    "id": "161",
+    "descripcion": "SK-2025"
+  },
+  {
+    "id": "162",
+    "descripcion": "K120"
+  },
+  {
+    "id": "163",
+    "descripcion": "KU-0225"
+  },
+  {
+    "id": "164",
+    "descripcion": "1576,00"
+  },
+  {
+    "id": "165",
+    "descripcion": "SK 8115"
+  },
+  {
+    "id": "166",
+    "descripcion": "KB212-B"
+  },
+  {
+    "id": "167",
+    "descripcion": "K208"
+  },
+  {
+    "id": "168",
+    "descripcion": "SK8820"
+  },
+  {
+    "id": "169",
+    "descripcion": "GK100011"
+  },
+  {
+    "id": "170",
+    "descripcion": "SK2025"
+  },
+  {
+    "id": "171",
+    "descripcion": "KB-216P"
+  },
+  {
+    "id": "172",
+    "descripcion": "KB4021"
+  },
+  {
+    "id": "173",
+    "descripcion": "KB216"
+  },
+  {
+    "id": "174",
+    "descripcion": "KB216T"
+  },
+  {
+    "id": "175",
+    "descripcion": "KU-1469"
+  },
+  {
+    "id": "176",
+    "descripcion": "KU-1619"
+  },
+  {
+    "id": "177",
+    "descripcion": "SK-8827"
+  },
+  {
+    "id": "178",
+    "descripcion": "SK8827"
+  },
+  {
+    "id": "179",
+    "descripcion": "LENOVO LI2215S"
+  },
+  {
+    "id": "180",
+    "descripcion": "KBBH21"
+  },
+  {
+    "id": "181",
+    "descripcion": "HP PRODESK 600 64 SFF 6MX02LP#ABM"
+  },
+  {
+    "id": "182",
+    "descripcion": "KEYBOARD"
+  },
+  {
+    "id": "183",
+    "descripcion": "THINKVISION - T24I-20"
+  },
+  {
+    "id": "184",
+    "descripcion": "SK8823"
+  },
+  {
+    "id": "185",
+    "descripcion": "KB212"
+  },
+  {
+    "id": "186",
+    "descripcion": "KB216T3"
+  },
+  {
+    "id": "187",
+    "descripcion": "KB216BKLTN"
+  },
+  {
+    "id": "188",
+    "descripcion": "TPA-D002K"
+  },
+  {
+    "id": "189",
+    "descripcion": "L96909-161"
+  },
+  {
+    "id": "190",
+    "descripcion": "55P81K"
+  },
+  {
+    "id": "191",
+    "descripcion": "OPTIPLEX"
+  },
+  {
+    "id": "192",
+    "descripcion": "PRODESK600"
+  },
+  {
+    "id": "193",
+    "descripcion": "PRODESK 600 G1 SFF"
+  },
+  {
+    "id": "194",
+    "descripcion": "PRODESK600 G1 SF"
+  },
+  {
+    "id": "195",
+    "descripcion": "PRODESK 600 G1 SF"
+  },
+  {
+    "id": "196",
+    "descripcion": "8191 LSP"
+  },
+  {
+    "id": "197",
+    "descripcion": "DCNE"
+  },
+  {
+    "id": "198",
+    "descripcion": "D0SD"
+  },
+  {
+    "id": "199",
+    "descripcion": "D07S"
+  },
+  {
+    "id": "200",
+    "descripcion": "8191-LSP"
+  },
+  {
+    "id": "201",
+    "descripcion": "OPTIPLEX 760"
+  },
+  {
+    "id": "202",
+    "descripcion": "OPTIPLEX 7040"
+  },
+  {
+    "id": "203",
+    "descripcion": "OPTIPLEX 7040SFF"
+  },
+  {
+    "id": "204",
+    "descripcion": "G700"
+  },
+  {
+    "id": "205",
+    "descripcion": "OPTIPLEX 745"
+  },
+  {
+    "id": "206",
+    "descripcion": "OPTIPLEX 780"
+  },
+  {
+    "id": "207",
+    "descripcion": "OPTIPLEX 755"
+  },
+  {
+    "id": "208",
+    "descripcion": "DCSM1F"
+  },
+  {
+    "id": "209",
+    "descripcion": "OPTIPLEX 380"
+  },
+  {
+    "id": "210",
+    "descripcion": "OPTIPLEX 7010"
+  },
+  {
+    "id": "211",
+    "descripcion": "6C1SMK1"
+  },
+  {
+    "id": "212",
+    "descripcion": "OPTIPLEX 780"
+  },
+  {
+    "id": "213",
+    "descripcion": "D11S"
+  },
+  {
+    "id": "214",
+    "descripcion": "DCNE1F"
+  },
+  {
+    "id": "215",
+    "descripcion": "OPTIPLEX 730"
+  },
+  {
+    "id": "216",
+    "descripcion": "OPTIPLEX760"
+  },
+  {
+    "id": "217",
+    "descripcion": "OPTIPLEX 9080"
+  },
+  {
+    "id": "218",
+    "descripcion": "OPTIPLEX"
+  },
+  {
+    "id": "219",
+    "descripcion": "HPPRODEX"
+  },
+  {
+    "id": "220",
+    "descripcion": "PRODESK 600 G2 SFF"
+  },
+  {
+    "id": "221",
+    "descripcion": "OPTIPLEX 3040SFF"
+  },
+  {
+    "id": "222",
+    "descripcion": "PROESK 600"
+  },
+  {
+    "id": "223",
+    "descripcion": "CHAOXIANG"
+  },
+  {
+    "id": "224",
+    "descripcion": "E700"
+  },
+  {
+    "id": "225",
+    "descripcion": "OPTIPLEX 7050"
+  },
+  {
+    "id": "226",
+    "descripcion": "OPTIPLEX 7050S"
+  },
+  {
+    "id": "227",
+    "descripcion": "THINKPAD L14"
+  },
+  {
+    "id": "228",
+    "descripcion": "PRODEESK 400GS"
+  },
+  {
+    "id": "229",
+    "descripcion": "COREI17"
+  },
+  {
+    "id": "230",
+    "descripcion": "S0D800"
+  },
+  {
+    "id": "231",
+    "descripcion": "OPTIPLEX 7060 SFF"
+  },
+  {
+    "id": "232",
+    "descripcion": "ELITEDESK"
+  },
+  {
+    "id": "233",
+    "descripcion": "HP PRODESK 600 61 SFF"
+  },
+  {
+    "id": "234",
+    "descripcion": "HP PRODESK 600 G1 SFF"
+  },
+  {
+    "id": "235",
+    "descripcion": "HP PRODESK 600 64 SFF"
+  },
+  {
+    "id": "236",
+    "descripcion": "OPTIPLEX 7070"
+  },
+  {
+    "id": "237",
+    "descripcion": "OPTIPLEX780"
+  },
+  {
+    "id": "238",
+    "descripcion": "THINKCENTRE M70S"
+  },
+  {
+    "id": "239",
+    "descripcion": "THINKCENTRE NEO 50S"
+  },
+  {
+    "id": "240",
+    "descripcion": "OPTIPLEX 7090"
+  },
+  {
+    "id": "241",
+    "descripcion": "PRO-SFF400G9"
+  },
+  {
+    "id": "242",
+    "descripcion": "OPTIPLEX 5000"
+  },
+  {
+    "id": "243",
+    "descripcion": "HP PRO SFF 400 G9"
+  },
+  {
+    "id": "244",
+    "descripcion": "LC32R500FHLXPE"
+  },
+  {
+    "id": "245",
+    "descripcion": "PRODESK"
+  },
+  {
+    "id": "246",
+    "descripcion": "OPTIPLEX 7010 SFF PLUS"
+  },
+  {
+    "id": "247",
+    "descripcion": "SC420"
+  },
+  {
+    "id": "248",
+    "descripcion": "POWER VAULT TL1000"
+  },
+  {
+    "id": "249",
+    "descripcion": "PD1120"
+  },
+  {
+    "id": "250",
+    "descripcion": "S4112F"
+  },
+  {
+    "id": "251",
+    "descripcion": "SERVO 120A"
+  },
+  {
+    "id": "252",
+    "descripcion": "SERVO120A"
+  },
+  {
+    "id": "253",
+    "descripcion": "SERV0120A"
+  },
+  {
+    "id": "254",
+    "descripcion": "XLI1500"
+  },
+  {
+    "id": "255",
+    "descripcion": "XLI 150"
+  },
+  {
+    "id": "256",
+    "descripcion": "XLI800"
+  },
+  {
+    "id": "257",
+    "descripcion": "KM750"
+  },
+  {
+    "id": "258",
+    "descripcion": "WS-41"
+  },
+  {
+    "id": "259",
+    "descripcion": "VPC600"
+  },
+  {
+    "id": "260",
+    "descripcion": "DS-2CD2423G0-IW"
+  },
+  {
+    "id": "261",
+    "descripcion": "DS-2CD1643G0-IZ"
+  },
+  {
+    "id": "262",
+    "descripcion": "DCR-SR68"
+  },
+  {
+    "id": "263",
+    "descripcion": "SCM800E"
+  },
+  {
+    "id": "264",
+    "descripcion": "SCM 800"
+  },
+  {
+    "id": "265",
+    "descripcion": "PMP 2000"
+  },
+  {
+    "id": "266",
+    "descripcion": "MAX-DC950"
+  },
+  {
+    "id": "267",
+    "descripcion": "TE40"
+  },
+  {
+    "id": "268",
+    "descripcion": "GROUP 500"
+  },
+  {
+    "id": "269",
+    "descripcion": "SL-1012 UL"
+  },
+  {
+    "id": "270",
+    "descripcion": "KX-FT988LS"
+  },
+  {
+    "id": "271",
+    "descripcion": "BX1-300-5"
+  },
+  {
+    "id": "272",
+    "descripcion": "IDS-7208HQHI-M 1/S"
+  },
+  {
+    "id": "273",
+    "descripcion": "IDS-7216HQHI-M2/S"
+  },
+  {
+    "id": "274",
+    "descripcion": "DS-7616NI-K2/16P"
+  },
+  {
+    "id": "275",
+    "descripcion": "DS-7616NIQ2/16P"
+  },
+  {
+    "id": "276",
+    "descripcion": "DS-7608NI-Q1/8P"
+  },
+  {
+    "id": "277",
+    "descripcion": "ICD-PX312F"
+  },
+  {
+    "id": "278",
+    "descripcion": "ICD-UX523"
+  },
+  {
+    "id": "279",
+    "descripcion": "ZC32"
+  },
+  {
+    "id": "280",
+    "descripcion": "AT-MX351A"
+  },
+  {
+    "id": "281",
+    "descripcion": "AT-MX351"
+  },
+  {
+    "id": "282",
+    "descripcion": "ATM-MX351"
+  },
+  {
+    "id": "283",
+    "descripcion": "SERV01209"
+  },
+  {
+    "id": "284",
+    "descripcion": "230V"
+  },
+  {
+    "id": "285",
+    "descripcion": "SCM800"
+  },
+  {
+    "id": "286",
+    "descripcion": "U-PHORIA UMC 1820"
+  },
+  {
+    "id": "287",
+    "descripcion": "UMC1820"
+  },
+  {
+    "id": "288",
+    "descripcion": "MX418D/C"
+  },
+  {
+    "id": "289",
+    "descripcion": "MX412D/C"
+  },
+  {
+    "id": "290",
+    "descripcion": "MX418"
+  },
+  {
+    "id": "291",
+    "descripcion": "CVG18-B/C"
+  },
+  {
+    "id": "292",
+    "descripcion": "MX418 D/C"
+  },
+  {
+    "id": "293",
+    "descripcion": "MX418DC"
+  },
+  {
+    "id": "294",
+    "descripcion": "VPM16"
+  },
+  {
+    "id": "295",
+    "descripcion": "CREST PERFORMAIST-1S"
+  },
+  {
+    "id": "296",
+    "descripcion": "ST-15"
+  },
+  {
+    "id": "297",
+    "descripcion": "PTLB78VU"
+  },
+  {
+    "id": "298",
+    "descripcion": "POWER LITE"
+  },
+  {
+    "id": "299",
+    "descripcion": "PA503X"
+  },
+  {
+    "id": "300",
+    "descripcion": "DVL-8200AP"
+  },
+  {
+    "id": "301",
+    "descripcion": "5GHZ"
+  },
+  {
+    "id": "302",
+    "descripcion": "DEP 450"
+  },
+  {
+    "id": "303",
+    "descripcion": "ROCKETM5"
+  },
+  {
+    "id": "304",
+    "descripcion": "ROCKETDISH5G30"
+  },
+  {
+    "id": "305",
+    "descripcion": "PTLB80NTU"
+  },
+  {
+    "id": "306",
+    "descripcion": "LB78VU"
+  },
+  {
+    "id": "307",
+    "descripcion": "PT-LB78U"
+  },
+  {
+    "id": "308",
+    "descripcion": "LB78VXGA"
+  },
+  {
+    "id": "309",
+    "descripcion": "HDX-7000"
+  },
+  {
+    "id": "310",
+    "descripcion": "3COM"
+  },
+  {
+    "id": "311",
+    "descripcion": "DGS 3120 24TC"
+  },
+  {
+    "id": "312",
+    "descripcion": "SWITCH 4400 SE 24 PT"
+  },
+  {
+    "id": "313",
+    "descripcion": "DGS-1210-20"
+  },
+  {
+    "id": "314",
+    "descripcion": "TE100-S8/PU"
+  },
+  {
+    "id": "315",
+    "descripcion": "TL-SG105"
+  },
+  {
+    "id": "316",
+    "descripcion": "DGS-1510-52XMP"
+  },
+  {
+    "id": "317",
+    "descripcion": "LN22B450C4"
+  },
+  {
+    "id": "318",
+    "descripcion": "TC-50A400L"
+  },
+  {
+    "id": "319",
+    "descripcion": "LN22B450C4XSR"
+  },
+  {
+    "id": "320",
+    "descripcion": "UN40D50038G"
+  },
+  {
+    "id": "321",
+    "descripcion": "47LA6200-SA"
+  },
+  {
+    "id": "322",
+    "descripcion": "UN50KU6000"
+  },
+  {
+    "id": "323",
+    "descripcion": "50UK6300PSB"
+  },
+  {
+    "id": "324",
+    "descripcion": "49UK6200 PSA"
+  },
+  {
+    "id": "325",
+    "descripcion": "55UN7100PPSA"
+  },
+  {
+    "id": "326",
+    "descripcion": "MC7094"
+  },
+  {
+    "id": "327",
+    "descripcion": "POWER PUNCH"
+  },
+  {
+    "id": "328",
+    "descripcion": "42LFC022308"
+  },
+  {
+    "id": "329",
+    "descripcion": "SJ182CD"
+  },
+  {
+    "id": "330",
+    "descripcion": "YOEA36FS-ADT"
+  },
+  {
+    "id": "331",
+    "descripcion": "4N1G001N"
+  },
+  {
+    "id": "332",
+    "descripcion": "SJ242CD"
+  },
+  {
+    "id": "333",
+    "descripcion": "SP242CN"
+  },
+  {
+    "id": "334",
+    "descripcion": "SPLIT"
+  },
+  {
+    "id": "335",
+    "descripcion": "YH9FYC188AHAXSPLIT"
+  },
+  {
+    "id": "336",
+    "descripcion": "AR18MVFHEWKN"
+  },
+  {
+    "id": "337",
+    "descripcion": "YHJE18ZJ6AXBORX"
+  },
+  {
+    "id": "338",
+    "descripcion": "SPLID PARED"
+  },
+  {
+    "id": "339",
+    "descripcion": "YHJE24ZJ6AXBORX"
+  },
+  {
+    "id": "340",
+    "descripcion": "VM122C9"
+  },
+  {
+    "id": "341",
+    "descripcion": "VM182C9"
+  },
+  {
+    "id": "342",
+    "descripcion": "VM242C9"
+  },
+  {
+    "id": "343",
+    "descripcion": "18000BTU"
+  },
+  {
+    "id": "344",
+    "descripcion": "12000,00"
+  },
+  {
+    "id": "345",
+    "descripcion": "VM242H8.USM0"
+  },
+  {
+    "id": "346",
+    "descripcion": "AR18CVFZAWK/PE"
+  },
+  {
+    "id": "347",
+    "descripcion": "24000 BTU/HR"
+  },
+  {
+    "id": "348",
+    "descripcion": "MUE-36CRDN1-N"
+  },
+  {
+    "id": "349",
+    "descripcion": "TCP-24CSA/ZI2"
+  },
+  {
+    "id": "350",
+    "descripcion": "TCP-18CSA/ZI2"
+  },
+  {
+    "id": "351",
+    "descripcion": "CG43SX012PH3U2C"
+  },
+  {
+    "id": "352",
+    "descripcion": "8D16 NL"
+  },
+  {
+    "id": "353",
+    "descripcion": "6 KILOS"
+  },
+  {
+    "id": "354",
+    "descripcion": "B-UPR705i"
+  },
+  {
+    "id": "355",
+    "descripcion": "950"
+  },
+  {
+    "id": "356",
+    "descripcion": "VISTA 800"
+  },
+  {
+    "id": "357",
+    "descripcion": "FX-1500LCD-U"
+  },
+  {
+    "id": "358",
+    "descripcion": "SL-1012UL"
+  },
+  {
+    "id": "359",
+    "descripcion": "EP6500CXS"
+  },
+  {
+    "id": "360",
+    "descripcion": "TP500"
+  },
+  {
+    "id": "361",
+    "descripcion": "700"
+  },
+  {
+    "id": "362",
+    "descripcion": "LX-1108"
+  },
+  {
+    "id": "363",
+    "descripcion": "TIPO TIJERA"
+  },
+  {
+    "id": "364",
+    "descripcion": "PRAKMET"
+  },
+  {
+    "id": "365",
+    "descripcion": "2200"
+  },
+  {
+    "id": "366",
+    "descripcion": "APC BX950U"
+  },
+  {
+    "id": "367",
+    "descripcion": "APC BX95U"
+  },
+  {
+    "id": "368",
+    "descripcion": "BX950U"
+  },
+  {
+    "id": "369",
+    "descripcion": "BX950"
+  },
+  {
+    "id": "370",
+    "descripcion": "BX950U-MS"
+  },
+  {
+    "id": "371",
+    "descripcion": "BX650UMS"
+  },
+  {
+    "id": "372",
+    "descripcion": "E24 G5"
+  },
+  {
+    "id": "373",
+    "descripcion": "SPS ONE"
+  },
+  {
+    "id": "374",
+    "descripcion": "FX-2200LCD-U"
+  },
+  {
+    "id": "375",
+    "descripcion": "NT-1012U"
+  },
+  {
+    "id": "376",
+    "descripcion": "NT 1012U"
+  },
+  {
+    "id": "377",
+    "descripcion": "AUR - 1000 - LCD - USB"
+  },
+  {
+    "id": "378",
+    "descripcion": "AUR-1000-LCD-USB UPSB01200031"
+  },
+  {
+    "id": "379",
+    "descripcion": "AUR-1000-LCD-USB"
+  },
+  {
+    "id": "380",
+    "descripcion": "BLAZER VISTA S1000"
+  },
+  {
+    "id": "381",
+    "descripcion": "SHP-1900"
+  },
+  {
+    "id": "382",
+    "descripcion": "SHP1900"
+  },
+  {
+    "id": "383",
+    "descripcion": "SHP1903"
+  },
+  {
+    "id": "384",
+    "descripcion": "SHP1908"
+  },
+  {
+    "id": "385",
+    "descripcion": "SRH 240A"
+  },
+  {
+    "id": "386",
+    "descripcion": "SRH240A"
+  },
+  {
+    "id": "387",
+    "descripcion": "KSH-301"
+  },
+  {
+    "id": "388",
+    "descripcion": "HS35"
+  },
+  {
+    "id": "389",
+    "descripcion": "H390"
+  },
+  {
+    "id": "390",
+    "descripcion": "H570E"
+  },
+  {
+    "id": "391",
+    "descripcion": "K72"
+  },
+  {
+    "id": "392",
+    "descripcion": "VE 420PF"
+  },
+  {
+    "id": "393",
+    "descripcion": "HD720P"
+  },
+  {
+    "id": "394",
+    "descripcion": "C920 HD"
+  },
+  {
+    "id": "395",
+    "descripcion": "DS-2CD1643GO-IZ"
+  },
+  {
+    "id": "396",
+    "descripcion": "DS-2CD1143G0.1"
+  },
+  {
+    "id": "397",
+    "descripcion": "XENYX802"
+  },
+  {
+    "id": "398",
+    "descripcion": "LX 98"
+  },
+  {
+    "id": "399",
+    "descripcion": "HXE4"
+  },
+  {
+    "id": "400",
+    "descripcion": "HDTB420XKB3AA"
+  },
+  {
+    "id": "401",
+    "descripcion": "DR-210HD"
+  },
+  {
+    "id": "402",
+    "descripcion": "KIT FX 4"
+  },
+  {
+    "id": "403",
+    "descripcion": "MB10-VL"
+  },
+  {
+    "id": "404",
+    "descripcion": "9101,00"
+  },
+  {
+    "id": "405",
+    "descripcion": "EL4555"
+  },
+  {
+    "id": "406",
+    "descripcion": "9101SMD"
+  },
+  {
+    "id": "407",
+    "descripcion": "FES1001PC"
+  },
+  {
+    "id": "408",
+    "descripcion": "FVR 1002"
+  },
+  {
+    "id": "409",
+    "descripcion": "FVR-1002"
+  },
+  {
+    "id": "410",
+    "descripcion": "FVR-3002"
+  },
+  {
+    "id": "411",
+    "descripcion": "PLI-1200"
+  },
+  {
+    "id": "412",
+    "descripcion": "1000VA"
+  },
+  {
+    "id": "413",
+    "descripcion": "1200-RDUAL"
+  },
+  {
+    "id": "414",
+    "descripcion": "AVR HELMET"
+  },
+  {
+    "id": "415",
+    "descripcion": "ND FVR.1002"
+  },
+  {
+    "id": "416",
+    "descripcion": "PCG1200"
+  },
+  {
+    "id": "417",
+    "descripcion": "PCG 1200"
+  },
+  {
+    "id": "418",
+    "descripcion": "3000 W"
+  },
+  {
+    "id": "419",
+    "descripcion": "2000,00"
+  },
+  {
+    "id": "420",
+    "descripcion": "LCR-15"
+  },
+  {
+    "id": "421",
+    "descripcion": "WP-61/2.5GLN"
+  },
+  {
+    "id": "422",
+    "descripcion": "PQS"
+  },
+  {
+    "id": "423",
+    "descripcion": "9KG"
+  },
+  {
+    "id": "424",
+    "descripcion": "CO2. 10 LBS."
+  },
+  {
+    "id": "425",
+    "descripcion": "CO2"
+  },
+  {
+    "id": "426",
+    "descripcion": "PQS ABC 6KG"
+  },
+  {
+    "id": "427",
+    "descripcion": "5LIBRAS"
+  },
+  {
+    "id": "428",
+    "descripcion": "ABC"
+  },
+  {
+    "id": "429",
+    "descripcion": "PQS 6KG"
+  },
+  {
+    "id": "430",
+    "descripcion": "CO2 10 LBS"
+  },
+  {
+    "id": "431",
+    "descripcion": "20 LITROS"
+  },
+  {
+    "id": "432",
+    "descripcion": "ICD-PX333F"
+  },
+  {
+    "id": "433",
+    "descripcion": "ICDPX820"
+  },
+  {
+    "id": "434",
+    "descripcion": "UX543FBCLA"
+  },
+  {
+    "id": "435",
+    "descripcion": "ICD-UX523F"
+  },
+  {
+    "id": "436",
+    "descripcion": "SHP"
+  },
+  {
+    "id": "437",
+    "descripcion": "ICDUX560F"
+  },
+  {
+    "id": "438",
+    "descripcion": "ICD-UX560F"
+  },
+  {
+    "id": "439",
+    "descripcion": "ICD-UX560"
+  },
+  {
+    "id": "440",
+    "descripcion": "UX560F"
+  },
+  {
+    "id": "441",
+    "descripcion": "ICD-PX240"
+  },
+  {
+    "id": "442",
+    "descripcion": "ICD-UX56OF"
+  },
+  {
+    "id": "443",
+    "descripcion": "ICD-UX570FBC"
+  },
+  {
+    "id": "444",
+    "descripcion": "ICD-UX57CFBC"
+  },
+  {
+    "id": "445",
+    "descripcion": "ICD-PX470"
+  },
+  {
+    "id": "446",
+    "descripcion": "ICD UX570F"
+  },
+  {
+    "id": "447",
+    "descripcion": "ICD-UX543F"
+  },
+  {
+    "id": "448",
+    "descripcion": "UX543F"
+  },
+  {
+    "id": "449",
+    "descripcion": "CL-110"
+  },
+  {
+    "id": "450",
+    "descripcion": "LI2208"
+  },
+  {
+    "id": "451",
+    "descripcion": "EMDN20S2MLG"
+  },
+  {
+    "id": "452",
+    "descripcion": "TE200"
+  },
+  {
+    "id": "453",
+    "descripcion": "MS622"
+  },
+  {
+    "id": "454",
+    "descripcion": "LX-300+II"
+  },
+  {
+    "id": "455",
+    "descripcion": "P170B"
+  },
+  {
+    "id": "456",
+    "descripcion": "LS1203"
+  },
+  {
+    "id": "457",
+    "descripcion": "LS-2208"
+  },
+  {
+    "id": "458",
+    "descripcion": "SL2208"
+  },
+  {
+    "id": "459",
+    "descripcion": "LS 2208"
+  },
+  {
+    "id": "460",
+    "descripcion": "2200,00"
+  },
+  {
+    "id": "461",
+    "descripcion": "LI 2208"
+  },
+  {
+    "id": "462",
+    "descripcion": "LS2208-SR20007R-UR"
+  },
+  {
+    "id": "463",
+    "descripcion": "LI4278"
+  },
+  {
+    "id": "464",
+    "descripcion": "MJ-2809"
+  },
+  {
+    "id": "465",
+    "descripcion": "GP65NB60"
+  },
+  {
+    "id": "466",
+    "descripcion": "MX395B/0"
+  },
+  {
+    "id": "467",
+    "descripcion": "XM8500"
+  },
+  {
+    "id": "468",
+    "descripcion": "E353"
+  },
+  {
+    "id": "469",
+    "descripcion": "P203"
+  },
+  {
+    "id": "470",
+    "descripcion": "JANUARY 2018"
+  },
+  {
+    "id": "471",
+    "descripcion": "215LM00041"
+  },
+  {
+    "id": "472",
+    "descripcion": "THINKVISION E24"
+  },
+  {
+    "id": "473",
+    "descripcion": "LC24F390"
+  },
+  {
+    "id": "474",
+    "descripcion": "HP ELITEDISPLAY E223 21.5\""
+  },
+  {
+    "id": "475",
+    "descripcion": "E222OH"
+  },
+  {
+    "id": "476",
+    "descripcion": "P24V G4"
+  },
+  {
+    "id": "477",
+    "descripcion": "T23I-20"
+  },
+  {
+    "id": "478",
+    "descripcion": "THINKVISION T24I-20"
+  },
+  {
+    "id": "479",
+    "descripcion": "THINKVISION S24E-20"
+  },
+  {
+    "id": "480",
+    "descripcion": "E2020H"
+  },
+  {
+    "id": "481",
+    "descripcion": "HP E24 G4"
+  },
+  {
+    "id": "482",
+    "descripcion": "THINK VISION"
+  },
+  {
+    "id": "483",
+    "descripcion": "THINKCENTRE M80S"
+  },
+  {
+    "id": "484",
+    "descripcion": "GL950-TA"
+  },
+  {
+    "id": "485",
+    "descripcion": "E2417H"
+  },
+  {
+    "id": "486",
+    "descripcion": "E2424HS"
+  },
+  {
+    "id": "487",
+    "descripcion": "CMS50D"
+  },
+  {
+    "id": "488",
+    "descripcion": "CSB-150CV"
+  },
+  {
+    "id": "489",
+    "descripcion": "CSB-175CV"
+  },
+  {
+    "id": "490",
+    "descripcion": "HYB125-6TA"
+  },
+  {
+    "id": "491",
+    "descripcion": "16500"
+  },
+  {
+    "id": "492",
+    "descripcion": "16500,00"
+  },
+  {
+    "id": "493",
+    "descripcion": "DWL-3200AP"
+  },
+  {
+    "id": "494",
+    "descripcion": "DAP-1650"
+  },
+  {
+    "id": "495",
+    "descripcion": "TALKABOUT T200"
+  },
+  {
+    "id": "496",
+    "descripcion": "DVDP290"
+  },
+  {
+    "id": "497",
+    "descripcion": "KP-183"
+  },
+  {
+    "id": "498",
+    "descripcion": "GXCF05PFS2"
+  },
+  {
+    "id": "499",
+    "descripcion": "EA11S"
+  },
+  {
+    "id": "500",
+    "descripcion": "WD5908"
+  },
+  {
+    "id": "501",
+    "descripcion": "24 PUERTOS"
+  },
+  {
+    "id": "502",
+    "descripcion": "B1930N"
+  },
+  {
+    "id": "503",
+    "descripcion": "MICK 706"
+  },
+  {
+    "id": "504",
+    "descripcion": "YU0009"
+  },
+  {
+    "id": "505",
+    "descripcion": "MK120"
+  },
+  {
+    "id": "506",
+    "descripcion": "DATAONE"
+  },
+  {
+    "id": "507",
+    "descripcion": "DAT-420C"
+  },
+  {
+    "id": "508",
+    "descripcion": "XTKO92S"
+  },
+  {
+    "id": "509",
+    "descripcion": "KX2005"
+  },
+  {
+    "id": "510",
+    "descripcion": "TE339"
+  },
+  {
+    "id": "511",
+    "descripcion": "1350"
+  },
+  {
+    "id": "512",
+    "descripcion": "IL31"
+  },
+  {
+    "id": "513",
+    "descripcion": "IL-35"
+  },
+  {
+    "id": "514",
+    "descripcion": "FS163"
+  },
+  {
+    "id": "515",
+    "descripcion": "VP10C"
+  },
+  {
+    "id": "516",
+    "descripcion": "3 EN 1"
+  },
+  {
+    "id": "517",
+    "descripcion": "WMP-16"
+  },
+  {
+    "id": "518",
+    "descripcion": "AB-18PR-5-BCH"
+  },
+  {
+    "id": "519",
+    "descripcion": "REC-CLVNE100"
+  },
+  {
+    "id": "520",
+    "descripcion": "BK-8233V0"
+  },
+  {
+    "id": "521",
+    "descripcion": "VMP-921"
+  },
+  {
+    "id": "522",
+    "descripcion": "IL-20"
+  },
+  {
+    "id": "523",
+    "descripcion": "IL-97"
+  },
+  {
+    "id": "524",
+    "descripcion": "3 ASPAS"
+  },
+  {
+    "id": "525",
+    "descripcion": "C525"
+  },
+  {
+    "id": "526",
+    "descripcion": "C925E"
+  },
+  {
+    "id": "527",
+    "descripcion": "C920"
+  },
+  {
+    "id": "528",
+    "descripcion": "NT 920"
+  },
+  {
+    "id": "529",
+    "descripcion": "BRIO"
+  },
+  {
+    "id": "530",
+    "descripcion": "C930E"
+  },
+  {
+    "id": "531",
+    "descripcion": "A02"
+  },
+  {
+    "id": "532",
+    "descripcion": "4 CUERPOS QO27B4NT6"
+  },
+  {
+    "id": "533",
+    "descripcion": "BUTACA 4 CUERPOS"
+  },
+  {
+    "id": "534",
+    "descripcion": "YX-360TRD"
+  },
+  {
+    "id": "535",
+    "descripcion": "S/M"
+  },
+  {
+    "id": "536",
+    "descripcion": "4 PASOS"
+  },
+  {
+    "id": "537",
+    "descripcion": "10 PASOS"
+  },
+  {
+    "id": "538",
+    "descripcion": "EFFECTOS"
+  },
+  {
+    "id": "539",
+    "descripcion": "SECRETARIAL"
+  },
+  {
+    "id": "540",
+    "descripcion": "E-02"
+  },
+  {
+    "id": "541",
+    "descripcion": "E-03"
+  },
+  {
+    "id": "542",
+    "descripcion": "E04"
+  },
+  {
+    "id": "543",
+    "descripcion": "E-04"
+  },
+  {
+    "id": "544",
+    "descripcion": "3 CUERPOS"
+  },
+  {
+    "id": "545",
+    "descripcion": "M03"
+  },
+  {
+    "id": "546",
+    "descripcion": "M01-3CUERPOS"
+  },
+  {
+    "id": "547",
+    "descripcion": "C/CODERAS"
+  },
+  {
+    "id": "548",
+    "descripcion": "S/BRAZOS"
+  },
+  {
+    "id": "549",
+    "descripcion": "SIN MARCA"
+  },
+  {
+    "id": "550",
+    "descripcion": "SILLA EJEC RUDY ALTA CONTACTO PERMANENTE"
+  },
+  {
+    "id": "551",
+    "descripcion": "RUDY"
+  },
+  {
+    "id": "552",
+    "descripcion": "RUDY"
+  },
+  {
+    "id": "553",
+    "descripcion": "GIRATORIA"
+  },
+  {
+    "id": "554",
+    "descripcion": "GERENCIAL"
+  },
+  {
+    "id": "555",
+    "descripcion": "MS531B"
+  },
+  {
+    "id": "556",
+    "descripcion": "60,000 BTU"
+  },
+  {
+    "id": "557",
+    "descripcion": "A9-A10"
+  },
+  {
+    "id": "558",
+    "descripcion": "A1-A2-A3"
+  },
+  {
+    "id": "559",
+    "descripcion": "A17-A18"
+  },
+  {
+    "id": "560",
+    "descripcion": "A21-A22"
+  },
+  {
+    "id": "561",
+    "descripcion": "A23"
+  },
+  {
+    "id": "562",
+    "descripcion": "FVR-1012"
+  },
+  {
+    "id": "563",
+    "descripcion": "T2"
+  },
+  {
+    "id": "564",
+    "descripcion": "36.000 BTU"
+  },
+  {
+    "id": "565",
+    "descripcion": "OPTIPLEX 7020"
+  },
+  {
+    "id": "566",
+    "descripcion": "AUR-1500-LCD-USB"
+  },
+  {
+    "id": "567",
+    "descripcion": "S3140 MAX"
+  },
+  {
+    "id": "568",
+    "descripcion": "LASERJET MANAGED FLOW"
+  },
+  {
+    "id": "569",
+    "descripcion": "THINKVISION E24-30 FLAT PANEL MONITOR"
+  },
+  {
+    "id": "570",
+    "descripcion": "TPA-P001K"
+  },
+  {
+    "id": "571",
+    "descripcion": "THINKCENTRE M70S GEN 5"
+  },
+  {
+    "id": "572",
+    "descripcion": "HP ELITE SFF 800 G9 DESKTOP PC"
+  },
+  {
+    "id": "573",
+    "descripcion": "GL125"
+  },
+  {
+    "id": "574",
+    "descripcion": "ZC300"
+  },
+  {
+    "id": "575",
+    "descripcion": "CLC-1080LIVE"
+  },
+  {
+    "id": "576",
+    "descripcion": "AVNQ40GM1P5"
+  },
+  {
+    "id": "577",
+    "descripcion": "THINKSTATION P360"
+  },
+  {
+    "id": "578",
+    "descripcion": "ECOSYS MA5500IFX"
+  },
+  {
+    "id": "579",
+    "descripcion": "MJ2809"
+  },
+  {
+    "id": "580",
+    "descripcion": "A-02 (DE 2 PUERTAS)"
+  },
+  {
+    "id": "581",
+    "descripcion": "A-1 (TIPO VITRINA)"
+  },
+  {
+    "id": "582",
+    "descripcion": "C-01 (JUEZ)"
+  },
+  {
+    "id": "583",
+    "descripcion": "E-04 EN L (ASIST)"
+  },
+  {
+    "id": "584",
+    "descripcion": "E-03 (AUXILIAR)"
+  },
+  {
+    "id": "585",
+    "descripcion": "E-03 (AUX-JUEZ)"
+  },
+  {
+    "id": "586",
+    "descripcion": "E-02 (JUEZ)"
+  },
+  {
+    "id": "587",
+    "descripcion": "M-09(MOD P/LECT EXP DIG)"
+  },
+  {
+    "id": "588",
+    "descripcion": "M-08 (DE LECTURA)"
+  },
+  {
+    "id": "589",
+    "descripcion": "M-07 (DE USO UNIVERSAL)"
+  },
+  {
+    "id": "590",
+    "descripcion": "M-04 (IMPRESORAS)"
+  },
+  {
+    "id": "591",
+    "descripcion": "M-03 (FISCALES Y ABOG)"
+  },
+  {
+    "id": "592",
+    "descripcion": "M-02 (MAGISTRADO)"
+  },
+  {
+    "id": "593",
+    "descripcion": "GERENTE STYLE (USO UNIVERSAL)"
+  },
+  {
+    "id": "594",
+    "descripcion": "SIN MODELO (JUEZ)"
+  },
+  {
+    "id": "595",
+    "descripcion": "HP M507DN"
+  },
+  {
+    "id": "596",
+    "descripcion": "LG 24BA550-B"
+  },
+  {
+    "id": "597",
+    "descripcion": "M70S"
+  },
+  {
+    "id": "598",
+    "descripcion": "DIVAND"
+  },
+  {
+    "id": "599",
+    "descripcion": "2 CAJONES"
+  },
+  {
+    "id": "600",
+    "descripcion": "ADULTO 1350"
+  },
+  {
+    "id": "601",
+    "descripcion": "TDY-19E81N"
+  }
+]

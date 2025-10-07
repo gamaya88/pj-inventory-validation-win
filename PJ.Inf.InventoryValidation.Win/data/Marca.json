@@ -1,0 +1,874 @@
+[
+  {
+    "id": "3COM",
+    "descripcion": "3COM"
+  },
+  {
+    "id": "ABC",
+    "descripcion": "ABC"
+  },
+  {
+    "id": "ACCU-CHEK",
+    "descripcion": "ACCU-CHEK"
+  },
+  {
+    "id": "AKG",
+    "descripcion": "AKG"
+  },
+  {
+    "id": "AKILES",
+    "descripcion": "AKILES"
+  },
+  {
+    "id": "ALFANO",
+    "descripcion": "ALFANO"
+  },
+  {
+    "id": "AMIRAY",
+    "descripcion": "AMIRAY"
+  },
+  {
+    "id": "AOC",
+    "descripcion": "AOC"
+  },
+  {
+    "id": "APC",
+    "descripcion": "APC"
+  },
+  {
+    "id": "ATK",
+    "descripcion": "ATK"
+  },
+  {
+    "id": "AUDIO TECHNICA",
+    "descripcion": "AUDIO TECHNICA"
+  },
+  {
+    "id": "AURAY",
+    "descripcion": "AURAY"
+  },
+  {
+    "id": "AVR",
+    "descripcion": "AVR"
+  },
+  {
+    "id": "BEHRINGER",
+    "descripcion": "BEHRINGER"
+  },
+  {
+    "id": "BENQ",
+    "descripcion": "BENQ"
+  },
+  {
+    "id": "BLAZER VISTA",
+    "descripcion": "BLAZER VISTA"
+  },
+  {
+    "id": "BOSSKO",
+    "descripcion": "BOSSKO"
+  },
+  {
+    "id": "CAMELION",
+    "descripcion": "CAMELION"
+  },
+  {
+    "id": "CANON",
+    "descripcion": "CANON"
+  },
+  {
+    "id": "CARRIER",
+    "descripcion": "CARRIER"
+  },
+  {
+    "id": "CDP",
+    "descripcion": "CDP"
+  },
+  {
+    "id": "CENTRALION",
+    "descripcion": "CENTRALION"
+  },
+  {
+    "id": "CHASQUY",
+    "descripcion": "CHASQUY"
+  },
+  {
+    "id": "CHIGO",
+    "descripcion": "CHIGO"
+  },
+  {
+    "id": "CIAC",
+    "descripcion": "CIAC"
+  },
+  {
+    "id": "CISCO",
+    "descripcion": "CISCO"
+  },
+  {
+    "id": "CLIO",
+    "descripcion": "CLIO"
+  },
+  {
+    "id": "COEA",
+    "descripcion": "COEA"
+  },
+  {
+    "id": "COLD POINT",
+    "descripcion": "COLD POINT"
+  },
+  {
+    "id": "CONTEC",
+    "descripcion": "CONTEC"
+  },
+  {
+    "id": "CORSAIR",
+    "descripcion": "CORSAIR"
+  },
+  {
+    "id": "CREATIVE",
+    "descripcion": "CREATIVE"
+  },
+  {
+    "id": "CREST PERFOMANCE",
+    "descripcion": "CREST PERFOMANCE"
+  },
+  {
+    "id": "CROWN",
+    "descripcion": "CROWN"
+  },
+  {
+    "id": "CYBERTEL",
+    "descripcion": "CYBERTEL"
+  },
+  {
+    "id": "D LINK",
+    "descripcion": "D LINK"
+  },
+  {
+    "id": "DAEWO",
+    "descripcion": "DAEWO"
+  },
+  {
+    "id": "DATAONE",
+    "descripcion": "DATAONE"
+  },
+  {
+    "id": "DELL",
+    "descripcion": "DELL"
+  },
+  {
+    "id": "DELONGHI",
+    "descripcion": "DELONGHI"
+  },
+  {
+    "id": "DIGIT",
+    "descripcion": "DIGIT"
+  },
+  {
+    "id": "DJI",
+    "descripcion": "DJI"
+  },
+  {
+    "id": "EACON",
+    "descripcion": "EACON"
+  },
+  {
+    "id": "ECONOPRO",
+    "descripcion": "ECONOPRO"
+  },
+  {
+    "id": "ECOTREND",
+    "descripcion": "ECOTREND"
+  },
+  {
+    "id": "ELECTROLUX",
+    "descripcion": "ELECTROLUX"
+  },
+  {
+    "id": "ELISE",
+    "descripcion": "ELISE"
+  },
+  {
+    "id": "ENERGIT",
+    "descripcion": "ENERGIT"
+  },
+  {
+    "id": "EPSON",
+    "descripcion": "EPSON"
+  },
+  {
+    "id": "ERGOBLACK",
+    "descripcion": "ERGOBLACK"
+  },
+  {
+    "id": "EUROSHINE",
+    "descripcion": "EUROSHINE"
+  },
+  {
+    "id": "FACAO",
+    "descripcion": "FACAO"
+  },
+  {
+    "id": "FAEDA",
+    "descripcion": "FAEDA"
+  },
+  {
+    "id": "FASE",
+    "descripcion": "FASE"
+  },
+  {
+    "id": "FG WILSON",
+    "descripcion": "FG WILSON"
+  },
+  {
+    "id": "FORZA",
+    "descripcion": "FORZA"
+  },
+  {
+    "id": "FORZA UPS",
+    "descripcion": "FORZA UPS"
+  },
+  {
+    "id": "FREE POWER",
+    "descripcion": "FREE POWER"
+  },
+  {
+    "id": "FUJITEC",
+    "descripcion": "FUJITEC"
+  },
+  {
+    "id": "FUJITSU",
+    "descripcion": "FUJITSU"
+  },
+  {
+    "id": "GARRETT",
+    "descripcion": "GARRETT"
+  },
+  {
+    "id": "GENERAL ELECTRIC",
+    "descripcion": "GENERAL ELECTRIC"
+  },
+  {
+    "id": "GENIUS",
+    "descripcion": "GENIUS"
+  },
+  {
+    "id": "GOLD POWER",
+    "descripcion": "GOLD POWER"
+  },
+  {
+    "id": "HACER",
+    "descripcion": "HACER"
+  },
+  {
+    "id": "HAIER",
+    "descripcion": "HAIER"
+  },
+  {
+    "id": "HALION",
+    "descripcion": "HALION"
+  },
+  {
+    "id": "HEAD",
+    "descripcion": "HEAD"
+  },
+  {
+    "id": "HEALTH O METER",
+    "descripcion": "HEALTH O METER"
+  },
+  {
+    "id": "HEWLETT PACKARD",
+    "descripcion": "HEWLETT PACKARD"
+  },
+  {
+    "id": "HIKIVISION",
+    "descripcion": "HIKIVISION"
+  },
+  {
+    "id": "HIKVISION",
+    "descripcion": "HIKVISION"
+  },
+  {
+    "id": "HOME",
+    "descripcion": "HOME"
+  },
+  {
+    "id": "HONDA",
+    "descripcion": "HONDA"
+  },
+  {
+    "id": "HP",
+    "descripcion": "HP"
+  },
+  {
+    "id": "HPE",
+    "descripcion": "HPE"
+  },
+  {
+    "id": "HPE ARUBA",
+    "descripcion": "HPE ARUBA"
+  },
+  {
+    "id": "HUAWEI",
+    "descripcion": "HUAWEI"
+  },
+  {
+    "id": "HYUNDAI",
+    "descripcion": "HYUNDAI"
+  },
+  {
+    "id": "IBM",
+    "descripcion": "IBM"
+  },
+  {
+    "id": "IEDA/POWER/SAFE",
+    "descripcion": "IEDA/POWER/SAFE"
+  },
+  {
+    "id": "ILUMI",
+    "descripcion": "ILUMI"
+  },
+  {
+    "id": "IMACO",
+    "descripcion": "IMACO"
+  },
+  {
+    "id": "JAAMSA",
+    "descripcion": "JAAMSA"
+  },
+  {
+    "id": "JACTO",
+    "descripcion": "JACTO"
+  },
+  {
+    "id": "JCM STELL",
+    "descripcion": "JCM STELL"
+  },
+  {
+    "id": "JINPEX",
+    "descripcion": "JINPEX"
+  },
+  {
+    "id": "JMC",
+    "descripcion": "JMC"
+  },
+  {
+    "id": "KAILI",
+    "descripcion": "KAILI"
+  },
+  {
+    "id": "KARCHER",
+    "descripcion": "KARCHER"
+  },
+  {
+    "id": "KLIP XTREME",
+    "descripcion": "KLIP XTREME"
+  },
+  {
+    "id": "KODAK",
+    "descripcion": "KODAK"
+  },
+  {
+    "id": "KRAUSE",
+    "descripcion": "KRAUSE"
+  },
+  {
+    "id": "KW-TRIO",
+    "descripcion": "KW-TRIO"
+  },
+  {
+    "id": "KYOCERA",
+    "descripcion": "KYOCERA"
+  },
+  {
+    "id": "KYOCERA TASKALFA 7003I",
+    "descripcion": "KYOCERA TASKALFA 7003I"
+  },
+  {
+    "id": "LACIE",
+    "descripcion": "LACIE"
+  },
+  {
+    "id": "LENOVO",
+    "descripcion": "LENOVO"
+  },
+  {
+    "id": "LENOVO THINKCENTRE",
+    "descripcion": "LENOVO THINKCENTRE"
+  },
+  {
+    "id": "LENOVO THINKVISION",
+    "descripcion": "LENOVO THINKVISION"
+  },
+  {
+    "id": "LEXMARK",
+    "descripcion": "LEXMARK"
+  },
+  {
+    "id": "LG",
+    "descripcion": "LG"
+  },
+  {
+    "id": "LIGHT METER",
+    "descripcion": "LIGHT METER"
+  },
+  {
+    "id": "LIMAW",
+    "descripcion": "LIMAW"
+  },
+  {
+    "id": "LINSEG",
+    "descripcion": "LINSEG"
+  },
+  {
+    "id": "LOCH",
+    "descripcion": "LOCH"
+  },
+  {
+    "id": "LOGITECH",
+    "descripcion": "LOGITECH"
+  },
+  {
+    "id": "LOOSAFE",
+    "descripcion": "LOOSAFE"
+  },
+  {
+    "id": "LUCKY CROWN",
+    "descripcion": "LUCKY CROWN"
+  },
+  {
+    "id": "LUCKY STAR",
+    "descripcion": "LUCKY STAR"
+  },
+  {
+    "id": "MABE",
+    "descripcion": "MABE"
+  },
+  {
+    "id": "MASTER CLEAN",
+    "descripcion": "MASTER CLEAN"
+  },
+  {
+    "id": "MAXELL",
+    "descripcion": "MAXELL"
+  },
+  {
+    "id": "MICRONICS",
+    "descripcion": "MICRONICS"
+  },
+  {
+    "id": "MICROPHONE",
+    "descripcion": "MICROPHONE"
+  },
+  {
+    "id": "MICROSOFT",
+    "descripcion": "MICROSOFT"
+  },
+  {
+    "id": "MIDEA",
+    "descripcion": "MIDEA"
+  },
+  {
+    "id": "MIKROTIK",
+    "descripcion": "MIKROTIK"
+  },
+  {
+    "id": "MINJCODE",
+    "descripcion": "MINJCODE"
+  },
+  {
+    "id": "MIRAY",
+    "descripcion": "MIRAY"
+  },
+  {
+    "id": "MISONIC",
+    "descripcion": "MISONIC"
+  },
+  {
+    "id": "MITEK",
+    "descripcion": "MITEK"
+  },
+  {
+    "id": "MORPHO",
+    "descripcion": "MORPHO"
+  },
+  {
+    "id": "MOTOROLA",
+    "descripcion": "MOTOROLA"
+  },
+  {
+    "id": "NATIONAL",
+    "descripcion": "NATIONAL"
+  },
+  {
+    "id": "NEONTEK",
+    "descripcion": "NEONTEK"
+  },
+  {
+    "id": "NEW KRAL",
+    "descripcion": "NEW KRAL"
+  },
+  {
+    "id": "NEXXT",
+    "descripcion": "NEXXT"
+  },
+  {
+    "id": "NISSAN",
+    "descripcion": "NISSAN"
+  },
+  {
+    "id": "OLIVETTI",
+    "descripcion": "OLIVETTI"
+  },
+  {
+    "id": "OLYMPIA",
+    "descripcion": "OLYMPIA"
+  },
+  {
+    "id": "OPALUX",
+    "descripcion": "OPALUX"
+  },
+  {
+    "id": "ORANGE",
+    "descripcion": "ORANGE"
+  },
+  {
+    "id": "ORIMED",
+    "descripcion": "ORIMED"
+  },
+  {
+    "id": "PANASONIC",
+    "descripcion": "PANASONIC"
+  },
+  {
+    "id": "PARKMET",
+    "descripcion": "PARKMET"
+  },
+  {
+    "id": "PECOSA-00153-2025",
+    "descripcion": "PECOSA-00153-2025"
+  },
+  {
+    "id": "PECOSA-00161-2025",
+    "descripcion": "PECOSA-00161-2025"
+  },
+  {
+    "id": "PECOSA-00171-2025",
+    "descripcion": "PECOSA-00171-2025"
+  },
+  {
+    "id": "PECOSA-00183-2025",
+    "descripcion": "PECOSA-00183-2025"
+  },
+  {
+    "id": "PECOSA-00212-2025",
+    "descripcion": "PECOSA-00212-2025"
+  },
+  {
+    "id": "PERFECTION",
+    "descripcion": "PERFECTION"
+  },
+  {
+    "id": "PHILIPS",
+    "descripcion": "PHILIPS"
+  },
+  {
+    "id": "PHONIC",
+    "descripcion": "PHONIC"
+  },
+  {
+    "id": "PLANET",
+    "descripcion": "PLANET"
+  },
+  {
+    "id": "POLYCOM",
+    "descripcion": "POLYCOM"
+  },
+  {
+    "id": "POWER",
+    "descripcion": "POWER"
+  },
+  {
+    "id": "POWER SAFE",
+    "descripcion": "POWER SAFE"
+  },
+  {
+    "id": "PRAKMET",
+    "descripcion": "PRAKMET"
+  },
+  {
+    "id": "PREMIER",
+    "descripcion": "PREMIER"
+  },
+  {
+    "id": "PROVEFABRICA",
+    "descripcion": "PROVEFABRICA"
+  },
+  {
+    "id": "QOSOFT",
+    "descripcion": "QOSOFT"
+  },
+  {
+    "id": "QUARTZ",
+    "descripcion": "QUARTZ"
+  },
+  {
+    "id": "QUEST",
+    "descripcion": "QUEST"
+  },
+  {
+    "id": "RECORD",
+    "descripcion": "RECORD"
+  },
+  {
+    "id": "REXON",
+    "descripcion": "REXON"
+  },
+  {
+    "id": "REY",
+    "descripcion": "REY"
+  },
+  {
+    "id": "RICOH",
+    "descripcion": "RICOH"
+  },
+  {
+    "id": "RIESTER",
+    "descripcion": "RIESTER"
+  },
+  {
+    "id": "ROCKET",
+    "descripcion": "ROCKET"
+  },
+  {
+    "id": "RUBERMAID",
+    "descripcion": "RUBERMAID"
+  },
+  {
+    "id": "SAGEM",
+    "descripcion": "SAGEM"
+  },
+  {
+    "id": "SALICRU",
+    "descripcion": "SALICRU"
+  },
+  {
+    "id": "SAMSON",
+    "descripcion": "SAMSON"
+  },
+  {
+    "id": "SAMSUNG",
+    "descripcion": "SAMSUNG"
+  },
+  {
+    "id": "SATRA",
+    "descripcion": "SATRA"
+  },
+  {
+    "id": "SEAGATE",
+    "descripcion": "SEAGATE"
+  },
+  {
+    "id": "SECA",
+    "descripcion": "SECA"
+  },
+  {
+    "id": "SENNHEISER",
+    "descripcion": "SENNHEISER"
+  },
+  {
+    "id": "SERVIPLUS",
+    "descripcion": "SERVIPLUS"
+  },
+  {
+    "id": "SHURE",
+    "descripcion": "SHURE"
+  },
+  {
+    "id": "SIN MARCA",
+    "descripcion": "SIN MARCA"
+  },
+  {
+    "id": "SIN MARCA",
+    "descripcion": "SIN MARCA"
+  },
+  {
+    "id": "SKP",
+    "descripcion": "SKP"
+  },
+  {
+    "id": "SOLE",
+    "descripcion": "SOLE"
+  },
+  {
+    "id": "SOLIDO",
+    "descripcion": "SOLIDO"
+  },
+  {
+    "id": "SOLSAME",
+    "descripcion": "SOLSAME"
+  },
+  {
+    "id": "SONY",
+    "descripcion": "SONY"
+  },
+  {
+    "id": "SONY",
+    "descripcion": "SONY"
+  },
+  {
+    "id": "STANLEY",
+    "descripcion": "STANLEY"
+  },
+  {
+    "id": "SUPER STACK",
+    "descripcion": "SUPER STACK"
+  },
+  {
+    "id": "SYMBOL",
+    "descripcion": "SYMBOL"
+  },
+  {
+    "id": "TECH",
+    "descripcion": "TECH"
+  },
+  {
+    "id": "TECHNICA",
+    "descripcion": "TECHNICA"
+  },
+  {
+    "id": "TEROS",
+    "descripcion": "TEROS"
+  },
+  {
+    "id": "THINKVISION",
+    "descripcion": "THINKVISION"
+  },
+  {
+    "id": "TIZIANNI",
+    "descripcion": "TIZIANNI"
+  },
+  {
+    "id": "TONGFANG",
+    "descripcion": "TONGFANG"
+  },
+  {
+    "id": "TOSHIBA",
+    "descripcion": "TOSHIBA"
+  },
+  {
+    "id": "TOYOTA",
+    "descripcion": "TOYOTA"
+  },
+  {
+    "id": "TPLINK",
+    "descripcion": "TPLINK"
+  },
+  {
+    "id": "TP-LINK",
+    "descripcion": "TP-LINK"
+  },
+  {
+    "id": "TRENDNET",
+    "descripcion": "TRENDNET"
+  },
+  {
+    "id": "TSC",
+    "descripcion": "TSC"
+  },
+  {
+    "id": "TSINGHUA TONFANG",
+    "descripcion": "TSINGHUA TONFANG"
+  },
+  {
+    "id": "TWINS",
+    "descripcion": "TWINS"
+  },
+  {
+    "id": "UBIQUITI",
+    "descripcion": "UBIQUITI"
+  },
+  {
+    "id": "VEYE",
+    "descripcion": "VEYE"
+  },
+  {
+    "id": "VIEW SONIC",
+    "descripcion": "VIEW SONIC"
+  },
+  {
+    "id": "VIEWSONIC",
+    "descripcion": "VIEWSONIC"
+  },
+  {
+    "id": "VISIONEER",
+    "descripcion": "VISIONEER"
+  },
+  {
+    "id": "VIVITAR",
+    "descripcion": "VIVITAR"
+  },
+  {
+    "id": "WANXIN",
+    "descripcion": "WANXIN"
+  },
+  {
+    "id": "WINNER",
+    "descripcion": "WINNER"
+  },
+  {
+    "id": "XIAOMI",
+    "descripcion": "XIAOMI"
+  },
+  {
+    "id": "XTECH",
+    "descripcion": "XTECH"
+  },
+  {
+    "id": "XTRATECH",
+    "descripcion": "XTRATECH"
+  },
+  {
+    "id": "YAMAHA",
+    "descripcion": "YAMAHA"
+  },
+  {
+    "id": "YANES",
+    "descripcion": "YANES"
+  },
+  {
+    "id": "YOGA",
+    "descripcion": "YOGA"
+  },
+  {
+    "id": "YORK",
+    "descripcion": "YORK"
+  },
+  {
+    "id": "YORK",
+    "descripcion": "YORK"
+  },
+  {
+    "id": "ZBOOK",
+    "descripcion": "ZBOOK"
+  },
+  {
+    "id": "ZEBRA",
+    "descripcion": "ZEBRA"
+  },
+  {
+    "id": "ZHIYUN",
+    "descripcion": "ZHIYUN"
+  },
+  {
+    "id": "ZINCRON",
+    "descripcion": "ZINCRON"
+  },
+  {
+    "id": "ZKTECO",
+    "descripcion": "ZKTECO"
+  },
+  {
+    "id": "ZONGSHEN",
+    "descripcion": "ZONGSHEN"
+  }
+]

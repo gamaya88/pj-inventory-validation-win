@@ -1,0 +1,54 @@
+[
+  {
+    "id": "BEL",
+    "descripcion": "BELLAVISTA"
+  },
+  {
+    "id": "JUA",
+    "descripcion": "JUANJUI"
+  },
+  {
+    "id": "LAM",
+    "descripcion": "LAMAS"
+  },
+  {
+    "id": "MOY",
+    "descripcion": "MOYOBAMBA"
+  },
+  {
+    "id": "NUE",
+    "descripcion": "NUEVA CAJAMARCA"
+  },
+  {
+    "id": "PIC",
+    "descripcion": "PICOTA"
+  },
+  {
+    "id": "RIO",
+    "descripcion": "RIOJA"
+  },
+  {
+    "id": "SAN",
+    "descripcion": "SAN JOSE DE SISA"
+  },
+  {
+    "id": "SAP",
+    "descripcion": "SAPOSOA"
+  },
+  {
+    "id": "SOR",
+    "descripcion": "SORITOR"
+  },
+  {
+    "id": "TAR",
+    "descripcion": "TARAPOTO"
+  },
+  {
+    "id": "TOC",
+    "descripcion": "TOCACHE"
+  },
+  {
+    "id": "YUR",
+    "descripcion": "YURIMAGUAS"
+  }
+]

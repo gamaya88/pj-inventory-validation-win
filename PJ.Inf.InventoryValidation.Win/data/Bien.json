@@ -1,0 +1,802 @@
+[
+  {
+    "id": "1",
+    "descripcion": "ACUMULADOR DE ENERGIA - EQUIPO DE UPS"
+  },
+  {
+    "id": "2",
+    "descripcion": "AMPLIFICADOR DE AUDIO"
+  },
+  {
+    "id": "3",
+    "descripcion": "ANDADOR DE ALUMINIO TERAPEUTICO"
+  },
+  {
+    "id": "4",
+    "descripcion": "ANTENA (OTRAS) (MAYOR A 1/4 UIT)"
+  },
+  {
+    "id": "5",
+    "descripcion": "ANTENA PARABOLICA"
+  },
+  {
+    "id": "6",
+    "descripcion": "ARCHIVADOR DE MADERA"
+  },
+  {
+    "id": "7",
+    "descripcion": "ARCHIVADOR DE MELAMINA"
+  },
+  {
+    "id": "8",
+    "descripcion": "ARCHIVADOR DE METAL"
+  },
+  {
+    "id": "9",
+    "descripcion": "ARMARIO DE MADERA"
+  },
+  {
+    "id": "10",
+    "descripcion": "ARMARIO DE MELAMINA"
+  },
+  {
+    "id": "11",
+    "descripcion": "ARMARIO DE METAL"
+  },
+  {
+    "id": "12",
+    "descripcion": "ASPIRADORA ELECTRICA"
+  },
+  {
+    "id": "13",
+    "descripcion": "ATRIL DE MADERA"
+  },
+  {
+    "id": "14",
+    "descripcion": "AUDIFONOS PROFESIONALES"
+  },
+  {
+    "id": "15",
+    "descripcion": "AUTOMOVIL"
+  },
+  {
+    "id": "16",
+    "descripcion": "BALANZA DE PIE CON TALLIMETRO"
+  },
+  {
+    "id": "17",
+    "descripcion": "BANCA DE ASIENTOS MULTIPLES"
+  },
+  {
+    "id": "18",
+    "descripcion": "BANCA DE MADERA"
+  },
+  {
+    "id": "19",
+    "descripcion": "BANCO DE MADERA"
+  },
+  {
+    "id": "20",
+    "descripcion": "BAÑERA METALICA PARA BEBE CON CAMBIADOR"
+  },
+  {
+    "id": "21",
+    "descripcion": "BICICLETA"
+  },
+  {
+    "id": "22",
+    "descripcion": "BIOMBO DE METAL"
+  },
+  {
+    "id": "23",
+    "descripcion": "CAFETERA ELECTRICA"
+  },
+  {
+    "id": "24",
+    "descripcion": "CAJA ACUSTICA"
+  },
+  {
+    "id": "25",
+    "descripcion": "CAJA FUERTE"
+  },
+  {
+    "id": "26",
+    "descripcion": "CAMA CUNA DE METAL"
+  },
+  {
+    "id": "27",
+    "descripcion": "CAMARA DE VIDEO"
+  },
+  {
+    "id": "28",
+    "descripcion": "CAMARA DE VIDEO DIGITAL"
+  },
+  {
+    "id": "29",
+    "descripcion": "CAMARA FOTOGRAFICA"
+  },
+  {
+    "id": "30",
+    "descripcion": "CAMARA FOTOGRAFICA DIGITAL"
+  },
+  {
+    "id": "31",
+    "descripcion": "CAMAROTE DE MADERA DE 1 1/2 PLAZA"
+  },
+  {
+    "id": "32",
+    "descripcion": "CAMILLA (OTRAS)"
+  },
+  {
+    "id": "33",
+    "descripcion": "CAMILLA METALICA PARA EXAMEN GINECOLOGICO"
+  },
+  {
+    "id": "34",
+    "descripcion": "CAMIONETA"
+  },
+  {
+    "id": "35",
+    "descripcion": "CAPTURADOR DE IMAGEN - SCANNER"
+  },
+  {
+    "id": "36",
+    "descripcion": "CARGADOR DE BATERIA EN GENERAL"
+  },
+  {
+    "id": "37",
+    "descripcion": "CARPETA DE METAL UNIPERSONAL"
+  },
+  {
+    "id": "38",
+    "descripcion": "CARRETILLA EN GENERAL (MAYOR A 1/4 UIT)"
+  },
+  {
+    "id": "39",
+    "descripcion": "CASILLERO DE MADERA"
+  },
+  {
+    "id": "40",
+    "descripcion": "COCHE METALICO PARA CURACIONES"
+  },
+  {
+    "id": "41",
+    "descripcion": "COMPUTADORA PERSONAL PORTATIL"
+  },
+  {
+    "id": "42",
+    "descripcion": "CONSOLA PARA CONTROL DE AUDIO"
+  },
+  {
+    "id": "43",
+    "descripcion": "CONTROL REMOTO EN GENERAL"
+  },
+  {
+    "id": "44",
+    "descripcion": "CREDENZA DE MADERA"
+  },
+  {
+    "id": "45",
+    "descripcion": "CREDENZA DE MELAMINA"
+  },
+  {
+    "id": "46",
+    "descripcion": "CREDENZA DE METAL"
+  },
+  {
+    "id": "47",
+    "descripcion": "DESTRUCTORA DE DOCUMENTOS"
+  },
+  {
+    "id": "48",
+    "descripcion": "DETECTOR DE HUMO"
+  },
+  {
+    "id": "49",
+    "descripcion": "DETECTOR DE METALES TIPO ARCO"
+  },
+  {
+    "id": "50",
+    "descripcion": "DETECTOR MANUAL DE METALES"
+  },
+  {
+    "id": "51",
+    "descripcion": "DISCO DURO EXTERNO"
+  },
+  {
+    "id": "52",
+    "descripcion": "DISTANCIOMETRO LASER"
+  },
+  {
+    "id": "53",
+    "descripcion": "ENGRAPADOR INDUSTRIAL"
+  },
+  {
+    "id": "54",
+    "descripcion": "EQUIPO DE ALARMA Y PROTECCION"
+  },
+  {
+    "id": "55",
+    "descripcion": "EQUIPO DE CONTROL DE ACCESO BIOMETRICO"
+  },
+  {
+    "id": "56",
+    "descripcion": "EQUIPO DE ILUMINACION DE EMERGENCIA"
+  },
+  {
+    "id": "57",
+    "descripcion": "EQUIPO DE SONIDO"
+  },
+  {
+    "id": "58",
+    "descripcion": "EQUIPO DE VIDEOCONFERENCIA MULTIPUNTO"
+  },
+  {
+    "id": "59",
+    "descripcion": "EQUIPO MULTIFUNCIONAL COPIADORA IMPRESORA SCANNER Y/O FAX"
+  },
+  {
+    "id": "60",
+    "descripcion": "EQUIPO PARA AIRE ACONDICIONADO TIPO DOMESTICO"
+  },
+  {
+    "id": "61",
+    "descripcion": "EQUIPO PARA AIRE ACONDICIONADO TIPO INDUSTRIAL"
+  },
+  {
+    "id": "62",
+    "descripcion": "ESCALERA (OTRAS)"
+  },
+  {
+    "id": "63",
+    "descripcion": "ESCALERA DE MADERA"
+  },
+  {
+    "id": "64",
+    "descripcion": "ESCALERA METALICA TIPO TIJERA"
+  },
+  {
+    "id": "65",
+    "descripcion": "ESCALERA TELESCOPICA"
+  },
+  {
+    "id": "66",
+    "descripcion": "ESCRITORIO DE MADERA"
+  },
+  {
+    "id": "67",
+    "descripcion": "ESCRITORIO DE MELAMINA"
+  },
+  {
+    "id": "68",
+    "descripcion": "ESCRITORIO DE METAL"
+  },
+  {
+    "id": "69",
+    "descripcion": "ESCRITORIO DE METAL Y MADERA"
+  },
+  {
+    "id": "70",
+    "descripcion": "ESTABILIZADOR"
+  },
+  {
+    "id": "71",
+    "descripcion": "ESTANTE DE MADERA"
+  },
+  {
+    "id": "72",
+    "descripcion": "ESTANTE DE MELAMINA"
+  },
+  {
+    "id": "73",
+    "descripcion": "ESTANTE DE METAL"
+  },
+  {
+    "id": "74",
+    "descripcion": "EXHIBIDOR DE PUBLICACIONES"
+  },
+  {
+    "id": "75",
+    "descripcion": "EXTINTOR"
+  },
+  {
+    "id": "76",
+    "descripcion": "EXTRACTOR (OTROS)"
+  },
+  {
+    "id": "77",
+    "descripcion": "FACSIMIL"
+  },
+  {
+    "id": "78",
+    "descripcion": "FILMADORA"
+  },
+  {
+    "id": "79",
+    "descripcion": "FOTOCOPIADORA EN GENERAL"
+  },
+  {
+    "id": "80",
+    "descripcion": "FUMIGADORA EN GENERAL"
+  },
+  {
+    "id": "81",
+    "descripcion": "FUMIGADORA MANUAL DE 20 L"
+  },
+  {
+    "id": "82",
+    "descripcion": "GABINETE DE METAL"
+  },
+  {
+    "id": "83",
+    "descripcion": "GENERADOR (OTROS)"
+  },
+  {
+    "id": "84",
+    "descripcion": "GLUCOMETRO"
+  },
+  {
+    "id": "85",
+    "descripcion": "GRABADOR DIGITAL DE VIDEO Y AUDIO - VIDEOGRABADOR DIGITAL"
+  },
+  {
+    "id": "86",
+    "descripcion": "GRABADORA DIGITAL"
+  },
+  {
+    "id": "87",
+    "descripcion": "GRUPO ELECTROGENO"
+  },
+  {
+    "id": "88",
+    "descripcion": "GUILLOTINA"
+  },
+  {
+    "id": "89",
+    "descripcion": "HORNO MICROONDAS"
+  },
+  {
+    "id": "90",
+    "descripcion": "IMPRESORA DE CODIGO DE BARRAS"
+  },
+  {
+    "id": "91",
+    "descripcion": "IMPRESORA DE ETIQUETA - IMPRESORA DE TICKET"
+  },
+  {
+    "id": "92",
+    "descripcion": "IMPRESORA DE ETIQUETA - IMPRESORA DE TICKET"
+  },
+  {
+    "id": "93",
+    "descripcion": "IMPRESORA DE TARJETAS"
+  },
+  {
+    "id": "94",
+    "descripcion": "IMPRESORA LASER"
+  },
+  {
+    "id": "95",
+    "descripcion": "IMPRESORA MATRIZ DE PUNTO"
+  },
+  {
+    "id": "96",
+    "descripcion": "LAMPARA ELECTRICA (MAYOR A 1/4 UIT)"
+  },
+  {
+    "id": "97",
+    "descripcion": "LECTORA DE CODIGO DE BARRAS"
+  },
+  {
+    "id": "98",
+    "descripcion": "LECTORA DE DISCO COMPACTO EXTERNO PARA COMPUTO - CD ROM"
+  },
+  {
+    "id": "99",
+    "descripcion": "LECTORA DE TARJETA INTELIGENTE"
+  },
+  {
+    "id": "100",
+    "descripcion": "LIBRERO DE MADERA"
+  },
+  {
+    "id": "101",
+    "descripcion": "LIBRERO DE MELAMINA"
+  },
+  {
+    "id": "102",
+    "descripcion": "LUSTRADORA ELECTRICA DOMESTICA"
+  },
+  {
+    "id": "103",
+    "descripcion": "LUXOMETRO"
+  },
+  {
+    "id": "104",
+    "descripcion": "MAQUINA ANILLADORA PERFORADORA"
+  },
+  {
+    "id": "105",
+    "descripcion": "MAQUINA DE ESCRIBIR MECANICA"
+  },
+  {
+    "id": "106",
+    "descripcion": "MAQUINA TALADRO"
+  },
+  {
+    "id": "107",
+    "descripcion": "MEGAFONO"
+  },
+  {
+    "id": "108",
+    "descripcion": "MESA (OTRAS)"
+  },
+  {
+    "id": "109",
+    "descripcion": "MESA DE MADERA"
+  },
+  {
+    "id": "110",
+    "descripcion": "MESA DE MAYO"
+  },
+  {
+    "id": "111",
+    "descripcion": "MESA DE MELAMINA"
+  },
+  {
+    "id": "112",
+    "descripcion": "MESA DE METAL"
+  },
+  {
+    "id": "113",
+    "descripcion": "MESA DE REUNIONES"
+  },
+  {
+    "id": "114",
+    "descripcion": "MESITA DE MADERA"
+  },
+  {
+    "id": "115",
+    "descripcion": "MESITA DE MADERA PARA MAQUINA DE ESCRIBIR"
+  },
+  {
+    "id": "116",
+    "descripcion": "MESITA DE MADERA PARA TELEFONO"
+  },
+  {
+    "id": "117",
+    "descripcion": "MESITA DE MELAMINA"
+  },
+  {
+    "id": "118",
+    "descripcion": "MESITA DE MELAMINA PARA TELEFONO"
+  },
+  {
+    "id": "119",
+    "descripcion": "MESITA DE METAL PARA MAQUINA DE ESCRIBIR"
+  },
+  {
+    "id": "120",
+    "descripcion": "MESITA METALICA PARA MULTIPLE USO"
+  },
+  {
+    "id": "121",
+    "descripcion": "MEZCLADOR DE AUDIO Y VIDEO"
+  },
+  {
+    "id": "122",
+    "descripcion": "MEZCLADOR DE SONIDO"
+  },
+  {
+    "id": "123",
+    "descripcion": "MEZCLADORA DIGITAL DE SONIDO"
+  },
+  {
+    "id": "124",
+    "descripcion": "MICROBUS"
+  },
+  {
+    "id": "125",
+    "descripcion": "MICROFONO (OTROS)"
+  },
+  {
+    "id": "126",
+    "descripcion": "MICROFONO CUELLO DE GANSO CON BASE"
+  },
+  {
+    "id": "127",
+    "descripcion": "MICROFONO INALAMBRICO"
+  },
+  {
+    "id": "128",
+    "descripcion": "MODEM EXTERNO"
+  },
+  {
+    "id": "129",
+    "descripcion": "MODULO DE COMPUTO (OTROS)"
+  },
+  {
+    "id": "130",
+    "descripcion": "MODULO DE MADERA"
+  },
+  {
+    "id": "131",
+    "descripcion": "MODULO DE MADERA PARA MICROCOMPUTADORA"
+  },
+  {
+    "id": "132",
+    "descripcion": "MODULO DE MELAMINA"
+  },
+  {
+    "id": "133",
+    "descripcion": "MODULO DE MELAMINA PARA COMPUTADORA"
+  },
+  {
+    "id": "134",
+    "descripcion": "MONITOR A COLOR"
+  },
+  {
+    "id": "135",
+    "descripcion": "MONITOR LED"
+  },
+  {
+    "id": "136",
+    "descripcion": "MONITOR PLANO"
+  },
+  {
+    "id": "137",
+    "descripcion": "MOTOCICLETA"
+  },
+  {
+    "id": "138",
+    "descripcion": "OXIMETRO DE PULSOS"
+  },
+  {
+    "id": "139",
+    "descripcion": "PANTALLA ECRAN"
+  },
+  {
+    "id": "140",
+    "descripcion": "PARLANTE AMPLIFICADOR PORTATIL"
+  },
+  {
+    "id": "141",
+    "descripcion": "PARLANTES EN GENERAL (MAYOR A 1/4 UIT)"
+  },
+  {
+    "id": "142",
+    "descripcion": "PATCH PANEL - PANEL DE CONMUTACION"
+  },
+  {
+    "id": "143",
+    "descripcion": "PEDESTAL DE MADERA"
+  },
+  {
+    "id": "144",
+    "descripcion": "PEDESTAL PARA MICROFONO"
+  },
+  {
+    "id": "145",
+    "descripcion": "PERFORADOR MANUAL"
+  },
+  {
+    "id": "146",
+    "descripcion": "PIZARRA DIGITAL INTERACTIVA"
+  },
+  {
+    "id": "147",
+    "descripcion": "PLATAFORMA TIPO CARRETA"
+  },
+  {
+    "id": "148",
+    "descripcion": "PORTA SUERO METALICO"
+  },
+  {
+    "id": "149",
+    "descripcion": "PROYECTOR"
+  },
+  {
+    "id": "150",
+    "descripcion": "PUNTO DE ACCESO INALAMBRICO - ACCESS POINT WIRELESS"
+  },
+  {
+    "id": "151",
+    "descripcion": "RACK (OTROS)"
+  },
+  {
+    "id": "152",
+    "descripcion": "RADIO TRANSMISOR RECEPTOR"
+  },
+  {
+    "id": "153",
+    "descripcion": "RADIOENLACE DE DATOS"
+  },
+  {
+    "id": "154",
+    "descripcion": "REFRIGERADORA ELECTRICA DOMESTICA"
+  },
+  {
+    "id": "155",
+    "descripcion": "RELOJ DE PARED"
+  },
+  {
+    "id": "156",
+    "descripcion": "REPOSTERO DE MELAMINA"
+  },
+  {
+    "id": "157",
+    "descripcion": "REPRODUCTOR DE DISCO DIGITAL VERSATIL - DVD PLAYER"
+  },
+  {
+    "id": "158",
+    "descripcion": "REPRODUCTOR DE DVD/CD/VCD/SVCD/MP3 Y OTROS"
+  },
+  {
+    "id": "159",
+    "descripcion": "REPRODUCTOR GRABADOR DE DVD"
+  },
+  {
+    "id": "160",
+    "descripcion": "RUTEADOR DE RED - ROUTER"
+  },
+  {
+    "id": "161",
+    "descripcion": "SECADORA DE MANOS"
+  },
+  {
+    "id": "162",
+    "descripcion": "SERVIDOR"
+  },
+  {
+    "id": "163",
+    "descripcion": "SILLA DE RUEDAS METALICA"
+  },
+  {
+    "id": "164",
+    "descripcion": "SILLA FIJA DE MADERA"
+  },
+  {
+    "id": "165",
+    "descripcion": "SILLA FIJA DE METAL"
+  },
+  {
+    "id": "166",
+    "descripcion": "SILLA FIJA DE OTRO MATERIAL"
+  },
+  {
+    "id": "167",
+    "descripcion": "SILLA GIRATORIA DE METAL"
+  },
+  {
+    "id": "168",
+    "descripcion": "SILLON FIJO DE MADERA"
+  },
+  {
+    "id": "169",
+    "descripcion": "SILLON GIRATORIO (OTROS)"
+  },
+  {
+    "id": "170",
+    "descripcion": "SILLON GIRATORIO DE MADERA"
+  },
+  {
+    "id": "171",
+    "descripcion": "SILLON GIRATORIO DE METAL"
+  },
+  {
+    "id": "172",
+    "descripcion": "SISTEMA DE PROYECCION MULTIMEDIA - PROYECTOR MULTIMEDIA"
+  },
+  {
+    "id": "173",
+    "descripcion": "SISTEMA DE VIDEOCONFERENCIA"
+  },
+  {
+    "id": "174",
+    "descripcion": "SOFA DE MADERA"
+  },
+  {
+    "id": "175",
+    "descripcion": "SOLUCION DE ALMACENAMIENTO EXTERNO"
+  },
+  {
+    "id": "176",
+    "descripcion": "SOPLADORA DE AIRE"
+  },
+  {
+    "id": "177",
+    "descripcion": "SURTIDOR DE AGUA ELECTRICO - DISPENSADOR ELECTRICO"
+  },
+  {
+    "id": "178",
+    "descripcion": "SWITCH PARA RED"
+  },
+  {
+    "id": "179",
+    "descripcion": "TECLADO - KEYBOARD"
+  },
+  {
+    "id": "180",
+    "descripcion": "TELEVISOR A COLORES"
+  },
+  {
+    "id": "181",
+    "descripcion": "TELEVISOR LCD"
+  },
+  {
+    "id": "182",
+    "descripcion": "TELEVISOR LED"
+  },
+  {
+    "id": "183",
+    "descripcion": "TENSIOMETRO"
+  },
+  {
+    "id": "184",
+    "descripcion": "TERMINAL DE DATOS"
+  },
+  {
+    "id": "185",
+    "descripcion": "TERMOMETRO INFRARROJO"
+  },
+  {
+    "id": "186",
+    "descripcion": "TORRE METALICA"
+  },
+  {
+    "id": "187",
+    "descripcion": "TOTEM MULTIMEDIA"
+  },
+  {
+    "id": "188",
+    "descripcion": "TRIPODE METALICO"
+  },
+  {
+    "id": "189",
+    "descripcion": "TRITURADOR DE DESPERDICIOS"
+  },
+  {
+    "id": "190",
+    "descripcion": "TRITURADORA"
+  },
+  {
+    "id": "191",
+    "descripcion": "UNIDAD CENTRAL DE PROCESO - CPU"
+  },
+  {
+    "id": "192",
+    "descripcion": "UNIDAD DE ARREGLO DE DISCO - DISK ARRAY"
+  },
+  {
+    "id": "193",
+    "descripcion": "UNIDAD DE DISTRIBUCION DE ENERGIA (PDU) - SWITCHED RACK PDU"
+  },
+  {
+    "id": "194",
+    "descripcion": "UNIDAD PARA COPIA DE SEGURIDAD - TAPE BACKUP EXTERNO"
+  },
+  {
+    "id": "195",
+    "descripcion": "VENTILADOR ELECTRICO INDUSTRIAL"
+  },
+  {
+    "id": "196",
+    "descripcion": "VENTILADOR ELECTRICO PARA MESA O DE PIE"
+  },
+  {
+    "id": "197",
+    "descripcion": "VENTILADOR ELECTRICO PARA PARED"
+  },
+  {
+    "id": "198",
+    "descripcion": "VENTILADOR ELECTRICO PARA TECHO"
+  },
+  {
+    "id": "199",
+    "descripcion": "VENTILADOR ELECTRICO TIPO COLUMNA O TORRE"
+  },
+  {
+    "id": "200",
+    "descripcion": "VIDEO CAMARA PARA COMPUTADORA"
+  }
+]

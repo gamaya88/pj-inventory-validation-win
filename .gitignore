@@ -1,0 +1,87 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# IntelliJ
+*.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Android Profiling
+*.hprof
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+
+# Archivos de compilación
+bin/
+obj/
+
+# Directorios de paquetes
+.packages/
+*.nupkg
+
+# Archivos de caché
+.vs/
+*.suo
+*.user
+*.cache
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Archivos específicos del usuario
+*.sln.docstates
+*.csproj.user
+*.fsproj.user
+*.vbproj.user
+
+# Archivos de Xamarin
+*.apk
+*.ipa
+*.appx
+*.xap
+
+# Archivos de Android
+/Platforms/Android/obj/
+/Platforms/Android/bin/
+/Platforms/Android/*.apk
+/Platforms/Android/*.aab
+
+# Archivos de iOS
+/Platforms/iOS/obj/
+/Platforms/iOS/bin/
+/Platforms/iOS/*.ipa
+
+# Archivos de Windows
+/Platforms/Windows/obj/
+/Platforms/Windows/bin/
+/Platforms/Windows/*.appx
+/Platforms/Windows/*.appxbundle
+
+# Otros archivos y directorios a ignorar
+.DS_Store
+Thumbs.db
+*.DS_Store

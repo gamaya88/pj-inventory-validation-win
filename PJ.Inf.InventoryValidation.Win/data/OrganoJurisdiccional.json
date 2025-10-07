@@ -1,0 +1,778 @@
+[
+  {
+    "id": "1",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA - BELLAVISTA"
+  },
+  {
+    "id": "2",
+    "descripcion": "JUZGADO DE PAZ LETRADO - BELLAVISTA"
+  },
+  {
+    "id": "3",
+    "descripcion": "JUZGADO MIXTO (PENAL UNIPERSONAL) - BELLAVISTA"
+  },
+  {
+    "id": "4",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - BELLAVISTA"
+  },
+  {
+    "id": "5",
+    "descripcion": "Mesa de Partes Unica - BELLAVISTA"
+  },
+  {
+    "id": "6",
+    "descripcion": "Notificaciones - BELLAVISTA"
+  },
+  {
+    "id": "7",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - BELLAVISTA"
+  },
+  {
+    "id": "8",
+    "descripcion": "Apoyo en la Conducción de Vehículos - JUANJUI"
+  },
+  {
+    "id": "9",
+    "descripcion": "Area de Apoyo (NCPP) - JUANJUI"
+  },
+  {
+    "id": "10",
+    "descripcion": "JUZGADO CIVIL - JUANJUI"
+  },
+  {
+    "id": "11",
+    "descripcion": "JUZGADO CIVIL TRANSITORIO - JUANJUI"
+  },
+  {
+    "id": "12",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA - JUANJUI"
+  },
+  {
+    "id": "13",
+    "descripcion": "JUZGADO DE PAZ LETRADO - JUANJUI"
+  },
+  {
+    "id": "14",
+    "descripcion": "JUZGADO PENAL COLEGIADO SUPRAPROVINCIAL TRANSITORIO - JUANJUI"
+  },
+  {
+    "id": "15",
+    "descripcion": "JUZGADO PENAL UNIPERSONAL - JUANJUI"
+  },
+  {
+    "id": "16",
+    "descripcion": "JUZGADO PENAL UNIPERSONAL TRANSITORIO - JUANJUI"
+  },
+  {
+    "id": "17",
+    "descripcion": "Mesa de Partes Unica - JUANJUI"
+  },
+  {
+    "id": "18",
+    "descripcion": "Notificaciones - JUANJUI"
+  },
+  {
+    "id": "19",
+    "descripcion": "SALA MIXTA DESCENTRALIZADA - JUANJUI"
+  },
+  {
+    "id": "20",
+    "descripcion": "UNIDAD DE REALIZACIÓN DE AUDIENCIAS - NCPP - JUANJUI"
+  },
+  {
+    "id": "21",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - JUANJUI"
+  },
+  {
+    "id": "22",
+    "descripcion": "JUZGADO CIVIL - LAMAS"
+  },
+  {
+    "id": "23",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA - LAMAS"
+  },
+  {
+    "id": "24",
+    "descripcion": "JUZGADO DE PAZ LETRADO - LAMAS"
+  },
+  {
+    "id": "25",
+    "descripcion": "JUZGADO PENAL UNIPERSONAL - LAMAS"
+  },
+  {
+    "id": "26",
+    "descripcion": "Mesa de Partes Unica - LAMAS"
+  },
+  {
+    "id": "27",
+    "descripcion": "Notificaciones - LAMAS"
+  },
+  {
+    "id": "28",
+    "descripcion": "Notificaciones - NCPP - LAMAS"
+  },
+  {
+    "id": "29",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - LAMAS"
+  },
+  {
+    "id": "30",
+    "descripcion": "1º JUZGADO DE LA INVESTIGACION PREPARATORIA - MOYOBAMBA"
+  },
+  {
+    "id": "31",
+    "descripcion": "1º JUZGADO DE PAZ LETRADO - MOYOBAMBA"
+  },
+  {
+    "id": "32",
+    "descripcion": "1º JUZGADO PENAL UNIPERSONAL - MOYOBAMBA"
+  },
+  {
+    "id": "33",
+    "descripcion": "2º JUZGADO DE LA INVESTIGACION PREPARATORIA - MOYOBAMBA"
+  },
+  {
+    "id": "34",
+    "descripcion": "2º JUZGADO DE PAZ LETRADO - MOYOBAMBA"
+  },
+  {
+    "id": "35",
+    "descripcion": "2º JUZGADO PENAL UNIPERSONAL - MOYOBAMBA"
+  },
+  {
+    "id": "36",
+    "descripcion": "3º JUZGADO DE LA INVESTIGACION PREPARATORIA - MOYOBAMBA"
+  },
+  {
+    "id": "37",
+    "descripcion": "3º JUZGADO PENAL UNIPERSONAL - MOYOBAMBA"
+  },
+  {
+    "id": "38",
+    "descripcion": "ADMINISTRACION MODULO PENAL CENTRAL NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "39",
+    "descripcion": "Almacen Central - MOYOBAMBA"
+  },
+  {
+    "id": "40",
+    "descripcion": "Archivo Central - MOYOBAMBA"
+  },
+  {
+    "id": "41",
+    "descripcion": "Area de Apoyo (NCPP) - MOYOBAMBA"
+  },
+  {
+    "id": "42",
+    "descripcion": "ASESORÍA DE CORTE - MOYOBAMBA"
+  },
+  {
+    "id": "43",
+    "descripcion": "Asistentes Juzgados de Inv. Preparatoria - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "44",
+    "descripcion": "Asistentes - ODANC - MOYOBAMBA"
+  },
+  {
+    "id": "45",
+    "descripcion": "Asistentes Juzgados Unipersonales - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "46",
+    "descripcion": "Asistentes Sala Penal de Apelaciones - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "47",
+    "descripcion": "Central de Notificaciones - Local 20 de Abril - MOYOBAMBA"
+  },
+  {
+    "id": "48",
+    "descripcion": "Central de Notificaciones - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "49",
+    "descripcion": "Centro de Distribución General - MOYOBAMBA"
+  },
+  {
+    "id": "50",
+    "descripcion": "Contabilidad - MOYOBAMBA"
+  },
+  {
+    "id": "51",
+    "descripcion": "Control Patrimonial - MOYOBAMBA"
+  },
+  {
+    "id": "52",
+    "descripcion": "Equipo Multidisciplinario - MOYOBAMBA"
+  },
+  {
+    "id": "53",
+    "descripcion": "Estadística - MOYOBAMBA"
+  },
+  {
+    "id": "54",
+    "descripcion": "Estudios y Proyectos - MOYOBAMBA"
+  },
+  {
+    "id": "55",
+    "descripcion": "GERENCIA DE ADMINISTRACION DISTRITAL - MOYOBAMBA"
+  },
+  {
+    "id": "56",
+    "descripcion": "Informática - MOYOBAMBA"
+  },
+  {
+    "id": "57",
+    "descripcion": "Infraestructura - MOYOBAMBA"
+  },
+  {
+    "id": "58",
+    "descripcion": "JUZGADO CIVIL - MOYOBAMBA"
+  },
+  {
+    "id": "59",
+    "descripcion": "JUZGADO DE FAMILIA - MOYOBAMBA"
+  },
+  {
+    "id": "60",
+    "descripcion": "JUZGADO DE TRABAJO - MOYOBAMBA"
+  },
+  {
+    "id": "61",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - MOYOBAMBA"
+  },
+  {
+    "id": "62",
+    "descripcion": "Limpieza - Organos Jurisdiccionales 20 de Abril - MOYOBAMBA"
+  },
+  {
+    "id": "63",
+    "descripcion": "Logística - MOYOBAMBA"
+  },
+  {
+    "id": "64",
+    "descripcion": "Módulo de Atención al Usuario (MAU) - MOYOBAMBA"
+  },
+  {
+    "id": "65",
+    "descripcion": "Módulo Familia Central Ley 30364 - MOYOBAMBA"
+  },
+  {
+    "id": "66",
+    "descripcion": "MÓDULO LABORAL - MOYOBAMBA"
+  },
+  {
+    "id": "67",
+    "descripcion": "Oficina de Imagen Institucional - MOYOBAMBA"
+  },
+  {
+    "id": "68",
+    "descripcion": "OFICINA DESCENTRALIZADA DE LA AUTORIDAD NACIONAL DE CONTROL DEL PJ - MOYOBAMBA"
+  },
+  {
+    "id": "69",
+    "descripcion": "Personal - MOYOBAMBA"
+  },
+  {
+    "id": "70",
+    "descripcion": "Planes y Presupuestos - MOYOBAMBA"
+  },
+  {
+    "id": "71",
+    "descripcion": "Pool de Choferes - MOYOBAMBA"
+  },
+  {
+    "id": "72",
+    "descripcion": "POOL DE ESPECIALISTAS JUZGADOS DE INV. PREPARATORIA - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "73",
+    "descripcion": "POOL DE ESPECIALISTAS JUZGADOS UNIPERSONALES - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "74",
+    "descripcion": "POOL DE ESPECIALISTAS SALA PENAL DE APELACIONES - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "75",
+    "descripcion": "POOL DE SECRETARIOS JUZGADO PENAL LIQUIDADOR - 3° JPU - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "76",
+    "descripcion": "PRESIDENCIA CORTE SUPERIOR - MOYOBAMBA"
+  },
+  {
+    "id": "77",
+    "descripcion": "Registro Distrital Judicial - MOYOBAMBA"
+  },
+  {
+    "id": "78",
+    "descripcion": "SALA CIVIL - MOYOBAMBA"
+  },
+  {
+    "id": "79",
+    "descripcion": "SALA PENAL DE APELACIONES - MOYOBAMBA"
+  },
+  {
+    "id": "80",
+    "descripcion": "Servicios Judiciales y Recaudación - MOYOBAMBA"
+  },
+  {
+    "id": "81",
+    "descripcion": "Tesorería - MOYOBAMBA"
+  },
+  {
+    "id": "82",
+    "descripcion": "UNIDAD ADMINISTRATIVA Y DE FINANZAS - MOYOBAMBA"
+  },
+  {
+    "id": "83",
+    "descripcion": "Unidad de Atencion al Publico - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "84",
+    "descripcion": "UNIDAD DE PLANEAMIENTO Y DESARROLLO - MOYOBAMBA"
+  },
+  {
+    "id": "85",
+    "descripcion": "UNIDAD DE REALIZACIÓN DE AUDIENCIAS - NCPP - MOYOBAMBA"
+  },
+  {
+    "id": "86",
+    "descripcion": "UNIDAD DE SERVICIOS JUDICIALES - MOYOBAMBA"
+  },
+  {
+    "id": "87",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - MOYOBAMBA"
+  },
+  {
+    "id": "88",
+    "descripcion": "2º JUZGADO CIVIL - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "89",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "90",
+    "descripcion": "JUZGADO DE PAZ LETRADO - NUEVA CAJAMARCA - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "91",
+    "descripcion": "JUZGADO PENAL UNIPERSONAL TRANSITORIO - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "92",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "93",
+    "descripcion": "Mesa de Partes Unica - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "94",
+    "descripcion": "Notificaciones - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "95",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - NUEVA CAJAMARCA"
+  },
+  {
+    "id": "96",
+    "descripcion": "JUZGADO DE PAZ LETRADO (INV.PREPARATORIA) - PICOTA"
+  },
+  {
+    "id": "97",
+    "descripcion": "JUZGADO MIXTO (PENAL UNIPERSONAL) - PICOTA"
+  },
+  {
+    "id": "98",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - PICOTA"
+  },
+  {
+    "id": "99",
+    "descripcion": "Mesa de Partes Unica - PICOTA"
+  },
+  {
+    "id": "100",
+    "descripcion": "Notificaciones - PICOTA"
+  },
+  {
+    "id": "101",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - PICOTA"
+  },
+  {
+    "id": "102",
+    "descripcion": "1º JUZGADO CIVIL - RIOJA"
+  },
+  {
+    "id": "103",
+    "descripcion": "1º JUZGADO DE LA INVESTIGACION PREPARATORIA - RIOJA"
+  },
+  {
+    "id": "104",
+    "descripcion": "2º JUZGADO DE LA INVESTIGACION PREPARATORIA - RIOJA"
+  },
+  {
+    "id": "105",
+    "descripcion": "ADMINISTRACIÓN - RIOJA"
+  },
+  {
+    "id": "106",
+    "descripcion": "Asistentes Juzgados de Inv. Preparatoria - NCPP - RIOJA"
+  },
+  {
+    "id": "107",
+    "descripcion": "JUZGADO DE PAZ LETRADO - RIOJA"
+  },
+  {
+    "id": "108",
+    "descripcion": "JUZGADO PENAL UNIPERSONAL - RIOJA"
+  },
+  {
+    "id": "109",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - RIOJA"
+  },
+  {
+    "id": "110",
+    "descripcion": "Mesa de Partes Unica - RIOJA"
+  },
+  {
+    "id": "111",
+    "descripcion": "Notificaciones - RIOJA"
+  },
+  {
+    "id": "112",
+    "descripcion": "POOL DE ESPECIALISTAS JUZGADOS DE INV. PREPARATORIA - NCPP - RIOJA"
+  },
+  {
+    "id": "113",
+    "descripcion": "POOL DE SECRETARIOS JUZGADO PENAL LIQUIDADOR - 1° y 2° JIP - NCPP - RIOJA"
+  },
+  {
+    "id": "114",
+    "descripcion": "UNIDAD DE REALIZACIÓN DE AUDIENCIAS - NCPP - RIOJA"
+  },
+  {
+    "id": "115",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - RIOJA"
+  },
+  {
+    "id": "116",
+    "descripcion": "JUZGADO DE PAZ LETRADO (INV.PREPARATORIA) - SAN JOSE DE SISA"
+  },
+  {
+    "id": "117",
+    "descripcion": "JUZGADO MIXTO (PENAL UNIPERSONAL) - SAN JOSE DE SISA"
+  },
+  {
+    "id": "118",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - SAN JOSE DE SISA"
+  },
+  {
+    "id": "119",
+    "descripcion": "Mesa de Partes Unica - SAN JOSE DE SISA"
+  },
+  {
+    "id": "120",
+    "descripcion": "Notificaciones - SAN JOSE DE SISA"
+  },
+  {
+    "id": "121",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - SAN JOSE DE SISA"
+  },
+  {
+    "id": "122",
+    "descripcion": "JUZGADO DE PAZ LETRADO (INV.PREPARATORIA) - SAPOSOA"
+  },
+  {
+    "id": "123",
+    "descripcion": "JUZGADO MIXTO (PENAL UNIPERSONAL) - SAPOSOA"
+  },
+  {
+    "id": "124",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - SAPOSOA"
+  },
+  {
+    "id": "125",
+    "descripcion": "Mesa de Partes Unica - SAPOSOA"
+  },
+  {
+    "id": "126",
+    "descripcion": "Notificaciones - SAPOSOA"
+  },
+  {
+    "id": "127",
+    "descripcion": "JUZGADO DE PAZ LETRADO - SORITOR - SORITOR"
+  },
+  {
+    "id": "128",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - SORITOR"
+  },
+  {
+    "id": "129",
+    "descripcion": "Notificaciones - SORITOR"
+  },
+  {
+    "id": "130",
+    "descripcion": "1º JUZGADO CIVIL - TARAPOTO"
+  },
+  {
+    "id": "131",
+    "descripcion": "1º JUZGADO DE FAMILIA - TARAPOTO"
+  },
+  {
+    "id": "132",
+    "descripcion": "1º JUZGADO DE LA INVESTIGACION PREPARATORIA - TARAPOTO"
+  },
+  {
+    "id": "133",
+    "descripcion": "1º JUZGADO PENAL UNIPERSONAL - TARAPOTO"
+  },
+  {
+    "id": "134",
+    "descripcion": "2º JUZGADO CIVIL - TARAPOTO"
+  },
+  {
+    "id": "135",
+    "descripcion": "2º JUZGADO DE FAMILIA - TARAPOTO"
+  },
+  {
+    "id": "136",
+    "descripcion": "2º JUZGADO DE LA INVESTIGACION PREPARATORIA - TARAPOTO"
+  },
+  {
+    "id": "137",
+    "descripcion": "2º JUZGADO PENAL UNIPERSONAL - TARAPOTO"
+  },
+  {
+    "id": "138",
+    "descripcion": "3º JUZGADO DE LA INVESTIGACION PREPARATORIA - TARAPOTO"
+  },
+  {
+    "id": "139",
+    "descripcion": "3º JUZGADO PENAL UNIPERSONAL - TARAPOTO"
+  },
+  {
+    "id": "140",
+    "descripcion": "ADMINISTRACIÓN - TARAPOTO"
+  },
+  {
+    "id": "141",
+    "descripcion": "Apoyo en la Conducción de Vehículos - TARAPOTO"
+  },
+  {
+    "id": "142",
+    "descripcion": "Area de Apoyo (Informática) - TARAPOTO"
+  },
+  {
+    "id": "143",
+    "descripcion": "Area de Apoyo (NCPP) - TARAPOTO"
+  },
+  {
+    "id": "144",
+    "descripcion": "Asistentes Juzgados de Inv. Preparatoria - NCPP - TARAPOTO"
+  },
+  {
+    "id": "145",
+    "descripcion": "Asistentes Juzgados Unipersonales - NCPP - TARAPOTO"
+  },
+  {
+    "id": "146",
+    "descripcion": "Asistentes Sala Penal de Apelaciones - NCPP - TARAPOTO"
+  },
+  {
+    "id": "147",
+    "descripcion": "JUZGADO DE FAMILIA TRANSITORIO - TARAPOTO"
+  },
+  {
+    "id": "148",
+    "descripcion": "Juzgado de Investigación Preparatoria ESPECIAL - NCPP - TARAPOTO"
+  },
+  {
+    "id": "149",
+    "descripcion": "JUZGADO DE PAZ LETRADO ESP.CIVIL - TARAPOTO"
+  },
+  {
+    "id": "150",
+    "descripcion": "JUZGADO DE PAZ LETRADO ESP.FAMILIA - TARAPOTO"
+  },
+  {
+    "id": "151",
+    "descripcion": "JUZGADO DE PAZ LETRADO ESP.PENAL - TARAPOTO"
+  },
+  {
+    "id": "152",
+    "descripcion": "JUZGADO DE PAZ LETRADO LABORAL - TARAPOTO"
+  },
+  {
+    "id": "153",
+    "descripcion": "JUZGADO DE PAZ LETRADO MIXTO TRANSITORIO - TARAPOTO"
+  },
+  {
+    "id": "154",
+    "descripcion": "JUZGADO DE TRABAJO - TARAPOTO"
+  },
+  {
+    "id": "155",
+    "descripcion": "JUZGADO PENAL COLEGIADO SUPRAPROVINCIAL PERMANENTE - JCS - TARAPOTO"
+  },
+  {
+    "id": "156",
+    "descripcion": "JUZGADO PENAL COLEGIADO TRANSITORIO - TARAPOTO"
+  },
+  {
+    "id": "157",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - TARAPOTO"
+  },
+  {
+    "id": "158",
+    "descripcion": "Mesa de Partes Unica - TARAPOTO"
+  },
+  {
+    "id": "159",
+    "descripcion": "MÓDULO CORPORATIVO LABORAL - TARAPOTO"
+  },
+  {
+    "id": "160",
+    "descripcion": "Notificaciones - TARAPOTO"
+  },
+  {
+    "id": "161",
+    "descripcion": "Notificaciones - NCPP - TARAPOTO"
+  },
+  {
+    "id": "162",
+    "descripcion": "POOL DE ESPECIALISTAS JUZGADOS DE INV. PREPARATORIA - NCPP - TARAPOTO"
+  },
+  {
+    "id": "163",
+    "descripcion": "POOL DE ESPECIALISTAS JUZGADOS UNIPERSONALES - NCPP - TARAPOTO"
+  },
+  {
+    "id": "164",
+    "descripcion": "POOL DE ESPECIALISTAS SALA PENAL DE APELACIONES - NCPP - TARAPOTO"
+  },
+  {
+    "id": "165",
+    "descripcion": "SALA CIVIL DESCENTRALIZADA - TARAPOTO"
+  },
+  {
+    "id": "166",
+    "descripcion": "SALA PENAL DE APELACIONES - TARAPOTO"
+  },
+  {
+    "id": "167",
+    "descripcion": "Unidad de Atencion al Publico - NCPP - TARAPOTO"
+  },
+  {
+    "id": "168",
+    "descripcion": "UNIDAD DE INVESTIGACIONES Y VISITAS (ODANC) - TARAPOTO"
+  },
+  {
+    "id": "169",
+    "descripcion": "UNIDAD DE REALIZACIÓN DE AUDIENCIAS - NCPP - TARAPOTO"
+  },
+  {
+    "id": "170",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - TARAPOTO"
+  },
+  {
+    "id": "171",
+    "descripcion": "Area de Apoyo (NCPP) - TOCACHE"
+  },
+  {
+    "id": "172",
+    "descripcion": "JUZGADO CIVIL - TOCACHE"
+  },
+  {
+    "id": "173",
+    "descripcion": "JUZGADO DE FAMILIA - TOCACHE"
+  },
+  {
+    "id": "174",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA - TOCACHE"
+  },
+  {
+    "id": "175",
+    "descripcion": "JUZGADO DE PAZ LETRADO - TOCACHE"
+  },
+  {
+    "id": "176",
+    "descripcion": "JUZGADO PENAL UNIPERSONAL - TOCACHE"
+  },
+  {
+    "id": "177",
+    "descripcion": "Limpieza - Organos Jurisdiccionales - TOCACHE"
+  },
+  {
+    "id": "178",
+    "descripcion": "Mesa de Partes Unica - TOCACHE"
+  },
+  {
+    "id": "179",
+    "descripcion": "Notificaciones - TOCACHE"
+  },
+  {
+    "id": "180",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - TOCACHE"
+  },
+  {
+    "id": "181",
+    "descripcion": "1º JUZGADO CIVIL - YURIMAGUAS"
+  },
+  {
+    "id": "182",
+    "descripcion": "1º JUZGADO MIXTO - YURIMAGUAS"
+  },
+  {
+    "id": "183",
+    "descripcion": "1º JUZGADO PENAL UNIPERSONAL TRANSITORIO - YURIMAGUAS"
+  },
+  {
+    "id": "184",
+    "descripcion": "2º JUZGADO CIVIL - YURIMAGUAS"
+  },
+  {
+    "id": "185",
+    "descripcion": "2º JUZGADO PENAL UNIPERSONAL TRANSITORIO - YURIMAGUAS"
+  },
+  {
+    "id": "186",
+    "descripcion": "Area de Apoyo (NCPP) - YURIMAGUAS"
+  },
+  {
+    "id": "187",
+    "descripcion": "JUZGADO DE FAMILIA - YURIMAGUAS"
+  },
+  {
+    "id": "188",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA - YURIMAGUAS"
+  },
+  {
+    "id": "189",
+    "descripcion": "JUZGADO DE LA INVESTIGACION PREPARATORIA TRANSITORIO - YURIMAGUAS"
+  },
+  {
+    "id": "190",
+    "descripcion": "JUZGADO DE PAZ LETRADO - YURIMAGUAS"
+  },
+  {
+    "id": "191",
+    "descripcion": "Mesa de Partes Unica - YURIMAGUAS"
+  },
+  {
+    "id": "192",
+    "descripcion": "Notificaciones - YURIMAGUAS"
+  },
+  {
+    "id": "193",
+    "descripcion": "SALA MIXTA DESCENTRALIZADA - YURIMAGUAS"
+  },
+  {
+    "id": "194",
+    "descripcion": "Vigilancia - Organos Jurisdiccionales - YURIMAGUAS"
+  }
+]

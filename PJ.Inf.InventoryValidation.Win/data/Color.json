@@ -1,0 +1,202 @@
+[
+  {
+    "id": "47",
+    "descripcion": "AMARILLO"
+  },
+  {
+    "id": "40",
+    "descripcion": "ANARANJADO"
+  },
+  {
+    "id": "5",
+    "descripcion": "AZUL"
+  },
+  {
+    "id": "39",
+    "descripcion": "AZUL CON BLANCO"
+  },
+  {
+    "id": "6",
+    "descripcion": "AZUL OSCURO METALICO"
+  },
+  {
+    "id": "11",
+    "descripcion": "AZULINO CON NEGRO"
+  },
+  {
+    "id": "14",
+    "descripcion": "BEIGE"
+  },
+  {
+    "id": "15",
+    "descripcion": "BLANCO"
+  },
+  {
+    "id": "10",
+    "descripcion": "BLANCO CON GRIS"
+  },
+  {
+    "id": "27",
+    "descripcion": "BLANCO CON NEGRO"
+  },
+  {
+    "id": "13",
+    "descripcion": "BLANCO HUMO"
+  },
+  {
+    "id": "35",
+    "descripcion": "BLANCO HUMO"
+  },
+  {
+    "id": "28",
+    "descripcion": "BLANCO HUMO CON NEGRO"
+  },
+  {
+    "id": "18",
+    "descripcion": "CAOBA"
+  },
+  {
+    "id": "19",
+    "descripcion": "CARAMELO"
+  },
+  {
+    "id": "16",
+    "descripcion": "CEDRO"
+  },
+  {
+    "id": "20",
+    "descripcion": "CEREZO"
+  },
+  {
+    "id": "9",
+    "descripcion": "CREMA"
+  },
+  {
+    "id": "25",
+    "descripcion": "CREMA NEGRO"
+  },
+  {
+    "id": "2",
+    "descripcion": "GRIS"
+  },
+  {
+    "id": "44",
+    "descripcion": "GRIS + NEGRO"
+  },
+  {
+    "id": "42",
+    "descripcion": "GRIS CLARO"
+  },
+  {
+    "id": "33",
+    "descripcion": "GRIS CLARO CON NEGRO"
+  },
+  {
+    "id": "23",
+    "descripcion": "GRIS CON BLANCO"
+  },
+  {
+    "id": "30",
+    "descripcion": "GRIS CON NEGRO"
+  },
+  {
+    "id": "12",
+    "descripcion": "GRIS OSCURO"
+  },
+  {
+    "id": "24",
+    "descripcion": "GRIS OSCURO METALICO"
+  },
+  {
+    "id": "29",
+    "descripcion": "GRIS OSCURO PLATA"
+  },
+  {
+    "id": "45",
+    "descripcion": "GRIS+NEGRO"
+  },
+  {
+    "id": "21",
+    "descripcion": "GUINDA"
+  },
+  {
+    "id": "48",
+    "descripcion": "HAYA"
+  },
+  {
+    "id": "51",
+    "descripcion": "MADERA"
+  },
+  {
+    "id": "17",
+    "descripcion": "MARRON"
+  },
+  {
+    "id": "38",
+    "descripcion": "MARRON CLARO"
+  },
+  {
+    "id": "22",
+    "descripcion": "METAL"
+  },
+  {
+    "id": "46",
+    "descripcion": "NARANJA"
+  },
+  {
+    "id": "1",
+    "descripcion": "NEGRO"
+  },
+  {
+    "id": "50",
+    "descripcion": "NEGRO CON NARANJA"
+  },
+  {
+    "id": "26",
+    "descripcion": "NEGRO PLOMO"
+  },
+  {
+    "id": "36",
+    "descripcion": "NEGRO Y GRIS GRAFITO"
+  },
+  {
+    "id": "37",
+    "descripcion": "NEGRO/ ROJO"
+  },
+  {
+    "id": "49",
+    "descripcion": "NEGRO/PLATA"
+  },
+  {
+    "id": "4",
+    "descripcion": "PLATA"
+  },
+  {
+    "id": "8",
+    "descripcion": "PLATEADO"
+  },
+  {
+    "id": "3",
+    "descripcion": "PLOMO"
+  },
+  {
+    "id": "31",
+    "descripcion": "PLOMO CREMA"
+  },
+  {
+    "id": "32",
+    "descripcion": "PLOMO OSCURO"
+  },
+  {
+    "id": "7",
+    "descripcion": "ROJO"
+  },
+  {
+    "id": "41",
+    "descripcion": "SILVER"
+  },
+  {
+    "id": "43",
+    "descripcion": "VERDE"
+  }
+]
