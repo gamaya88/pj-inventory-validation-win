@@ -59,7 +59,18 @@ namespace PJ.Inf.InventoryValidation.Win.Resources {
                 resourceCulture = value;
             }
         }
-        
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ya existe un acta generada para este trabajador.
+        /// </summary>
+        internal static string MensajeActaSubidaPorTrabajador
+        {
+            get
+            {
+                return ResourceManager.GetString("MensajeActaSubidaPorTrabajador", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Busca una cadena traducida similar a Desea confirmar la información de inventario.
         /// </summary>
@@ -111,6 +122,15 @@ namespace PJ.Inf.InventoryValidation.Win.Resources {
         internal static string MensajeExisteSerie {
             get {
                 return ResourceManager.GetString("MensajeExisteSerie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha guardado la corroboración correctamente.
+        /// </summary>
+        internal static string MensajeInventariadoCorrectamente {
+            get {
+                return ResourceManager.GetString("MensajeInventariadoCorrectamente", resourceCulture);
             }
         }
         

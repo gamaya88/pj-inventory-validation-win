@@ -150,4 +150,10 @@
   <data name="MensajeElementoObservado" xml:space="preserve">
     <value>El bien patrimonial a sido reportado para su revisión</value>
   </data>
+  <data name="MensajeInventariadoCorrectamente" xml:space="preserve">
+    <value>Se ha guardado la corroboración correctamente</value>
+  </data>
+  <data name="MensajeActaSubidaPorTrabajador" xml:space="preserve">
+    <value>Ya existe un acta generada para este trabajador</value>
+  </data>
 </root>

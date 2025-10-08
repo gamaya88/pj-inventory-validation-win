@@ -26,6 +26,12 @@ namespace PJ.Inf.InventoryValidation.Win.Service
         {
             using (var context = new HelpDeskDbContext())
             {
+                if(bienPatrimonial.Abp != null && bienPatrimonial.Abp.AbpId == Guid.Empty)
+                {
+                    context.Attach(bienPatrimonial.Abp);
+                    context.Entry(bienPatrimonial.Abp).State = EntityState.Added;
+                }
+
                 context.Attach(bienPatrimonial);
                 context.Entry(bienPatrimonial).State = EntityState.Modified;
 

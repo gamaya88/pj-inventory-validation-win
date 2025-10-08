@@ -15,6 +15,8 @@ public partial class HelpDeskDbContext : DbContext
     {
     }
 
+    public virtual DbSet<ActaBienPatrimonial> ActaBienPatrimonials { get; set; }
+
     public virtual DbSet<BienPatrimonial> BienPatrimonials { get; set; }
 
     public virtual DbSet<Definition> Definitions { get; set; }
@@ -51,6 +53,35 @@ public partial class HelpDeskDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<ActaBienPatrimonial>(entity =>
+        {
+            entity.HasKey(e => e.AbpId);
+
+            entity.ToTable("ActaBienPatrimonial", "Inv");
+
+            entity.HasIndex(e => e.PerId, "IX_ActaBienPatrimonial").IsUnique();
+
+            entity.Property(e => e.AbpId).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.AbpArchivoDescargado).HasMaxLength(128);
+            entity.Property(e => e.AbpArchivoSubido).HasMaxLength(128);
+            entity.Property(e => e.AbpUltimaImpresion).HasColumnType("datetime");
+            entity.Property(e => e.PerNombre).HasMaxLength(128);
+            entity.Property(e => e.SecActivo)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
+            entity.Property(e => e.SecFechaActualizacion).HasColumnType("datetime");
+            entity.Property(e => e.SecFechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.SecFechaEliminacion).HasColumnType("datetime");
+            entity.Property(e => e.SecUsuarioActualizacionId).HasMaxLength(64);
+            entity.Property(e => e.SecUsuarioCreacionId)
+                .HasMaxLength(64)
+                .HasDefaultValueSql("(suser_name())");
+            entity.Property(e => e.SecUsuarioEliminacionId).HasMaxLength(64);
+            entity.Property(e => e.UsrIdentificadorImprime).HasMaxLength(32);
+        });
+
         modelBuilder.Entity<BienPatrimonial>(entity =>
         {
             entity.HasKey(e => e.BptId);
@@ -83,6 +114,10 @@ public partial class HelpDeskDbContext : DbContext
                 .HasMaxLength(64)
                 .HasDefaultValueSql("(suser_name())");
             entity.Property(e => e.SecUsuarioEliminacionId).HasMaxLength(64);
+
+            entity.HasOne(d => d.Abp).WithMany(p => p.BienPatrimonials)
+                .HasForeignKey(d => d.AbpId)
+                .HasConstraintName("FK_BienPatrimonial_ActaBienPatrimonial");
 
             entity.HasOne(d => d.Dbm).WithMany(p => p.BienPatrimonials)
                 .HasForeignKey(d => d.DbmId)

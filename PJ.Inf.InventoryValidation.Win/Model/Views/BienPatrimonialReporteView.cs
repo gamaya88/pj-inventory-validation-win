@@ -22,10 +22,16 @@ namespace PJ.Inf.InventoryValidation.Win.Model.Views
 
         public string BptEstadoConservacionDescripcionTipo { get; set; }
 
+        public byte BptNuevoEstadoConservacionTipo { get; set; }
+
+        public string BptNuevoEstadoConservacionDescripcionTipo { get; set; }
+
         public byte BptColorTipo { get; set; }
 
         public string BptColorDescripcionTipo { get; set; }
 
         public string? BptSerie { get; set; }
+
+        public string? BptNuevaSerie { get; set; }
     }
 }

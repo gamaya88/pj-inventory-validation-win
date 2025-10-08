@@ -54,6 +54,8 @@ namespace PJ.Inf.InventoryValidation.Win.Model.Views
 
         public string? BptSerie { get; set; }
 
+        public string? BptNuevaSerie { get; set; }
+
         public byte BptInventariadoTipo { get; set; }
 
         public string BptObservacion { get; set; }

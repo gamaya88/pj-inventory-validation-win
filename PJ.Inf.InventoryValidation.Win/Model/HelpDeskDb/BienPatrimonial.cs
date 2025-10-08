@@ -19,6 +19,8 @@ public partial class BienPatrimonial
 
     public Guid? OfiNuevoId { get; set; }
 
+    public Guid? AbpId { get; set; }
+
     public string BptCodigoPatrimonial { get; set; } = null!;
 
     public string BptCodigoCatalogo { get; set; } = null!;
@@ -58,6 +60,8 @@ public partial class BienPatrimonial
     public DateTime? SecFechaActualizacion { get; set; }
 
     public DateTime? SecFechaEliminacion { get; set; }
+
+    public virtual ActaBienPatrimonial? Abp { get; set; }
 
     public virtual DenominacionBienModelo Dbm { get; set; } = null!;
 
