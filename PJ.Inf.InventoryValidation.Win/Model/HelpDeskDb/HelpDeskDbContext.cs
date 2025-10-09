@@ -63,6 +63,7 @@ public partial class HelpDeskDbContext : DbContext
 
             entity.Property(e => e.AbpId).HasDefaultValueSql("(newid())");
             entity.Property(e => e.AbpArchivoDescargado).HasMaxLength(128);
+            entity.Property(e => e.AbpArchivoFirmado).HasMaxLength(128);
             entity.Property(e => e.AbpArchivoSubido).HasMaxLength(128);
             entity.Property(e => e.AbpUltimaImpresion).HasColumnType("datetime");
             entity.Property(e => e.PerNombre).HasMaxLength(128);

@@ -23,6 +23,8 @@ public partial class ActaBienPatrimonial
 
     public string? AbpArchivoDescargado { get; set; }
 
+    public string? AbpArchivoFirmado { get; set; }
+
     public bool? SecActivo { get; set; }
 
     public string SecUsuarioCreacionId { get; set; } = null!;

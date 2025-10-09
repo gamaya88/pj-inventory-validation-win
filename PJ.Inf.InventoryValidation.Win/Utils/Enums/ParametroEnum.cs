@@ -12,5 +12,6 @@ namespace PJ.Inf.InventoryValidation.Win.Utils.Enums
         public const string CREDENTIAL_ENVIO_MAIL = "CREDENTIAL_ENVIO_MAIL";
         public const string EMAILS_ENVIO_MAIL_INVENTARIO = "EMAILS_ENVIO_MAIL_INVENTARIO";
         public const string CARPETA_SUBIDA_ACTAS = "CARPETA_SUBIDA_ACTAS";
+        public const string USUARIOS_ADMIN_INVENTARIO = "USUARIOS_ADMIN_INVENTARIO";
     }
 }

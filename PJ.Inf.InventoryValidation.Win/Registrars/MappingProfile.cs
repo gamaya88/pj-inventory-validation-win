@@ -32,6 +32,10 @@ namespace PJ.Inf.InventoryValidation.Win.Registrars
 
         private MappingProfile()
         {
+            CreateMap<ActaBienPatrimonial, ActaBienPatrimonialView>()
+                .ReverseMap()
+                .ForAllMembersOfType(typeof(ICollection<>), x => x.UseDestinationValue());
+
             CreateMap<BienPatrimonialView, BienPatrimonialReporteView>()
                 .ReverseMap();
 

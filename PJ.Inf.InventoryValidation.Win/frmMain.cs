@@ -12,6 +12,8 @@ using PJ.Inf.InventoryValidation.Win.Utils.Enums;
 using PJ.Inf.InventoryValidation.Win.Views;
 using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,6 +41,8 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private List<ValordefinicionView> color;
 
+        private List<ValordefinicionView> estadoActa;
+
         private Usuario usuarioDetectado;
 
         private BienPatrimonialView bienEncontrado = null;
@@ -51,6 +55,8 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private List<string> correosDestino = new List<string>();
 
+        private List<string> usuariosAdmin = new List<string>();
+
         private string carpetaSubidaActas = "";
 
         List<BienPatrimonialReporteView> bienesAListar = new List<BienPatrimonialReporteView>();
@@ -60,6 +66,7 @@ namespace PJ.Inf.InventoryValidation.Win
             InitializeComponent();
 
             dgvListado.Configurar();
+            dgvActas.Configurar();
 
             ConfigureCombo();
 
@@ -88,53 +95,6 @@ namespace PJ.Inf.InventoryValidation.Win
             mapper = MappingProfile.GetInstance();
         }
 
-        private void ConfigureCombo()
-        {
-            cmbMarca.DisplayMember = "MarDescripcion";
-            cmbMarca.ValueMember = "MarId";
-
-            cmbEstadoConversacion.ValueMember =
-            cmbColor.ValueMember = "DfvValor";
-
-            cmbEstadoConversacion.DisplayMember =
-            cmbColor.DisplayMember = "DfvDescripcion";
-
-            cmbDependenciaJudicial.ValueMember = "DepId";
-            cmbDependenciaJudicial.DisplayMember = "DepDescripcion";
-
-            cmbOficinaInterna.ValueMember = "OfiId";
-            cmbOficinaInterna.DisplayMember = "OfiDescripcion";
-
-            cmbTrabajadorSearch.ValueMember =
-            cmbTrabajador.ValueMember = "PerId";
-            cmbTrabajadorSearch.DisplayMember =
-            cmbTrabajador.DisplayMember = "PerNombreLargo";
-
-            cmbModelo.ValueMember = "ModId";
-            cmbModelo.DisplayMember = "ModDescripcion";
-
-            cmbDenominacionBienModelo.DisplayMember = "DebDescripcion";
-            cmbDenominacionBienModelo.ValueMember = "DbmId";
-        }
-
-        private async Task CargaCombos()
-        {
-            var marcas = await marcaService.GetAll();
-
-            estadoConservacion = await definitionValueService.GetByDefinitionAndGroupAsync(DefinitionEnum.TIPO_ESTADO_DE_CONSERVACION);
-
-            color = await definitionValueService.GetByDefinitionAndGroupAsync(DefinitionEnum.TIPO_DE_COLOR_ALMACEN);
-
-            cmbMarca.DataSource = marcas;
-            cmbEstadoConversacion.DataSource = estadoConservacion.OrderBy(x => x.DfvValor).ToList();
-            cmbColor.DataSource = color.OrderBy(x => x.DfvDescripcion).ToList();
-
-            cmbDependenciaJudicial.DataSource = usuarioDetectado.Per.Sed.DependenciaJudicials.OrderBy(x => x.DepDescripcion).ToList();
-
-            var personas = mapper.Map<List<PersonaView>>(usuarioDetectado.Per.Sed.Personas.ToList());
-            cmbTrabajador.DataSource = personas.OrderBy(x => x.PerNombreLargo).ToList();
-        }
-
         private async void frmMain_Load(object sender, EventArgs e)
         {
             usuarioDetectado = await usuarioService.Get();
@@ -147,6 +107,8 @@ namespace PJ.Inf.InventoryValidation.Win
                 this.Close();
             }
 
+            await LoadParametros();
+
             ttsUsuario.Text = $"USUARIO: {usuarioDetectado.Per.PerNombres} {usuarioDetectado.Per.PerApellidoPaterno}";
 
             ttsSede.Text = $"{usuarioDetectado.Per.Sed.SedDescripcion}";
@@ -155,37 +117,245 @@ namespace PJ.Inf.InventoryValidation.Win
 
             await CargaTrabajadoresInventariadosPorUsuario();
 
-            await LoadParametros();
+            if (!usuariosAdmin.Contains(usuarioDetectado.UsrIdentificador))
+            {
+                // Guardamos una referencia a la tercera pestaña (índice 2)
+                var tabOculta = mtcMain.TabPages[2];
+
+                // Ahora la eliminamos del control para que no sea visible
+                mtcMain.TabPages.Remove(tabOculta);
+            }
+            else
+            {
+                await ListarActas();
+            }
 
             EndLoad();
         }
 
-        private async void cmbMarca_SelectedValueChanged(object sender, EventArgs e)
+        #region Listado de bienes
+
+        private async void btnDescargarActa_Click(object sender, EventArgs e)
         {
-            var marca = cmbMarca.SelectedItem as MarcaView;
+            btnDescargarActa.Enabled = false;
 
-            if (marca != null)
+            var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
+
+            if (personaSeleccionada == null)
             {
-                cmbModelo.DataSource = marca.Modelos.OrderBy(m => m.ModDescripcion).ToList();
-
-                denominacionBienModeloViews = await denominacionBienModeloService.GetDenominacionesPorMarca(marca.MarId);
-
-                cmbDenominacionBienModelo.DataSource = denominacionBienModeloViews;
+                return;
             }
+
+            var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
+
+            await descargaActa(acta);
+
+            btnDescargarActa.Enabled = true;
         }
 
-        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
+        private async void btnSubirActa_Click(object sender, EventArgs e)
         {
-            var modelo = cmbModelo.SelectedItem as ModeloView;
+            btnSubirActa.Enabled = false;
 
-            if (modelo != null && denominacionBienModeloViews != null)
+            using (var ofd = new OpenFileDialog())
             {
-                var denominaciones = denominacionBienModeloViews
-                    .Where(x => x.ModId == modelo.ModId)
-                    .ToList();
+                ofd.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                ofd.Title = "Selecciona el acta en PDF";
+                ofd.Multiselect = false;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    await subirActa(ofd.FileName, ofd.SafeFileName);
+                }
+            }
+
+            btnSubirActa.Enabled = true;
+        }
+
+        private async void cmbTrabajadorSearch_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbTrabajadorSearch.SelectedValue == null)
+            {
+                return;
+            }
+
+            await CargaTrabajadoresInventariadosPorUsuario(false);
+
+            toolStripProgressBar1.Visible = true;            
+
+            toolStripProgressBar1.Visible = false;
+        }
 
 
-                cmbDenominacionBienModelo.DataSource = denominaciones;
+        private async void btnGenerarActa_Click(object sender, EventArgs e)
+        {
+            btnGenerarActa.Enabled = false;
+            toolStripProgressBar1.Visible = true;
+
+            string[] columnas = { "N°", "Descripción según Catálogo", "Cod. Patrimonial", "Estado", "Marca", "Modelo", "Serie", "Color" };
+
+            var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
+            if (personaSeleccionada == null)
+            {
+                MaterialSnackBar SnackBarMessage = new MaterialSnackBar("Seleccione un trabajador.", "OK", true);
+                SnackBarMessage.Show(this);
+                btnGenerarActa.Enabled = true;
+                toolStripProgressBar1.Visible = false;
+                return;
+            }
+
+            string nombre_acta = personaSeleccionada.PerNombreLargo.ToUpper().Replace(",", "").Replace(" ", "_");
+
+            List<string[]> filas = bienesAListar.OrderBy(x => x.DebDescripcion)
+                .Select((x, idx) => new string[]
+                {
+            (idx + 1).ToString("D3"),
+            x.DebDescripcion ?? "",
+            x.BptCodigoPatrimonial ?? "",
+            x.BptNuevoEstadoConservacionDescripcionTipo ?? "",
+            x.MarDescripcion ?? "",
+            x.ModDescripcion ?? "",
+            x.BptNuevaSerie ?? "",
+            x.BptColorDescripcionTipo ?? "",
+                })
+                .ToList();
+
+            QuestPDF.Settings.License = LicenseType.Community;
+            var reporte = new ActaInventario("ACTA DE ASIGNACIÓN DE BIENES DE LA C.S.J.S.M", columnas, filas);
+
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                sfd.Title = "Guardar acta como...";
+                sfd.FileName = $"{nombre_acta}.pdf";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    string path = sfd.FileName;
+                    reporte.GeneratePdf(path);
+
+                    if (File.Exists(path))
+                    {
+                        // Abrir el PDF generado
+                        var psi = new System.Diagnostics.ProcessStartInfo
+                        {
+                            FileName = path,
+                            UseShellExecute = true
+                        };
+                        System.Diagnostics.Process.Start(psi);
+
+                        var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
+                        acta.AbpUltimaImpresion = DateTime.Now;
+                        acta.AbpEstadoActa = EstadoActaEnum.IMPRESA;
+                        acta.UsrIdentificadorImprime = usuarioDetectado.UsrIdentificador;
+                        acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                        acta.SecFechaActualizacion = DateTime.Now;
+                        acta.AbpImpresiones += 1;
+
+                        await actaBienPatrimonialService.Modifica(acta);
+
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar("Acta generada y guardada correctamente.", "OK", true);
+                        SnackBarMessage.Show(this);
+                    }
+                    else
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"No se pudo generar el acta en {path}", "OK", true);
+                        SnackBarMessage.Show(this);
+                    }
+                }
+            }
+
+            await CargaTrabajadoresInventariadosPorUsuario(false);
+
+            toolStripProgressBar1.Visible = false;
+            btnGenerarActa.Enabled = true;
+        }
+
+        #endregion Listado de bienes
+
+        #region Ingreso de bien
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!Validate() && bienEncontrado != null)
+            {
+                if (!txtSerie.Text.IsNullOrEmpty())
+                {
+                    var bienConMismaSerie = await bienPatrimonialService.GetBySerie(bienEncontrado.BptId, txtSerie.Text.Trim());
+
+                    if (bienConMismaSerie.Any())
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeExisteSerie, "OK", true);
+                        SnackBarMessage.Show(this);
+
+                        epInventario.SetError(txtSerie, SystemMessages.MensajeExisteSerie);
+                        return;
+                    }
+                }
+
+                var personaSeleccionada = cmbTrabajador.SelectedItem as PersonaView;
+
+                var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
+
+                if (acta != null && acta.AbpEstadoActa >= EstadoActaEnum.SUBIDA)
+                {
+                    MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeActaSubidaPorTrabajador, "OK", true);
+                    SnackBarMessage.Show(this);
+                    return;
+                }
+
+                MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", SystemMessages.MensajeConfirmarInformacion, "OK", true, "Cancel");
+
+                DialogResult result = materialDialog.ShowDialog(this);
+
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                toolStripProgressBar1.Visible = true;
+
+                var bienPatrimonial = await bienPatrimonialService.Get(bienEncontrado.BptId);
+
+                bienPatrimonial.PerNuevoId = (Guid)cmbTrabajador.SelectedValue;
+                bienPatrimonial.UsrInventariaId = usuarioDetectado.UsrId;
+                bienPatrimonial.OfiNuevoId = (Guid)cmbOficinaInterna.SelectedValue;
+                bienPatrimonial.BptInventariadoTipo = InventariadoTipoEnum.INVENTARIADO;
+                bienPatrimonial.BptNuevoEstadoConservacionTipo = (byte)cmbEstadoConversacion.SelectedValue;
+                bienPatrimonial.BptNuevaSerie = txtSerie.Text.Trim();
+                bienPatrimonial.BptObservacion = txtObservaciones.Text.Trim();
+
+                bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
+                bienPatrimonial.SecFechaCreacion = DateTime.Now;
+
+                if (acta != null)
+                {
+                    bienPatrimonial.AbpId = acta.AbpId;
+                }
+                else
+                {
+                    acta = new ActaBienPatrimonial()
+                    {
+                        PerId = (Guid)bienPatrimonial.PerNuevoId,
+                        AbpEstadoActa = EstadoActaEnum.CREADA,
+                        SecUsuarioCreacionId = usuarioDetectado.SecUsuarioCreacionId,
+                        SecFechaCreacion = DateTime.Now,
+                        PerNombre = cmbTrabajador.Text,
+                        SecActivo = true,
+                        AbpImpresiones = 0
+                    };
+
+                    bienPatrimonial.Abp = acta;
+                }
+
+                await bienPatrimonialService.Modifica(bienPatrimonial);
+
+                await CargaTrabajadoresInventariadosPorUsuario();
+
+                MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeInventariadoCorrectamente, "OK", true);
+                SnackBarMessage2.Show(this);
+
+                toolStripProgressBar1.Visible = false;
             }
         }
 
@@ -212,12 +382,69 @@ namespace PJ.Inf.InventoryValidation.Win
             }
         }
 
-        private void cmbCodigoPatrimonial_KeyPress(object sender, KeyPressEventArgs e)
+        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bienEncontrado = null;
-            btnBienEncontrado.Visible = false;
+            var modelo = cmbModelo.SelectedItem as ModeloView;
 
-            e.Handled = UtilService.KeyPressInteger(sender, e, 12);
+            if (modelo != null && denominacionBienModeloViews != null)
+            {
+                var denominaciones = denominacionBienModeloViews
+                    .Where(x => x.ModId == modelo.ModId)
+                    .ToList();
+
+
+                cmbDenominacionBienModelo.DataSource = denominaciones;
+            }
+        }
+
+        private async void cmbMarca_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var marca = cmbMarca.SelectedItem as MarcaView;
+
+            if (marca != null)
+            {
+                cmbModelo.DataSource = marca.Modelos.OrderBy(m => m.ModDescripcion).ToList();
+
+                denominacionBienModeloViews = await denominacionBienModeloService.GetDenominacionesPorMarca(marca.MarId);
+
+                cmbDenominacionBienModelo.DataSource = denominacionBienModeloViews;
+            }
+        }
+
+        private async void btnBienEncontrado_Click(object sender, EventArgs e)
+        {
+            MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", SystemMessages.MensajeNoCoincidenciaBienPatrimonial, "OK", true, "Cancel");
+
+            DialogResult result = materialDialog.ShowDialog(this);
+
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            toolStripProgressBar1.Visible = true;
+
+            btnGuardar.Enabled =
+            btnBienEncontrado.Enabled = false;
+
+            var bienPatrimonial = await bienPatrimonialService.Get(bienEncontrado.BptId);
+
+            bienPatrimonial.BptInventariadoTipo = InventariadoTipoEnum.REPORTADO_POR_REVISAR;
+            bienPatrimonial.BptObservacion = txtObservaciones.Text.Trim();
+
+            bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
+            bienPatrimonial.SecFechaCreacion = DateTime.Now;
+
+            await bienPatrimonialService.Modifica(bienPatrimonial);
+
+            bienEncontrado = mapper.Map<BienPatrimonialView>(bienPatrimonial);
+
+            UtilService.EnviarEmailNoCoincideBienPatrimonial(correosDestino, bienEncontrado, emailEnvio, credencialEnvio, usuarioDetectado);
+
+            MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeEmailEnviado, "OK", true);
+            SnackBarMessage2.Show(this);
+
+            toolStripProgressBar1.Visible = false;
         }
 
         private async void cmbCodigoPatrimonial_Leave(object sender, EventArgs e)
@@ -261,6 +488,137 @@ namespace PJ.Inf.InventoryValidation.Win
             toolStripProgressBar1.Visible = false;
         }
 
+        private void cmbCodigoPatrimonial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bienEncontrado = null;
+            btnBienEncontrado.Visible = false;
+
+            e.Handled = UtilService.KeyPressInteger(sender, e, 12);
+        }
+
+        #endregion Ingreso de bien
+
+        #region Aprobar actas
+
+        private async void btnLiberarInventario_Click(object sender, EventArgs e)
+        {
+            btnLiberarInventario.Enabled = false;
+
+            await CambiarEstadoActa(EstadoActaEnum.CREADA);
+
+            btnLiberarInventario.Enabled = true;
+        }
+
+        private async void btnAprobarActa_Click(object sender, EventArgs e)
+        {
+            btnAprobarActa.Enabled = false;
+
+            await CambiarEstadoActa(EstadoActaEnum.APROBADA);
+
+            btnAprobarActa.Enabled = true;
+        }
+
+        private async void btnSubirFirmada_Click(object sender, EventArgs e)
+        {
+            btnSubirFirmada.Enabled = false;
+
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                ofd.Title = "Selecciona el acta firmada en PDF";
+                ofd.Multiselect = false;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    await subirActa(ofd.FileName, ofd.SafeFileName);
+
+                    await ListarActas();
+                }
+            }
+
+            btnSubirFirmada.Enabled = true;
+        }
+
+        private async void btnVerActaEnviada_Click(object sender, EventArgs e)
+        {
+            btnVerActaEnviada.Enabled = false;
+
+            if (dgvActas.SelectedRows[0].AccessibilityObject != null)
+            {
+                var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
+
+                var acta = await actaBienPatrimonialService.Get(actaSeleccionada.AbpId);
+
+                await descargaActa(acta);
+
+                await ListarActas();
+            }
+
+            btnVerActaEnviada.Enabled = true;
+        }
+
+        #endregion Aprobar actas
+
+        #region Métodos propios
+
+        private async Task ListarActas()
+        {
+            toolStripProgressBar1.Visible = true;
+
+            var actas = await actaBienPatrimonialService.Get(!chkPorFirma.Checked ? EstadoActaEnum.TODOS : EstadoActaEnum.SUBIDA);
+
+            actas.ForEach(x =>
+            {
+                x.AbpDescripcionEstadoActa = estadoActa.FirstOrDefault(y => y.DfvValor == x.AbpEstadoActa)?.DfvDescripcion ?? "";
+            });
+
+            dgvActas.DataSource = actas.OrderBy(x => x.PerNombre).ToList();
+
+            btnAprobarActa.Enabled =
+            btnLiberarInventario.Enabled =
+            btnSubirFirmada.Enabled =
+            btnVerActaEnviada.Enabled = false;
+
+            if (actas.Any())
+            {
+                var actaSeleccionada = actas.OrderBy(x => x.PerNombre).FirstOrDefault();
+                ActivarBotonesActas(actaSeleccionada);
+            }
+
+            toolStripProgressBar1.Visible = false;
+        }
+
+        private void ActivarBotonesActas(ActaBienPatrimonialView actaSeleccionada)
+        {
+            btnVerActaEnviada.Enabled = actaSeleccionada.AbpEstadoActa >= EstadoActaEnum.SUBIDA;
+
+            btnSubirFirmada.Enabled = actaSeleccionada.AbpEstadoActa == EstadoActaEnum.SUBIDA;
+
+            btnAprobarActa.Enabled = actaSeleccionada.AbpEstadoActa == EstadoActaEnum.FIRMADA_PATRIMONIO;
+
+            btnLiberarInventario.Enabled = actaSeleccionada.AbpEstadoActa == EstadoActaEnum.SUBIDA;
+        }
+
+        private async Task CargaCombos()
+        {
+            var marcas = await marcaService.GetAll();
+
+            estadoConservacion = await definitionValueService.GetByDefinitionAndGroupAsync(DefinitionEnum.TIPO_ESTADO_DE_CONSERVACION);
+
+            color = await definitionValueService.GetByDefinitionAndGroupAsync(DefinitionEnum.TIPO_DE_COLOR_ALMACEN);
+
+            estadoActa = await definitionValueService.GetByDefinitionAndGroupAsync(DefinitionEnum.TIPO_ESTADO_DE_ACTA);
+
+            cmbMarca.DataSource = marcas;
+            cmbEstadoConversacion.DataSource = estadoConservacion.OrderBy(x => x.DfvValor).ToList();
+            cmbColor.DataSource = color.OrderBy(x => x.DfvDescripcion).ToList();
+
+            cmbDependenciaJudicial.DataSource = usuarioDetectado.Per.Sed.DependenciaJudicials.OrderBy(x => x.DepDescripcion).ToList();
+
+            var personas = mapper.Map<List<PersonaView>>(usuarioDetectado.Per.Sed.Personas.ToList());
+            cmbTrabajador.DataSource = personas.OrderBy(x => x.PerNombreLargo).ToList();
+        }
+
         private void EndLoad()
         {
             btnGuardar.Enabled = false;
@@ -273,6 +631,35 @@ namespace PJ.Inf.InventoryValidation.Win
             txtCodigoPatrimonial.Enabled = true;
 
             toolStripProgressBar1.Visible = false;
+        }
+
+        private void ConfigureCombo()
+        {
+            cmbMarca.DisplayMember = "MarDescripcion";
+            cmbMarca.ValueMember = "MarId";
+
+            cmbEstadoConversacion.ValueMember =
+            cmbColor.ValueMember = "DfvValor";
+
+            cmbEstadoConversacion.DisplayMember =
+            cmbColor.DisplayMember = "DfvDescripcion";
+
+            cmbDependenciaJudicial.ValueMember = "DepId";
+            cmbDependenciaJudicial.DisplayMember = "DepDescripcion";
+
+            cmbOficinaInterna.ValueMember = "OfiId";
+            cmbOficinaInterna.DisplayMember = "OfiDescripcion";
+
+            cmbTrabajadorSearch.ValueMember =
+            cmbTrabajador.ValueMember = "PerId";
+            cmbTrabajadorSearch.DisplayMember =
+            cmbTrabajador.DisplayMember = "PerNombreLargo";
+
+            cmbModelo.ValueMember = "ModId";
+            cmbModelo.DisplayMember = "ModDescripcion";
+
+            cmbDenominacionBienModelo.DisplayMember = "DebDescripcion";
+            cmbDenominacionBienModelo.ValueMember = "DbmId";
         }
 
         private async Task CargaTrabajadoresInventariadosPorUsuario(bool cargarComboPersona = true)
@@ -327,7 +714,7 @@ namespace PJ.Inf.InventoryValidation.Win
                     x.BptColorDescripcionTipo = color.FirstOrDefault(y => y.DfvValor == x.BptColorTipo)?.DfvDescripcion ?? "";
                 });
 
-                var acta = await actaBienPatrimonialService.Get(personaSeleccionada.PerId);
+                var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
 
                 btnSubirActa.Enabled = acta != null && acta.AbpEstadoActa == EstadoActaEnum.IMPRESA;
                 btnGenerarActa.Enabled = bienesAListar.Any() && acta != null && acta.AbpEstadoActa < EstadoActaEnum.SUBIDA;
@@ -440,107 +827,9 @@ namespace PJ.Inf.InventoryValidation.Win
             return hasError;
         }
 
-        private async void btnGuardar_Click(object sender, EventArgs e)
-        {
-            if (!Validate() && bienEncontrado != null)
-            {
-                if (!txtSerie.Text.IsNullOrEmpty())
-                {
-                    var bienConMismaSerie = await bienPatrimonialService.GetBySerie(bienEncontrado.BptId, txtSerie.Text.Trim());
-
-                    if (bienConMismaSerie.Any())
-                    {
-                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeExisteSerie, "OK", true);
-                        SnackBarMessage.Show(this);
-
-                        epInventario.SetError(txtSerie, SystemMessages.MensajeExisteSerie);
-                        return;
-                    }
-                }
-
-                var personaSeleccionada = cmbTrabajador.SelectedItem as PersonaView;
-
-                var acta = await actaBienPatrimonialService.Get(personaSeleccionada.PerId);
-
-                if (acta != null && acta.AbpEstadoActa >= EstadoActaEnum.SUBIDA)
-                {
-                    MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeActaSubidaPorTrabajador, "OK", true);
-                    SnackBarMessage.Show(this);
-                    return;
-                }
-
-                MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", SystemMessages.MensajeConfirmarInformacion, "OK", true, "Cancel");
-
-                DialogResult result = materialDialog.ShowDialog(this);
-
-                if (result != DialogResult.OK)
-                {
-                    return;
-                }
-
-                toolStripProgressBar1.Visible = true;
-
-                var bienPatrimonial = await bienPatrimonialService.Get(bienEncontrado.BptId);
-
-                bienPatrimonial.PerNuevoId = (Guid)cmbTrabajador.SelectedValue;
-                bienPatrimonial.UsrInventariaId = usuarioDetectado.UsrId;
-                bienPatrimonial.OfiNuevoId = (Guid)cmbOficinaInterna.SelectedValue;
-                bienPatrimonial.BptInventariadoTipo = InventariadoTipoEnum.INVENTARIADO;
-                bienPatrimonial.BptNuevoEstadoConservacionTipo = (byte)cmbEstadoConversacion.SelectedValue;
-                bienPatrimonial.BptNuevaSerie = txtSerie.Text.Trim();
-                bienPatrimonial.BptObservacion = txtObservaciones.Text.Trim();
-
-                bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
-                bienPatrimonial.SecFechaCreacion = DateTime.Now;
-
-                if (acta != null)
-                {
-                    bienPatrimonial.AbpId = acta.AbpId;
-                }
-                else
-                {
-                    acta = new ActaBienPatrimonial()
-                    {
-                        PerId = (Guid)bienPatrimonial.PerNuevoId,
-                        AbpEstadoActa = EstadoActaEnum.CREADA,
-                        SecUsuarioCreacionId = usuarioDetectado.SecUsuarioCreacionId,
-                        SecFechaCreacion = DateTime.Now,
-                        PerNombre = cmbTrabajador.Text,
-                        SecActivo = true,
-                        AbpImpresiones = 0
-                    };
-
-                    bienPatrimonial.Abp = acta;
-                }
-
-                await bienPatrimonialService.Modifica(bienPatrimonial);
-
-                await CargaTrabajadoresInventariadosPorUsuario();
-
-                MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeInventariadoCorrectamente, "OK", true);
-                SnackBarMessage2.Show(this);
-
-                toolStripProgressBar1.Visible = false;
-            }
-        }
-
-        private async void cmbTrabajadorSearch_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (cmbTrabajadorSearch.SelectedValue == null)
-            {
-                return;
-            }
-
-            toolStripProgressBar1.Visible = true;
-
-            await CargaTrabajadoresInventariadosPorUsuario(false);
-
-            toolStripProgressBar1.Visible = false;
-        }
-
         private async Task LoadParametros()
         {
-            List<string> configuraciones = new List<string> { ParametroEnum.CREDENTIAL_ENVIO_MAIL, ParametroEnum.EMAIL_ENVIO_MAIL, ParametroEnum.EMAILS_ENVIO_MAIL_INVENTARIO, ParametroEnum.CARPETA_SUBIDA_ACTAS };
+            List<string> configuraciones = new List<string> { ParametroEnum.CREDENTIAL_ENVIO_MAIL, ParametroEnum.EMAIL_ENVIO_MAIL, ParametroEnum.EMAILS_ENVIO_MAIL_INVENTARIO, ParametroEnum.CARPETA_SUBIDA_ACTAS, ParametroEnum.USUARIOS_ADMIN_INVENTARIO };
 
             var parametros = await parametroService.Retorna(configuraciones);
 
@@ -565,198 +854,104 @@ namespace PJ.Inf.InventoryValidation.Win
                         case ParametroEnum.CARPETA_SUBIDA_ACTAS:
                         carpetaSubidaActas = parametro.ParValor;
                         break;
+
+                        case ParametroEnum.USUARIOS_ADMIN_INVENTARIO:
+                        usuariosAdmin = parametro.ParValor.Split(",").ToList();
+                        break;
                     }
                 }
             }
         }
 
-        private async void btnBienEncontrado_Click(object sender, EventArgs e)
+        private async Task subirActa(string pathSource, string nombreOriginal)
         {
-            MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", SystemMessages.MensajeNoCoincidenciaBienPatrimonial, "OK", true, "Cancel");
-
-            DialogResult result = materialDialog.ShowDialog(this);
-
-            if (result != DialogResult.OK)
-            {
-                return;
-            }
-
             toolStripProgressBar1.Visible = true;
+            try
+            {
+                if (string.IsNullOrWhiteSpace(carpetaSubidaActas))
+                {
+                    MaterialSnackBar msg1 = new MaterialSnackBar("No se ha configurado la carpeta de subida de actas.", "OK", true);
+                    msg1.Show(this);
+                    return;
+                }
 
-            btnGuardar.Enabled =
-            btnBienEncontrado.Enabled = false;
+                // Asegura que la carpeta exista
+                if (!Directory.Exists(carpetaSubidaActas))
+                    Directory.CreateDirectory(carpetaSubidaActas);
 
-            var bienPatrimonial = await bienPatrimonialService.Get(bienEncontrado.BptId);
+                // Genera un nombre único con Guid y mantiene la extensión .pdf
+                string nombreArchivo = $"{Guid.NewGuid()}.pdf";
+                string destino = Path.Combine(carpetaSubidaActas, nombreArchivo);
 
-            bienPatrimonial.BptInventariadoTipo = InventariadoTipoEnum.REPORTADO_POR_REVISAR;
-            bienPatrimonial.BptObservacion = txtObservaciones.Text.Trim();
+                // Copia el archivo de forma asíncrona
+                using (var sourceStream = new FileStream(pathSource, FileMode.Open, FileAccess.Read))
+                using (var destinationStream = new FileStream(destino, FileMode.Create, FileAccess.Write))
+                {
+                    await sourceStream.CopyToAsync(destinationStream);
+                }
 
-            bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
-            bienPatrimonial.SecFechaCreacion = DateTime.Now;
+                var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
 
-            await bienPatrimonialService.Modifica(bienPatrimonial);
+                var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
 
-            bienEncontrado = mapper.Map<BienPatrimonialView>(bienPatrimonial);
+                switch (acta.AbpEstadoActa)
+                {
+                    case EstadoActaEnum.IMPRESA:
 
-            UtilService.EnviarEmailNoCoincideBienPatrimonial(correosDestino, bienEncontrado, emailEnvio, credencialEnvio, usuarioDetectado);
+                    acta.AbpEstadoActa = EstadoActaEnum.SUBIDA;
+                    acta.AbpArchivoSubido = nombreArchivo;
+                    acta.AbpArchivoDescargado = nombreOriginal;
+                    acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                    acta.SecFechaActualizacion = DateTime.Now;
 
-            MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeEmailEnviado, "OK", true);
-            SnackBarMessage2.Show(this);
+                    await actaBienPatrimonialService.Modifica(acta);
+
+                    await CargaTrabajadoresInventariadosPorUsuario();
+
+                    break;
+
+                    case EstadoActaEnum.SUBIDA:
+
+                    acta.AbpEstadoActa = EstadoActaEnum.FIRMADA_PATRIMONIO;
+                    acta.AbpArchivoFirmado = nombreArchivo;
+                    acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                    acta.SecFechaActualizacion = DateTime.Now;
+
+                    await actaBienPatrimonialService.Modifica(acta);
+
+                    await CargaTrabajadoresInventariadosPorUsuario();
+
+                    break;
+
+                    default:
+                    break;
+                }
+
+                MaterialSnackBar msg2 = new MaterialSnackBar("Archivo PDF subido correctamente.", "OK", true);
+                msg2.Show(this);
+            }
+            catch (Exception ex)
+            {
+                MaterialSnackBar msg3 = new MaterialSnackBar($"Error al subir el archivo: {ex.Message}", "OK", true);
+                msg3.Show(this);
+            }
 
             toolStripProgressBar1.Visible = false;
         }
 
-        private async void btnGenerarActa_Click(object sender, EventArgs e)
+        private async Task descargaActa(ActaBienPatrimonial acta)
         {
-            btnGenerarActa.Enabled = false;
             toolStripProgressBar1.Visible = true;
+            var rutaADescargar = acta.AbpEstadoActa <= EstadoActaEnum.SUBIDA ? acta.AbpArchivoSubido : acta.AbpArchivoFirmado;
 
-            string[] columnas = { "N°", "Descripción según Catálogo", "Cod. Patrimonial", "Estado", "Marca", "Modelo", "Serie", "Color" };
-
-            var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
-
-            string nombre_acta = personaSeleccionada.PerNombreLargo.ToUpper().Replace(",", "").Replace(" ", "_");
-
-            List<string[]> filas = bienesAListar.OrderBy(x => x.DebDescripcion)
-            .Select((x, idx) => new string[]
-            {
-                //"999",//(idx + 1).ToString("D3"),
-                //"EQUIPO MULTIFUNCIONAL COPIADORA IMPRESORA SCANNER Y/O FAX",//x.DebDescripcion ?? "",
-                //x.BptCodigoPatrimonial ?? "",
-                //"CHATARRA",//x.BptEstadoConservacionDescripcionTipo ?? "",
-                //"@ FASE INTERNET PROTECTION",//x.MarDescripcion ?? "",
-                //"SILLA EJEC RUDY ALTA CONTACTO PERMANENTE", //x.ModDescripcion ?? "",
-                //"CN-019M93-L0300-248-OOJK-AOO",//x.BptSerie ?? "",
-                //"BLANCO HUMO CON NEGRO"//x.BptColorDescripcionTipo ?? "",
-                (idx + 1).ToString("D3"),
-                x.DebDescripcion ?? "",
-                x.BptCodigoPatrimonial ?? "",
-                x.BptNuevoEstadoConservacionDescripcionTipo ?? "",
-                x.MarDescripcion ?? "",
-                x.ModDescripcion ?? "",
-                x.BptNuevaSerie ?? "",
-                x.BptColorDescripcionTipo ?? "",
-            })
-            .ToList();
-
-            QuestPDF.Settings.License = LicenseType.Community;
-
-            var reporte = new ActaInventario("ACTA DE ASIGNACIÓN DE BIENES DE LA C.S.J.S.M", columnas, filas);
-
-            string path = $"D:\\PJ\\{nombre_acta}.pdf";
-
-            reporte.GeneratePdf(path);
-
-            if (File.Exists(path))
-            {
-                // Abrir el PDF generado
-                var psi = new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = path,
-                    UseShellExecute = true
-                };
-                System.Diagnostics.Process.Start(psi);
-
-                var acta = await actaBienPatrimonialService.Get(personaSeleccionada.PerId);
-                acta.AbpUltimaImpresion = DateTime.Now;
-                acta.AbpEstadoActa = EstadoActaEnum.IMPRESA;
-                acta.UsrIdentificadorImprime = usuarioDetectado.UsrIdentificador;
-                acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                acta.SecFechaActualizacion = DateTime.Now;
-                acta.AbpImpresiones += 1;
-
-                await actaBienPatrimonialService.Modifica(acta);
-
-                toolStripProgressBar1.Visible = false;
-                btnGenerarActa.Enabled = true;
-            }
-            else
-            {
-                MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"No se pudo generar el acta en {path}", "OK", true);
-                SnackBarMessage.Show(this);
-                return;
-            }
-
-        }
-
-        private async void btnSubirActa_Click(object sender, EventArgs e)
-        {
-            using (var ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Archivos PDF (*.pdf)|*.pdf";
-                ofd.Title = "Selecciona el acta en PDF";
-                ofd.Multiselect = false;
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        if (string.IsNullOrWhiteSpace(carpetaSubidaActas))
-                        {
-                            MaterialSnackBar msg1 = new MaterialSnackBar("No se ha configurado la carpeta de subida de actas.", "OK", true);
-                            msg1.Show(this);
-                            return;
-                        }
-
-                        // Asegura que la carpeta exista
-                        if (!Directory.Exists(carpetaSubidaActas))
-                            Directory.CreateDirectory(carpetaSubidaActas);
-
-                        // Genera un nombre único con Guid y mantiene la extensión .pdf
-                        string nombreArchivo = $"{Guid.NewGuid()}.pdf";
-                        string destino = Path.Combine(carpetaSubidaActas, nombreArchivo);
-
-                        // Copia el archivo de forma asíncrona
-                        using (var sourceStream = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read))
-                        using (var destinationStream = new FileStream(destino, FileMode.Create, FileAccess.Write))
-                        {
-                            await sourceStream.CopyToAsync(destinationStream);
-                        }
-
-                        var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
-
-                        var acta = await actaBienPatrimonialService.Get(personaSeleccionada.PerId);
-                        acta.AbpEstadoActa = EstadoActaEnum.SUBIDA;
-                        acta.AbpArchivoSubido = nombreArchivo;
-                        acta.AbpArchivoDescargado = ofd.SafeFileName;
-                        acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                        acta.SecFechaActualizacion = DateTime.Now;
-
-                        await actaBienPatrimonialService.Modifica(acta);
-
-                        await CargaTrabajadoresInventariadosPorUsuario();
-
-                        MaterialSnackBar msg2 = new MaterialSnackBar("Archivo PDF subido correctamente.", "OK", true);
-                        msg2.Show(this);
-                    }
-                    catch (Exception ex)
-                    {
-                        MaterialSnackBar msg3 = new MaterialSnackBar($"Error al subir el archivo: {ex.Message}", "OK", true);
-                        msg3.Show(this);
-                    }
-                }
-            }
-        }
-
-        private async void btnDescargarActa_Click(object sender, EventArgs e)
-        {
-            var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
-
-            if (personaSeleccionada == null)
-            {
-                return;
-            }
-
-            var acta = await actaBienPatrimonialService.Get(personaSeleccionada.PerId);
-
-            if (acta == null || string.IsNullOrWhiteSpace(acta.AbpArchivoSubido) || string.IsNullOrWhiteSpace(carpetaSubidaActas))
+            if (acta == null || string.IsNullOrWhiteSpace(rutaADescargar) || string.IsNullOrWhiteSpace(carpetaSubidaActas))
             {
                 MaterialSnackBar msg = new MaterialSnackBar("No hay archivo para descargar.", "OK", true);
                 msg.Show(this);
                 return;
             }
 
-            string origen = Path.Combine(carpetaSubidaActas, acta.AbpArchivoSubido);
+            string origen = Path.Combine(carpetaSubidaActas, rutaADescargar);
 
             if (!File.Exists(origen))
             {
@@ -779,6 +974,19 @@ namespace PJ.Inf.InventoryValidation.Win
                         using (var destinationStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
                         {
                             await sourceStream.CopyToAsync(destinationStream);
+
+                            string path = sfd.FileName;
+
+                            if (File.Exists(path))
+                            {
+                                // Abrir el PDF generado
+                                var psi = new System.Diagnostics.ProcessStartInfo
+                                {
+                                    FileName = path,
+                                    UseShellExecute = true
+                                };
+                                System.Diagnostics.Process.Start(psi);
+                            }
                         }
 
                         MaterialSnackBar msg = new MaterialSnackBar("Archivo descargado correctamente.", "OK", true);
@@ -790,6 +998,67 @@ namespace PJ.Inf.InventoryValidation.Win
                         msg.Show(this);
                     }
                 }
+            }
+
+            toolStripProgressBar1.Visible = false;
+        }
+
+        private async Task CambiarEstadoActa(byte estadoActa)
+        {
+            var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
+
+            var acta = await actaBienPatrimonialService.Get(actaSeleccionada.AbpId);
+
+            string mensaje = $"Esta seguro que desea {(estadoActa == EstadoActaEnum.CREADA ? "liberar" : "aprobar")} acta de {acta.PerNombre}";
+
+            MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", mensaje, "OK", true, "Cancel");
+
+            DialogResult result = materialDialog.ShowDialog(this);
+
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            acta.AbpEstadoActa = estadoActa;
+            acta.UsrIdentificadorImprime = usuarioDetectado.UsrIdentificador;
+            acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+            acta.AbpImpresiones = 0;
+            acta.SecFechaActualizacion = DateTime.Now;
+
+            await actaBienPatrimonialService.Modifica(acta);
+
+            await ListarActas();
+        }
+
+        #endregion Métodos propios
+
+        private async void mtcMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el índice de la pestaña seleccionada (empieza en 0)
+            int indiceSeleccionado = mtcMain.SelectedIndex;
+
+            switch (indiceSeleccionado)
+            {
+
+                case 2: // Tercera pestaña
+                await ListarActas();
+                // Cargar datos de la Pestaña 3
+                break;
+            }
+        }
+
+        private void txtNombreActaBuscar_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dgvActas_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvActas.SelectedRows.Count > 0)
+            {
+                var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
+
+                ActivarBotonesActas(actaSeleccionada);
             }
         }
     }

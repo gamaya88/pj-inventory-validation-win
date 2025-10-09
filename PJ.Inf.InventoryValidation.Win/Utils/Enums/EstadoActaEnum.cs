@@ -13,5 +13,7 @@ namespace PJ.Inf.InventoryValidation.Win.Utils.Enums
         public const byte SUBIDA = 3;
         public const byte FIRMADA_PATRIMONIO = 4;
         public const byte APROBADA = 5;
+
+        public const byte TODOS = 255;
     }
 }

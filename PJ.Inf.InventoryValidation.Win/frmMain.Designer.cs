@@ -32,7 +32,7 @@ namespace PJ.Inf.InventoryValidation.Win
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
+            mtcMain = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
@@ -72,11 +72,13 @@ namespace PJ.Inf.InventoryValidation.Win
             tabPage3 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             groupBox5 = new GroupBox();
-            materialButton4 = new MaterialSkin.Controls.MaterialButton();
-            materialButton3 = new MaterialSkin.Controls.MaterialButton();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            chkPorFirma = new MaterialSkin.Controls.MaterialCheckbox();
+            btnSubirFirmada = new MaterialSkin.Controls.MaterialButton();
+            btnVerActaEnviada = new MaterialSkin.Controls.MaterialButton();
+            btnLiberarInventario = new MaterialSkin.Controls.MaterialButton();
+            btnAprobarActa = new MaterialSkin.Controls.MaterialButton();
+            txtNombreActaBuscar = new MaterialSkin.Controls.MaterialTextBox();
+            dgvActas = new DataGridView();
             imageList1 = new ImageList(components);
             toolStrip1 = new ToolStrip();
             ttsUsuario = new ToolStripLabel();
@@ -85,8 +87,14 @@ namespace PJ.Inf.InventoryValidation.Win
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripProgressBar1 = new ToolStripProgressBar();
             epInventario = new ErrorProvider(components);
-            dataGridView1 = new DataGridView();
-            materialTabControl1.SuspendLayout();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column11 = new DataGridViewTextBoxColumn();
+            Column13 = new DataGridViewTextBoxColumn();
+            Column12 = new DataGridViewTextBoxColumn();
+            Column14 = new DataGridViewTextBoxColumn();
+            Column15 = new DataGridViewTextBoxColumn();
+            Column16 = new DataGridViewTextBoxColumn();
+            mtcMain.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -99,26 +107,27 @@ namespace PJ.Inf.InventoryValidation.Win
             tabPage3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvActas).BeginInit();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epInventario).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // materialTabControl1
+            // mtcMain
             // 
-            materialTabControl1.Controls.Add(tabPage1);
-            materialTabControl1.Controls.Add(tabPage2);
-            materialTabControl1.Controls.Add(tabPage3);
-            materialTabControl1.Depth = 0;
-            materialTabControl1.Dock = DockStyle.Fill;
-            materialTabControl1.ImageList = imageList1;
-            materialTabControl1.Location = new Point(3, 64);
-            materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialTabControl1.Multiline = true;
-            materialTabControl1.Name = "materialTabControl1";
-            materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(1062, 609);
-            materialTabControl1.TabIndex = 0;
+            mtcMain.Controls.Add(tabPage1);
+            mtcMain.Controls.Add(tabPage2);
+            mtcMain.Controls.Add(tabPage3);
+            mtcMain.Depth = 0;
+            mtcMain.Dock = DockStyle.Fill;
+            mtcMain.ImageList = imageList1;
+            mtcMain.Location = new Point(3, 64);
+            mtcMain.MouseState = MaterialSkin.MouseState.HOVER;
+            mtcMain.Multiline = true;
+            mtcMain.Name = "mtcMain";
+            mtcMain.SelectedIndex = 0;
+            mtcMain.Size = new Size(1062, 609);
+            mtcMain.TabIndex = 0;
+            mtcMain.SelectedIndexChanged += mtcMain_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -726,7 +735,7 @@ namespace PJ.Inf.InventoryValidation.Win
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Controls.Add(groupBox5, 0, 0);
-            tableLayoutPanel2.Controls.Add(dataGridView1, 0, 1);
+            tableLayoutPanel2.Controls.Add(dgvActas, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -740,11 +749,12 @@ namespace PJ.Inf.InventoryValidation.Win
             // groupBox5
             // 
             groupBox5.BackColor = SystemColors.Control;
-            groupBox5.Controls.Add(materialButton4);
-            groupBox5.Controls.Add(materialButton3);
-            groupBox5.Controls.Add(materialButton2);
-            groupBox5.Controls.Add(materialButton1);
-            groupBox5.Controls.Add(materialTextBox1);
+            groupBox5.Controls.Add(chkPorFirma);
+            groupBox5.Controls.Add(btnSubirFirmada);
+            groupBox5.Controls.Add(btnVerActaEnviada);
+            groupBox5.Controls.Add(btnLiberarInventario);
+            groupBox5.Controls.Add(btnAprobarActa);
+            groupBox5.Controls.Add(txtNombreActaBuscar);
             groupBox5.Dock = DockStyle.Fill;
             groupBox5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             groupBox5.Location = new Point(3, 3);
@@ -754,103 +764,135 @@ namespace PJ.Inf.InventoryValidation.Win
             groupBox5.TabStop = false;
             groupBox5.Text = "DATOS DE BÚSQUEDA DE ACTA";
             // 
-            // materialButton4
+            // chkPorFirma
             // 
-            materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton4.Depth = 0;
-            materialButton4.Enabled = false;
-            materialButton4.HighEmphasis = true;
-            materialButton4.Icon = Properties.Resources.attach_file_add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
-            materialButton4.Location = new Point(534, 29);
-            materialButton4.Margin = new Padding(4, 6, 4, 6);
-            materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton4.Name = "materialButton4";
-            materialButton4.NoAccentTextColor = Color.Empty;
-            materialButton4.Size = new Size(113, 36);
-            materialButton4.TabIndex = 12;
-            materialButton4.Text = "FIRMADA";
-            materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton4.UseAccentColor = false;
-            materialButton4.UseVisualStyleBackColor = true;
+            chkPorFirma.AutoSize = true;
+            chkPorFirma.Depth = 0;
+            chkPorFirma.Location = new Point(447, 28);
+            chkPorFirma.Margin = new Padding(0);
+            chkPorFirma.MouseLocation = new Point(-1, -1);
+            chkPorFirma.MouseState = MaterialSkin.MouseState.HOVER;
+            chkPorFirma.Name = "chkPorFirma";
+            chkPorFirma.ReadOnly = false;
+            chkPorFirma.Ripple = true;
+            chkPorFirma.Size = new Size(80, 37);
+            chkPorFirma.TabIndex = 13;
+            chkPorFirma.Text = "Todos";
+            chkPorFirma.UseVisualStyleBackColor = true;
             // 
-            // materialButton3
+            // btnSubirFirmada
             // 
-            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton3.Depth = 0;
-            materialButton3.Enabled = false;
-            materialButton3.HighEmphasis = true;
-            materialButton3.Icon = Properties.Resources.picture_as_pdf_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
-            materialButton3.Location = new Point(450, 29);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
-            materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton3.Name = "materialButton3";
-            materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(76, 36);
-            materialButton3.TabIndex = 11;
-            materialButton3.Text = "Ver";
-            materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton3.UseAccentColor = false;
-            materialButton3.UseVisualStyleBackColor = true;
+            btnSubirFirmada.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSubirFirmada.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnSubirFirmada.Depth = 0;
+            btnSubirFirmada.Enabled = false;
+            btnSubirFirmada.HighEmphasis = true;
+            btnSubirFirmada.Icon = Properties.Resources.attach_file_add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
+            btnSubirFirmada.Location = new Point(638, 28);
+            btnSubirFirmada.Margin = new Padding(4, 6, 4, 6);
+            btnSubirFirmada.MouseState = MaterialSkin.MouseState.HOVER;
+            btnSubirFirmada.Name = "btnSubirFirmada";
+            btnSubirFirmada.NoAccentTextColor = Color.Empty;
+            btnSubirFirmada.Size = new Size(113, 36);
+            btnSubirFirmada.TabIndex = 12;
+            btnSubirFirmada.Text = "FIRMADA";
+            btnSubirFirmada.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnSubirFirmada.UseAccentColor = false;
+            btnSubirFirmada.UseVisualStyleBackColor = true;
+            btnSubirFirmada.Click += btnSubirFirmada_Click;
             // 
-            // materialButton2
+            // btnVerActaEnviada
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.Enabled = false;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = Properties.Resources.thumb_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
-            materialButton2.Location = new Point(779, 29);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(107, 36);
-            materialButton2.TabIndex = 10;
-            materialButton2.Text = "Liberar";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            btnVerActaEnviada.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnVerActaEnviada.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnVerActaEnviada.Depth = 0;
+            btnVerActaEnviada.Enabled = false;
+            btnVerActaEnviada.HighEmphasis = true;
+            btnVerActaEnviada.Icon = Properties.Resources.picture_as_pdf_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
+            btnVerActaEnviada.Location = new Point(554, 28);
+            btnVerActaEnviada.Margin = new Padding(4, 6, 4, 6);
+            btnVerActaEnviada.MouseState = MaterialSkin.MouseState.HOVER;
+            btnVerActaEnviada.Name = "btnVerActaEnviada";
+            btnVerActaEnviada.NoAccentTextColor = Color.Empty;
+            btnVerActaEnviada.Size = new Size(76, 36);
+            btnVerActaEnviada.TabIndex = 11;
+            btnVerActaEnviada.Text = "Ver";
+            btnVerActaEnviada.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnVerActaEnviada.UseAccentColor = false;
+            btnVerActaEnviada.UseVisualStyleBackColor = true;
+            btnVerActaEnviada.Click += btnVerActaEnviada_Click;
             // 
-            // materialButton1
+            // btnLiberarInventario
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Enabled = false;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = Properties.Resources.inventory_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
-            materialButton1.Location = new Point(655, 29);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(116, 36);
-            materialButton1.TabIndex = 9;
-            materialButton1.Text = "Aprobar";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnLiberarInventario.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnLiberarInventario.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnLiberarInventario.Depth = 0;
+            btnLiberarInventario.Enabled = false;
+            btnLiberarInventario.HighEmphasis = true;
+            btnLiberarInventario.Icon = Properties.Resources.thumb_down_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
+            btnLiberarInventario.Location = new Point(883, 28);
+            btnLiberarInventario.Margin = new Padding(4, 6, 4, 6);
+            btnLiberarInventario.MouseState = MaterialSkin.MouseState.HOVER;
+            btnLiberarInventario.Name = "btnLiberarInventario";
+            btnLiberarInventario.NoAccentTextColor = Color.Empty;
+            btnLiberarInventario.Size = new Size(107, 36);
+            btnLiberarInventario.TabIndex = 10;
+            btnLiberarInventario.Text = "Liberar";
+            btnLiberarInventario.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnLiberarInventario.UseAccentColor = false;
+            btnLiberarInventario.UseVisualStyleBackColor = true;
+            btnLiberarInventario.Click += btnLiberarInventario_Click;
             // 
-            // materialTextBox1
+            // btnAprobarActa
             // 
-            materialTextBox1.AnimateReadOnly = false;
-            materialTextBox1.BorderStyle = BorderStyle.None;
-            materialTextBox1.Depth = 0;
-            materialTextBox1.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBox1.Hint = "Ingrese el nombre del trabajador";
-            materialTextBox1.LeadingIcon = null;
-            materialTextBox1.Location = new Point(6, 22);
-            materialTextBox1.MaxLength = 50;
-            materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            materialTextBox1.Multiline = false;
-            materialTextBox1.Name = "materialTextBox1";
-            materialTextBox1.Size = new Size(438, 50);
-            materialTextBox1.TabIndex = 8;
-            materialTextBox1.Text = "";
-            materialTextBox1.TrailingIcon = null;
+            btnAprobarActa.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnAprobarActa.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAprobarActa.Depth = 0;
+            btnAprobarActa.Enabled = false;
+            btnAprobarActa.HighEmphasis = true;
+            btnAprobarActa.Icon = Properties.Resources.inventory_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
+            btnAprobarActa.Location = new Point(759, 28);
+            btnAprobarActa.Margin = new Padding(4, 6, 4, 6);
+            btnAprobarActa.MouseState = MaterialSkin.MouseState.HOVER;
+            btnAprobarActa.Name = "btnAprobarActa";
+            btnAprobarActa.NoAccentTextColor = Color.Empty;
+            btnAprobarActa.Size = new Size(116, 36);
+            btnAprobarActa.TabIndex = 9;
+            btnAprobarActa.Text = "Aprobar";
+            btnAprobarActa.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAprobarActa.UseAccentColor = false;
+            btnAprobarActa.UseVisualStyleBackColor = true;
+            btnAprobarActa.Click += btnAprobarActa_Click;
+            // 
+            // txtNombreActaBuscar
+            // 
+            txtNombreActaBuscar.AnimateReadOnly = false;
+            txtNombreActaBuscar.BorderStyle = BorderStyle.None;
+            txtNombreActaBuscar.Depth = 0;
+            txtNombreActaBuscar.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNombreActaBuscar.Hint = "Ingrese el nombre del trabajador";
+            txtNombreActaBuscar.LeadingIcon = null;
+            txtNombreActaBuscar.Location = new Point(6, 22);
+            txtNombreActaBuscar.MaxLength = 50;
+            txtNombreActaBuscar.MouseState = MaterialSkin.MouseState.OUT;
+            txtNombreActaBuscar.Multiline = false;
+            txtNombreActaBuscar.Name = "txtNombreActaBuscar";
+            txtNombreActaBuscar.Size = new Size(438, 50);
+            txtNombreActaBuscar.TabIndex = 8;
+            txtNombreActaBuscar.Text = "";
+            txtNombreActaBuscar.TrailingIcon = null;
+            txtNombreActaBuscar.TextChanged += txtNombreActaBuscar_TextChanged;
+            // 
+            // dgvActas
+            // 
+            dgvActas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvActas.Columns.AddRange(new DataGridViewColumn[] { Column1, Column11, Column13, Column12, Column14, Column15, Column16 });
+            dgvActas.Dock = DockStyle.Fill;
+            dgvActas.Location = new Point(3, 103);
+            dgvActas.Name = "dgvActas";
+            dgvActas.Size = new Size(1048, 438);
+            dgvActas.TabIndex = 1;
+            dgvActas.RowEnter += dgvActas_RowEnter;
             // 
             // imageList1
             // 
@@ -903,14 +945,52 @@ namespace PJ.Inf.InventoryValidation.Win
             // 
             epInventario.ContainerControl = this;
             // 
-            // dataGridView1
+            // Column1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 103);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1048, 438);
-            dataGridView1.TabIndex = 1;
+            Column1.DataPropertyName = "AbpId";
+            Column1.HeaderText = "Column1";
+            Column1.Name = "Column1";
+            Column1.Visible = false;
+            // 
+            // Column11
+            // 
+            Column11.DataPropertyName = "PerNombre";
+            Column11.HeaderText = "NOMBRE TRABAJADOR";
+            Column11.Name = "Column11";
+            Column11.Width = 250;
+            // 
+            // Column13
+            // 
+            Column13.DataPropertyName = "AbpDescripcionEstadoActa";
+            Column13.HeaderText = "ESTADO ACTA";
+            Column13.Name = "Column13";
+            Column13.Width = 120;
+            // 
+            // Column12
+            // 
+            Column12.DataPropertyName = "AbpEstadoActa";
+            Column12.HeaderText = "Column12";
+            Column12.Name = "Column12";
+            Column12.Visible = false;
+            // 
+            // Column14
+            // 
+            Column14.DataPropertyName = "AbpUltimaImpresion";
+            Column14.HeaderText = "FECHA ÚLT IMPRESION";
+            Column14.Name = "Column14";
+            // 
+            // Column15
+            // 
+            Column15.DataPropertyName = "UsrIdentificadorImprime";
+            Column15.HeaderText = "ÚLT. USUARIO IMPRIMIO";
+            Column15.Name = "Column15";
+            Column15.Width = 120;
+            // 
+            // Column16
+            // 
+            Column16.DataPropertyName = "AbpImpresiones";
+            Column16.HeaderText = "CANT. IMPRESIONES";
+            Column16.Name = "Column16";
             // 
             // frmMain
             // 
@@ -918,14 +998,14 @@ namespace PJ.Inf.InventoryValidation.Win
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1068, 676);
             Controls.Add(toolStrip1);
-            Controls.Add(materialTabControl1);
+            Controls.Add(mtcMain);
             DrawerShowIconsWhenHidden = true;
-            DrawerTabControl = materialTabControl1;
+            DrawerTabControl = mtcMain;
             MdiChildrenMinimizedAnchorBottom = false;
             Name = "frmMain";
             Text = "Registro de inventario";
             Load += frmMain_Load;
-            materialTabControl1.ResumeLayout(false);
+            mtcMain.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -942,17 +1022,17 @@ namespace PJ.Inf.InventoryValidation.Win
             tableLayoutPanel2.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvActas).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)epInventario).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
+        private MaterialSkin.Controls.MaterialTabControl mtcMain;
         private TabPage tabPage1;
         private ImageList imageList1;
         private TableLayoutPanel tableLayoutPanel1;
@@ -1000,11 +1080,19 @@ namespace PJ.Inf.InventoryValidation.Win
         private TabPage tabPage3;
         private TableLayoutPanel tableLayoutPanel2;
         private GroupBox groupBox5;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
-        private MaterialSkin.Controls.MaterialButton materialButton4;
-        private DataGridView dataGridView1;
+        private MaterialSkin.Controls.MaterialTextBox txtNombreActaBuscar;
+        private MaterialSkin.Controls.MaterialButton btnAprobarActa;
+        private MaterialSkin.Controls.MaterialButton btnLiberarInventario;
+        private MaterialSkin.Controls.MaterialButton btnVerActaEnviada;
+        private MaterialSkin.Controls.MaterialButton btnSubirFirmada;
+        private DataGridView dgvActas;
+        private MaterialSkin.Controls.MaterialCheckbox chkPorFirma;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column14;
+        private DataGridViewTextBoxColumn Column15;
+        private DataGridViewTextBoxColumn Column16;
     }
 }

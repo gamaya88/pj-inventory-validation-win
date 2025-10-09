@@ -11,5 +11,6 @@ namespace PJ.Inf.InventoryValidation.Win.Utils.Enums
     {
         public const byte TIPO_ESTADO_DE_CONSERVACION = 8;
         public const byte TIPO_DE_COLOR_ALMACEN = 9;
+        public const byte TIPO_ESTADO_DE_ACTA = 10;
     }
 }
