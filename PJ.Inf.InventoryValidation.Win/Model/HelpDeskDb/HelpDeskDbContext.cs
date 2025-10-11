@@ -45,6 +45,8 @@ public partial class HelpDeskDbContext : DbContext
 
     public virtual DbSet<Sede> Sedes { get; set; }
 
+    public virtual DbSet<Trabajador> Trabajadors { get; set; }
+
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -364,7 +366,7 @@ public partial class HelpDeskDbContext : DbContext
         {
             entity.HasKey(e => e.DepId).HasName("PK_DepedenciaJudicial");
 
-            entity.ToTable("DependenciaJudicial", "Inv");
+            entity.ToTable("DependenciaJudicial", "Gen");
 
             entity.Property(e => e.DepId).HasDefaultValueSql("(newid())");
             entity.Property(e => e.DepDescripcion).HasMaxLength(128);
@@ -381,6 +383,10 @@ public partial class HelpDeskDbContext : DbContext
                 .HasMaxLength(64)
                 .HasDefaultValueSql("(suser_name())");
             entity.Property(e => e.SecUsuarioEliminacionId).HasMaxLength(64);
+
+            entity.HasOne(d => d.DepParent).WithMany(p => p.InverseDepParent)
+                .HasForeignKey(d => d.DepParentId)
+                .HasConstraintName("FK_DependenciaJudicial_DependenciaJudicial");
 
             entity.HasOne(d => d.Sed).WithMany(p => p.DependenciaJudicials)
                 .HasForeignKey(d => d.SedId)
@@ -552,10 +558,49 @@ public partial class HelpDeskDbContext : DbContext
                 .HasDefaultValueSql("(suser_name())");
             entity.Property(e => e.SecUsuarioEliminacionId).HasMaxLength(64);
             entity.Property(e => e.SedCodigoAlterno).HasMaxLength(16);
+            entity.Property(e => e.SedDepartamento).HasMaxLength(32);
             entity.Property(e => e.SedDescripcion).HasMaxLength(128);
             entity.Property(e => e.SedDireccion).HasMaxLength(128);
+            entity.Property(e => e.SedDistrito).HasMaxLength(32);
             entity.Property(e => e.SedLatitud).HasMaxLength(16);
             entity.Property(e => e.SedLongitud).HasMaxLength(16);
+            entity.Property(e => e.SedProvincia).HasMaxLength(32);
+        });
+
+        modelBuilder.Entity<Trabajador>(entity =>
+        {
+            entity.HasKey(e => e.TrbId);
+
+            entity.ToTable("Trabajador", "Gen");
+
+            entity.HasIndex(e => e.PerId, "IX_Trabajador").IsUnique();
+
+            entity.Property(e => e.TrbId).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.SecActivo)
+                .IsRequired()
+                .HasDefaultValueSql("((1))");
+            entity.Property(e => e.SecFechaActualizacion).HasColumnType("datetime");
+            entity.Property(e => e.SecFechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.SecFechaEliminacion).HasColumnType("datetime");
+            entity.Property(e => e.SecUsuarioActualizacionId).HasMaxLength(64);
+            entity.Property(e => e.SecUsuarioCreacionId)
+                .HasMaxLength(64)
+                .HasDefaultValueSql("(suser_name())");
+            entity.Property(e => e.SecUsuarioEliminacionId).HasMaxLength(64);
+            entity.Property(e => e.TrbCargo).HasMaxLength(64);
+            entity.Property(e => e.TrbCodigoSiga).HasMaxLength(64);
+
+            entity.HasOne(d => d.Dep).WithMany(p => p.Trabajadors)
+                .HasForeignKey(d => d.DepId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Trabajador_DependenciaJudicial");
+
+            entity.HasOne(d => d.Per).WithOne(p => p.Trabajador)
+                .HasForeignKey<Trabajador>(d => d.PerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Trabajador_Persona");
         });
 
         modelBuilder.Entity<Usuario>(entity =>

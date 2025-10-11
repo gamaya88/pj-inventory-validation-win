@@ -7,6 +7,8 @@ public partial class DependenciaJudicial
 {
     public Guid DepId { get; set; }
 
+    public Guid? DepParentId { get; set; }
+
     public Guid SedId { get; set; }
 
     public Guid? InsId { get; set; }
@@ -27,7 +29,13 @@ public partial class DependenciaJudicial
 
     public DateTime? SecFechaEliminacion { get; set; }
 
+    public virtual DependenciaJudicial? DepParent { get; set; }
+
+    public virtual ICollection<DependenciaJudicial> InverseDepParent { get; set; } = new List<DependenciaJudicial>();
+
     public virtual ICollection<OficinaInterna> OficinaInternas { get; set; } = new List<OficinaInterna>();
 
     public virtual Sede Sed { get; set; } = null!;
+
+    public virtual ICollection<Trabajador> Trabajadors { get; set; } = new List<Trabajador>();
 }

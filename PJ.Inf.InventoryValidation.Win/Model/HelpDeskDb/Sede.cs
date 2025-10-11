@@ -11,6 +11,12 @@ public partial class Sede
 
     public string SedDescripcion { get; set; } = null!;
 
+    public string? SedDepartamento { get; set; }
+
+    public string? SedProvincia { get; set; }
+
+    public string? SedDistrito { get; set; }
+
     public string SedDireccion { get; set; } = null!;
 
     public string SedLongitud { get; set; } = null!;

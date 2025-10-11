@@ -43,5 +43,7 @@ public partial class Persona
 
     public virtual Sede Sed { get; set; } = null!;
 
+    public virtual Trabajador? Trabajador { get; set; }
+
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

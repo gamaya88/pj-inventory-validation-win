@@ -66,6 +66,15 @@ namespace PJ.Inf.InventoryValidation.Win.Registrars
                 .ReverseMap();
 
             CreateMap<Persona, PersonaView>()
+                .ForMember(dest => dest.PerDescripcionCorte, opt => opt.MapFrom(src => "Corte Superior de San Martín"))
+                .ForMember(dest => dest.DepParentDescripcion, opt => opt.MapFrom(src => src.Trabajador != null && src.Trabajador.Dep.DepParent != null ? src.Trabajador.Dep.DepParent.DepDescripcion : ""))
+                .ForMember(dest => dest.DepDescripcion, opt => opt.MapFrom(src => src.Trabajador != null ? src.Trabajador.Dep.DepDescripcion : ""))
+                .ForMember(dest => dest.SedDireccion, opt => opt.MapFrom(src => src.Trabajador != null ? src.Trabajador.Dep.Sed.SedDireccion : ""))
+                .ForMember(dest => dest.SedDescripcion, opt => opt.MapFrom(src => src.Trabajador != null ? src.Trabajador.Dep.Sed.SedDescripcion : ""))
+                .ForMember(dest => dest.SedDepartamento, opt => opt.MapFrom(src => src.Trabajador != null ? src.Trabajador.Dep.Sed.SedDepartamento : ""))
+                .ForMember(dest => dest.SedProvincia, opt => opt.MapFrom(src => src.Trabajador != null ? src.Trabajador.Dep.Sed.SedProvincia : ""))
+                .ForMember(dest => dest.SedDistrito, opt => opt.MapFrom(src => src.Trabajador != null ? src.Trabajador.Dep.Sed.SedDistrito : ""))
+                .ForMember(dest => dest.PerNumeroDocumento, opt => opt.MapFrom(src => src.PerNumeroDocumento))
                 .ForMember(dest => dest.PerNombreLargo, opt => opt.MapFrom(src => $"{src.PerApellidoPaterno} {src.PerApellidoMaterno}, {src.PerNombres}"))
                 .ReverseMap();
 

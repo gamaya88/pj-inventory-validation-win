@@ -1,4 +1,5 @@
-﻿using QuestPDF.Fluent;
+﻿using PJ.Inf.InventoryValidation.Win.Model.Views;
+using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System;
@@ -14,12 +15,17 @@ namespace PJ.Inf.InventoryValidation.Win.Report
         private readonly string _titulo;
         private readonly string[] _columnas;
         private readonly List<string[]> _filas;
+        private readonly PersonaView _persona;
 
-        public ActaInventario(string titulo, string[] columnas, List<string[]> filas)
+        public DateTime FechaGeneracion { get; private set; }
+
+        public ActaInventario(string titulo, string[] columnas, List<string[]> filas, PersonaView persona)
         {
             _titulo = titulo;
             _columnas = columnas;
             _filas = filas;
+            _persona = persona;
+            FechaGeneracion = DateTime.Now;
         }
 
         public DocumentMetadata GetMetadata() => DocumentMetadata.Default;
@@ -31,6 +37,7 @@ namespace PJ.Inf.InventoryValidation.Win.Report
                 page.Size(PageSizes.A4.Landscape());
                 page.Margin(20);
                 page.Header().Text(_titulo).AlignCenter().Bold().FontSize(18).FontColor(Colors.Black);
+                page.Footer().Text(FechaGeneracion.ToString("dd/MM/yy HH:mm")).AlignLeft().Bold().FontSize(8).FontColor(Colors.Black);
                 page.Content()
 
             .PaddingVertical(1, Unit.Centimetre)
@@ -56,29 +63,29 @@ namespace PJ.Inf.InventoryValidation.Win.Report
                     }
 
                     datosActa.Cell().Element(CellStyle).Text("CORTE:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("Corte Superior de Justicia de San Martín").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.PerDescripcionCorte).FontSize(8).FontFamily("Calibri");
                     datosActa.Cell().Element(CellStyle).Text("LOCAL:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.SedDescripcion).FontSize(8).FontFamily("Calibri");
 
                     datosActa.Cell().Element(CellStyle).Text("DEPENDENCIA:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.DepParentDescripcion).FontSize(8).FontFamily("Calibri");
                     datosActa.Cell().Element(CellStyle).Text("DIRECCIÓN DEL LOCAL:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.SedDireccion).FontSize(8).FontFamily("Calibri");
 
                     datosActa.Cell().Element(CellStyle).Text("OFICINA:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.DepDescripcion).FontSize(8).FontFamily("Calibri");
                     datosActa.Cell().Element(CellStyle).Text("DEPARTAMENTO:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.SedDepartamento).FontSize(8).FontFamily("Calibri");
 
-                    datosActa.Cell().Element(CellStyle).Text("AMBIENTE:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
-                    datosActa.Cell().Element(CellStyle).Text("PROVINCIA / DISTRITO:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("PROVINCIA").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text(_persona.SedProvincia).FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("DISTRITO:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text(_persona.SedDistrito).FontSize(8).FontFamily("Calibri");
 
                     datosActa.Cell().Element(CellStyle).Text("APELLIDOS Y NOMBRES):").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.PerNombreLargo).FontSize(8).FontFamily("Calibri");
                     datosActa.Cell().Element(CellStyle).Text("DNI:").FontSize(8).FontFamily("Calibri").Bold();
-                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text(_persona.PerNumeroDocumento).FontSize(8).FontFamily("Calibri");
                 });
 
                 x.Spacing(10);

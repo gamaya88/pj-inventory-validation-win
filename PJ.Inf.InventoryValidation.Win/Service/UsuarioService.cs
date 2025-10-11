@@ -23,7 +23,10 @@ namespace PJ.Inf.InventoryValidation.Win.Service
                                 .Include(u => u.Per)
                                     .ThenInclude(p => p.Sed)
                                         .ThenInclude(p => p.Personas.Where(x => x.Usuarios.Any()))
-                                .Where(u => u.UsrIdentificador == usuarioIdentificado && u.UsrConectado == "S" && u.SecActivo == true)
+                                .Where(u => u.UsrIdentificador == usuarioIdentificado && 
+                                        u.UsrConectado == "S" && 
+                                        u.Per.Trabajador != null &&
+                                        u.SecActivo == true)
                                 .FirstOrDefaultAsync();
 
                 return sede;

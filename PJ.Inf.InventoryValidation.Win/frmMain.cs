@@ -35,6 +35,8 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private ActaBienPatrimonialService actaBienPatrimonialService;
 
+        private PersonaService PersonaService;
+
         private List<DenominacionBienModeloView> denominacionBienModeloViews;
 
         private List<ValordefinicionView> estadoConservacion;
@@ -83,6 +85,8 @@ namespace PJ.Inf.InventoryValidation.Win
             parametroService = new ParametroService();
 
             actaBienPatrimonialService = new ActaBienPatrimonialService();
+
+            PersonaService = new PersonaService();
 
             this.SetMaterialSkin();
 
@@ -194,7 +198,7 @@ namespace PJ.Inf.InventoryValidation.Win
             btnGenerarActa.Enabled = false;
             toolStripProgressBar1.Visible = true;
 
-            string[] columnas = { "N°", "Descripción según Catálogo", "Cod. Patrimonial", "Estado", "Marca", "Modelo", "Serie", "Color" };
+            string[] columnas = { "N°", "Descripción del bien según Catálogo", "Cod. Patrimonial", "Estado", "Marca", "Modelo", "Serie", "Color" };
 
             var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
             if (personaSeleccionada == null)
@@ -205,6 +209,8 @@ namespace PJ.Inf.InventoryValidation.Win
                 toolStripProgressBar1.Visible = false;
                 return;
             }
+
+            personaSeleccionada = await PersonaService.GetByTrabajador(personaSeleccionada.PerId);
 
             string nombre_acta = personaSeleccionada.PerNombreLargo.ToUpper().Replace(",", "").Replace(" ", "_");
 
@@ -223,7 +229,7 @@ namespace PJ.Inf.InventoryValidation.Win
                 .ToList();
 
             QuestPDF.Settings.License = LicenseType.Community;
-            var reporte = new ActaInventario("ACTA DE ASIGNACIÓN DE BIENES DE LA C.S.J.S.M", columnas, filas);
+            var reporte = new ActaInventario("ACTA DE ASIGNACIÓN DE BIENES DE LA C.S.J.S.M", columnas, filas, personaSeleccionada);
 
             using (var sfd = new SaveFileDialog())
             {
@@ -247,11 +253,11 @@ namespace PJ.Inf.InventoryValidation.Win
                         System.Diagnostics.Process.Start(psi);
 
                         var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
-                        acta.AbpUltimaImpresion = DateTime.Now;
+                        acta.AbpUltimaImpresion = reporte.FechaGeneracion;
                         acta.AbpEstadoActa = EstadoActaEnum.IMPRESA;
                         acta.UsrIdentificadorImprime = usuarioDetectado.UsrIdentificador;
                         acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                        acta.SecFechaActualizacion = DateTime.Now;
+                        acta.SecFechaActualizacion = reporte.FechaGeneracion;
                         acta.AbpImpresiones += 1;
 
                         await actaBienPatrimonialService.Modifica(acta);

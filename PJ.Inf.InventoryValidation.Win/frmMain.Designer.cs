@@ -957,7 +957,7 @@ namespace PJ.Inf.InventoryValidation.Win
             Column11.DataPropertyName = "PerNombre";
             Column11.HeaderText = "NOMBRE TRABAJADOR";
             Column11.Name = "Column11";
-            Column11.Width = 250;
+            Column11.Width = 300;
             // 
             // Column13
             // 
@@ -978,6 +978,7 @@ namespace PJ.Inf.InventoryValidation.Win
             Column14.DataPropertyName = "AbpUltimaImpresion";
             Column14.HeaderText = "FECHA ÚLT IMPRESION";
             Column14.Name = "Column14";
+            Column14.Width = 140;
             // 
             // Column15
             // 
