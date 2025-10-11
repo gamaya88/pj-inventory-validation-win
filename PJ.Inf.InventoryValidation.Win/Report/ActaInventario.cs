@@ -29,19 +29,64 @@ namespace PJ.Inf.InventoryValidation.Win.Report
             container.Page(page =>
             {
                 page.Size(PageSizes.A4.Landscape());
-                page.Margin(30);
+                page.Margin(20);
                 page.Header().Text(_titulo).AlignCenter().Bold().FontSize(18).FontColor(Colors.Black);
                 page.Content()
 
             .PaddingVertical(1, Unit.Centimetre)
             .Column(x =>
             {
-                x.Spacing(20);
+                x.Item().Table(datosActa =>
+                {
+                    datosActa.ColumnsDefinition(columns =>
+                    {
+                        columns.ConstantColumn(100);
+                        columns.ConstantColumn(200);
+                        columns.ConstantColumn(100);
+                        columns.ConstantColumn(200);
+                    });
 
-                x.Item().Table(table =>
+                    static IContainer CellStyle(IContainer container)
+                    {
+                        return container
+                        .AlignMiddle()
+                        .PaddingVertical(2)
+                        .PaddingHorizontal(2)
+                        .BorderColor(Colors.Black);
+                    }
+
+                    datosActa.Cell().Element(CellStyle).Text("CORTE:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("Corte Superior de Justicia de San Martín").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("LOCAL:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+
+                    datosActa.Cell().Element(CellStyle).Text("DEPENDENCIA:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("DIRECCIÓN DEL LOCAL:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+
+                    datosActa.Cell().Element(CellStyle).Text("OFICINA:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("DEPARTAMENTO:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+
+                    datosActa.Cell().Element(CellStyle).Text("AMBIENTE:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("PROVINCIA / DISTRITO:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+
+                    datosActa.Cell().Element(CellStyle).Text("APELLIDOS Y NOMBRES):").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                    datosActa.Cell().Element(CellStyle).Text("DNI:").FontSize(8).FontFamily("Calibri").Bold();
+                    datosActa.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                });
+
+                x.Spacing(10);
+
+                x.Item().Table(tDetalle =>
                 {
                     // --- Definir las columnas de la tabla ---
-                    table.ColumnsDefinition(columns =>
+                    tDetalle.ColumnsDefinition(columns =>
                     {
                         for (int i = 0; i < _columnas.Length; i++)
                         {
@@ -81,18 +126,21 @@ namespace PJ.Inf.InventoryValidation.Win.Report
                     });
 
                     // --- Encabezados de la tabla ---
-                    table.Header(header =>
+                    tDetalle.Header(header =>
                     {
                         foreach (var columna in _columnas)
                         {
-                            header.Cell().Element(CellStyle).Text(columna).FontSize(8);
+                            header.Cell().Element(CellStyle).Text(columna).Bold().FontSize(8);
                         }
 
                         static IContainer CellStyle(IContainer container)
                         {
-                            return container.DefaultTextStyle(x => x.SemiBold())
-                                .PaddingVertical(5)
-                                .BorderBottom(1)
+                            return container
+                                .Background(Colors.Grey.Lighten2)
+                                .Border((float)0.5)                                
+                                .AlignMiddle()
+                                .PaddingVertical(2)
+                                .PaddingHorizontal(2)
                                 .BorderColor(Colors.Black);
                         }
                     });
@@ -102,12 +150,16 @@ namespace PJ.Inf.InventoryValidation.Win.Report
                     {
                         foreach (var celda in fila)
                         {
-                            table.Cell().Element(CellStyle).Text(celda).FontSize(8).FontFamily("Calibri");
+                            tDetalle.Cell().Element(CellStyle).Text(celda).FontSize(8).FontFamily("Calibri");
                         }
 
                         static IContainer CellStyle(IContainer container)
                         {
-                            return container.Border(1).BorderColor(Colors.Grey.Lighten2).PaddingVertical(5);
+                            return container.Border((float)0.5)
+                            .AlignMiddle()
+                            .PaddingVertical(2)
+                            .PaddingHorizontal(2)
+                            .BorderColor(Colors.Black);
                         }
                     }
                 });
@@ -118,10 +170,10 @@ namespace PJ.Inf.InventoryValidation.Win.Report
         static IContainer CellStyle(IContainer container)
         {
             return container
-                .PaddingVertical(5)
+                .PaddingVertical(2)
                 .PaddingHorizontal(2)
                 .BorderBottom(1)
-                .BorderColor(Colors.Grey.Lighten2);
+                .BorderColor(Colors.Black);
         }
     }
 }

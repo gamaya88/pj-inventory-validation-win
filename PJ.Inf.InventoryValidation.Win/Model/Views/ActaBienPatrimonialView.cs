@@ -10,6 +10,8 @@ namespace PJ.Inf.InventoryValidation.Win.Model.Views
     {
         public Guid AbpId { get; set; }
 
+        public Guid PerId { get; set; }
+
         public string PerNombre { get; set; } = null!;
 
         public byte AbpEstadoActa { get; set; }

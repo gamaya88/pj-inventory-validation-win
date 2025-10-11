@@ -165,7 +165,9 @@ namespace PJ.Inf.InventoryValidation.Win
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    await subirActa(ofd.FileName, ofd.SafeFileName);
+                    var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
+
+                    await subirActa(ofd.FileName, ofd.SafeFileName, personaSeleccionada.PerId);
                 }
             }
 
@@ -502,49 +504,64 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private async void btnLiberarInventario_Click(object sender, EventArgs e)
         {
-            btnLiberarInventario.Enabled = false;
+            if (dgvActas.SelectedRows.Count > 0)
+            {
+                btnLiberarInventario.Enabled = false;
 
-            await CambiarEstadoActa(EstadoActaEnum.CREADA);
+                var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
 
-            btnLiberarInventario.Enabled = true;
+                await CambiarEstadoActa(EstadoActaEnum.CREADA, actaSeleccionada.AbpId);
+
+                btnLiberarInventario.Enabled = true;
+            }
         }
 
         private async void btnAprobarActa_Click(object sender, EventArgs e)
         {
-            btnAprobarActa.Enabled = false;
+            if (dgvActas.SelectedRows.Count > 0)
+            {
+                btnAprobarActa.Enabled = false;
 
-            await CambiarEstadoActa(EstadoActaEnum.APROBADA);
+                var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
 
-            btnAprobarActa.Enabled = true;
+                await CambiarEstadoActa(EstadoActaEnum.APROBADA, actaSeleccionada.AbpId);
+
+                btnAprobarActa.Enabled = true;
+            }                
         }
 
         private async void btnSubirFirmada_Click(object sender, EventArgs e)
         {
-            btnSubirFirmada.Enabled = false;
-
-            using (var ofd = new OpenFileDialog())
+            if (dgvActas.SelectedRows.Count > 0) 
             {
-                ofd.Filter = "Archivos PDF (*.pdf)|*.pdf";
-                ofd.Title = "Selecciona el acta firmada en PDF";
-                ofd.Multiselect = false;
+                btnSubirFirmada.Enabled = false;
 
-                if (ofd.ShowDialog() == DialogResult.OK)
+                using (var ofd = new OpenFileDialog())
                 {
-                    await subirActa(ofd.FileName, ofd.SafeFileName);
+                    ofd.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                    ofd.Title = "Selecciona el acta firmada en PDF";
+                    ofd.Multiselect = false;
 
-                    await ListarActas();
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
+
+                        await subirActa(ofd.FileName, ofd.SafeFileName, actaSeleccionada.PerId);
+
+                        await ListarActas();
+                    }
                 }
-            }
 
-            btnSubirFirmada.Enabled = true;
+                btnSubirFirmada.Enabled = true;
+            }
         }
 
         private async void btnVerActaEnviada_Click(object sender, EventArgs e)
         {
-            btnVerActaEnviada.Enabled = false;
-
-            if (dgvActas.SelectedRows[0].AccessibilityObject != null)
+            if (dgvActas.SelectedRows.Count > 0)
             {
+                btnVerActaEnviada.Enabled = false;
+
                 var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
 
                 var acta = await actaBienPatrimonialService.Get(actaSeleccionada.AbpId);
@@ -552,9 +569,9 @@ namespace PJ.Inf.InventoryValidation.Win
                 await descargaActa(acta);
 
                 await ListarActas();
-            }
 
-            btnVerActaEnviada.Enabled = true;
+                btnVerActaEnviada.Enabled = true;
+            }
         }
 
         #endregion Aprobar actas
@@ -863,7 +880,7 @@ namespace PJ.Inf.InventoryValidation.Win
             }
         }
 
-        private async Task subirActa(string pathSource, string nombreOriginal)
+        private async Task subirActa(string pathSource, string nombreOriginal, Guid perId)
         {
             toolStripProgressBar1.Visible = true;
             try
@@ -890,9 +907,7 @@ namespace PJ.Inf.InventoryValidation.Win
                     await sourceStream.CopyToAsync(destinationStream);
                 }
 
-                var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
-
-                var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
+                var acta = await actaBienPatrimonialService.GetPorPersona(perId);
 
                 switch (acta.AbpEstadoActa)
                 {
@@ -1003,11 +1018,9 @@ namespace PJ.Inf.InventoryValidation.Win
             toolStripProgressBar1.Visible = false;
         }
 
-        private async Task CambiarEstadoActa(byte estadoActa)
+        private async Task CambiarEstadoActa(byte estadoActa, Guid abpId)
         {
-            var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
-
-            var acta = await actaBienPatrimonialService.Get(actaSeleccionada.AbpId);
+            var acta = await actaBienPatrimonialService.Get(abpId);
 
             string mensaje = $"Esta seguro que desea {(estadoActa == EstadoActaEnum.CREADA ? "liberar" : "aprobar")} acta de {acta.PerNombre}";
 
