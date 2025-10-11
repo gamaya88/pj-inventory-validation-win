@@ -37,7 +37,18 @@ namespace PJ.Inf.InventoryValidation.Win.Report
                 page.Size(PageSizes.A4.Landscape());
                 page.Margin(20);
                 page.Header().Text(_titulo).AlignCenter().Bold().FontSize(18).FontColor(Colors.Black);
-                page.Footer().Text(FechaGeneracion.ToString("dd/MM/yy HH:mm")).AlignLeft().Bold().FontSize(8).FontColor(Colors.Black);
+                
+                page.Footer()
+                .PaddingTop(15)
+                .AlignRight() // Alinea el contador a la derecha
+                .Text(text =>
+                {
+                    text.Span(FechaGeneracion.ToString("dd/MM/yy HH:mm - ")).FontSize(8);
+                    text.Span("Pág. ").FontSize(8); // Texto estático
+                    text.CurrentPageNumber().FontSize(8); // Número de página actual
+                    text.Span(" de ").FontSize(8); // Separador
+                    text.TotalPages().FontSize(8); // Número total de páginas
+                });
                 page.Content()
 
             .PaddingVertical(1, Unit.Centimetre)
