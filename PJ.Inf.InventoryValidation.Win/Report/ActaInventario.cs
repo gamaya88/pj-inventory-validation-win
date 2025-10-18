@@ -181,6 +181,88 @@ namespace PJ.Inf.InventoryValidation.Win.Report
                         }
                     }
                 });
+
+                x.Item().Text("NOTA:  EL TRABAJADOR ES RESPONSABLE DIRECTO DE LA EXISTENCIA, PERMANENCIA, CONSERVACION Y BUEN USO DE CADA UNO DE LOS BIENES DESCRITOS. POR LO QUE SE RECOMIENDA TOMAR LAS PROVIDENCIAS DEL CASO PARA PARA EVITAR PERDIDA, SUSTRACCIÓN, DETERIORO, ETC. QUE LUEGO PODRIA SER CONSIDERADO COMO DESCUIDO O NEGLIGENCIA.CUALQUIER MOVIMIENTO DENTRO O FUERA DE LA ENTIDAD, DEBERA SER COMUNICADO AL ENCARGADO DE CONTROL PATRIMONIAL, BAJO RESPONSABILIDAD.").FontSize(6).FontColor(Colors.Black);
+
+                x.Item().PaddingTop(50).Table(firmas => 
+                {
+                    firmas.ColumnsDefinition(columns => 
+                    {
+                        columns.RelativeColumn();
+                        columns.RelativeColumn();
+                        columns.RelativeColumn();
+                        columns.RelativeColumn();
+                        columns.RelativeColumn();
+                    });
+
+                    for (global::System.Int32 i = 1; i <= 10; i++)
+                    {
+                        if(i == 1 || i==3 || i == 5)
+                        {
+                            firmas.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                        }
+
+                        if (i == 2 || i == 4)
+                        {
+                            firmas.Cell().Element(CellStyle)
+                                .BorderBottom(1)
+                                .Text("")
+                                .FontSize(8)
+                                .FontFamily("Calibri");
+                        }
+
+                        if (i == 6 || i == 8 || i == 10)
+                        {
+                            firmas.Cell().Element(CellStyle).Text("").FontSize(8).FontFamily("Calibri");
+                        }
+
+                        if (i == 7)
+                        {
+                            firmas.Cell().Element(CellStyle)
+                                .Text($"Mg. CPC Teresa Gronert Vásquez{Environment.NewLine}Control Patrimonial - CSJ de San Martín")
+                                .AlignCenter()
+                                .FontSize(8)
+                                .FontFamily("Calibri");
+                        }
+
+                        if (i == 9)
+                        {
+                            firmas.Cell().Element(CellStyle).Text($"{ _persona.PerNombreLargo}{Environment.NewLine}{_persona.DepDescripcion}").AlignCenter().FontSize(8).FontFamily("Calibri");
+                        }
+
+                        static IContainer CellStyle(IContainer container)
+                        {
+                            return container.Border(0)
+                            .AlignMiddle()
+                            .PaddingVertical(2)
+                            .PaddingHorizontal(2);
+                        }
+
+                        //if (i == 7 || i == 9)
+                        //{
+                        //    static IContainer CellStyle(IContainer container)
+                        //    {
+                        //        return container.Border((float)0.5)
+                        //        .AlignMiddle()
+                        //        .PaddingVertical(2)
+                        //        .PaddingHorizontal(2)
+                        //        .BorderColor(Colors.Black);
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    static IContainer CellStyle(IContainer container)
+                        //    {
+                        //        return container.Border(0)
+                        //        .AlignMiddle()
+                        //        .PaddingVertical(2)
+                        //        .PaddingHorizontal(2)
+                        //        .BorderColor(Colors.White);
+                        //    }
+                        //}
+                            
+                    }
+                });
             });
             });
         }

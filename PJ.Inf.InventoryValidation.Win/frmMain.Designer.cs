@@ -79,6 +79,13 @@ namespace PJ.Inf.InventoryValidation.Win
             btnAprobarActa = new MaterialSkin.Controls.MaterialButton();
             txtNombreActaBuscar = new MaterialSkin.Controls.MaterialTextBox();
             dgvActas = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column11 = new DataGridViewTextBoxColumn();
+            Column13 = new DataGridViewTextBoxColumn();
+            Column12 = new DataGridViewTextBoxColumn();
+            Column14 = new DataGridViewTextBoxColumn();
+            Column15 = new DataGridViewTextBoxColumn();
+            Column16 = new DataGridViewTextBoxColumn();
             imageList1 = new ImageList(components);
             toolStrip1 = new ToolStrip();
             ttsUsuario = new ToolStripLabel();
@@ -87,13 +94,6 @@ namespace PJ.Inf.InventoryValidation.Win
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripProgressBar1 = new ToolStripProgressBar();
             epInventario = new ErrorProvider(components);
-            Column1 = new DataGridViewTextBoxColumn();
-            Column11 = new DataGridViewTextBoxColumn();
-            Column13 = new DataGridViewTextBoxColumn();
-            Column12 = new DataGridViewTextBoxColumn();
-            Column14 = new DataGridViewTextBoxColumn();
-            Column15 = new DataGridViewTextBoxColumn();
-            Column16 = new DataGridViewTextBoxColumn();
             mtcMain.SuspendLayout();
             tabPage1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -277,6 +277,7 @@ namespace PJ.Inf.InventoryValidation.Win
             dgvListado.Name = "dgvListado";
             dgvListado.Size = new Size(1048, 438);
             dgvListado.TabIndex = 1;
+            dgvListado.KeyDown += dgvListado_KeyDown;
             // 
             // Column2
             // 
@@ -294,7 +295,7 @@ namespace PJ.Inf.InventoryValidation.Win
             // 
             // Column4
             // 
-            Column4.DataPropertyName = "BptEstadoConservacionDescripcionTipo";
+            Column4.DataPropertyName = "BptNuevoEstadoConservacionDescripcionTipo";
             Column4.HeaderText = "ESTADO";
             Column4.Name = "Column4";
             // 
@@ -314,7 +315,7 @@ namespace PJ.Inf.InventoryValidation.Win
             // 
             // Column7
             // 
-            Column7.DataPropertyName = "BptSerie";
+            Column7.DataPropertyName = "BptNuevaSerie";
             Column7.HeaderText = "SERIE";
             Column7.Name = "Column7";
             // 
@@ -894,6 +895,54 @@ namespace PJ.Inf.InventoryValidation.Win
             dgvActas.TabIndex = 1;
             dgvActas.RowEnter += dgvActas_RowEnter;
             // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "AbpId";
+            Column1.HeaderText = "Column1";
+            Column1.Name = "Column1";
+            Column1.Visible = false;
+            // 
+            // Column11
+            // 
+            Column11.DataPropertyName = "PerNombre";
+            Column11.HeaderText = "NOMBRE TRABAJADOR";
+            Column11.Name = "Column11";
+            Column11.Width = 300;
+            // 
+            // Column13
+            // 
+            Column13.DataPropertyName = "AbpDescripcionEstadoActa";
+            Column13.HeaderText = "ESTADO ACTA";
+            Column13.Name = "Column13";
+            Column13.Width = 120;
+            // 
+            // Column12
+            // 
+            Column12.DataPropertyName = "AbpEstadoActa";
+            Column12.HeaderText = "Column12";
+            Column12.Name = "Column12";
+            Column12.Visible = false;
+            // 
+            // Column14
+            // 
+            Column14.DataPropertyName = "AbpUltimaImpresion";
+            Column14.HeaderText = "FECHA ÚLT IMPRESION";
+            Column14.Name = "Column14";
+            Column14.Width = 140;
+            // 
+            // Column15
+            // 
+            Column15.DataPropertyName = "UsrIdentificadorImprime";
+            Column15.HeaderText = "ÚLT. USUARIO IMPRIMIO";
+            Column15.Name = "Column15";
+            Column15.Width = 120;
+            // 
+            // Column16
+            // 
+            Column16.DataPropertyName = "AbpImpresiones";
+            Column16.HeaderText = "CANT. IMPRESIONES";
+            Column16.Name = "Column16";
+            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
@@ -944,54 +993,6 @@ namespace PJ.Inf.InventoryValidation.Win
             // epInventario
             // 
             epInventario.ContainerControl = this;
-            // 
-            // Column1
-            // 
-            Column1.DataPropertyName = "AbpId";
-            Column1.HeaderText = "Column1";
-            Column1.Name = "Column1";
-            Column1.Visible = false;
-            // 
-            // Column11
-            // 
-            Column11.DataPropertyName = "PerNombre";
-            Column11.HeaderText = "NOMBRE TRABAJADOR";
-            Column11.Name = "Column11";
-            Column11.Width = 300;
-            // 
-            // Column13
-            // 
-            Column13.DataPropertyName = "AbpDescripcionEstadoActa";
-            Column13.HeaderText = "ESTADO ACTA";
-            Column13.Name = "Column13";
-            Column13.Width = 120;
-            // 
-            // Column12
-            // 
-            Column12.DataPropertyName = "AbpEstadoActa";
-            Column12.HeaderText = "Column12";
-            Column12.Name = "Column12";
-            Column12.Visible = false;
-            // 
-            // Column14
-            // 
-            Column14.DataPropertyName = "AbpUltimaImpresion";
-            Column14.HeaderText = "FECHA ÚLT IMPRESION";
-            Column14.Name = "Column14";
-            Column14.Width = 140;
-            // 
-            // Column15
-            // 
-            Column15.DataPropertyName = "UsrIdentificadorImprime";
-            Column15.HeaderText = "ÚLT. USUARIO IMPRIMIO";
-            Column15.Name = "Column15";
-            Column15.Width = 120;
-            // 
-            // Column16
-            // 
-            Column16.DataPropertyName = "AbpImpresiones";
-            Column16.HeaderText = "CANT. IMPRESIONES";
-            Column16.Name = "Column16";
             // 
             // frmMain
             // 
@@ -1066,15 +1067,6 @@ namespace PJ.Inf.InventoryValidation.Win
         private ToolStripProgressBar toolStripProgressBar1;
         private ToolStripSeparator toolStripSeparator2;
         private ErrorProvider epInventario;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
         private MaterialSkin.Controls.MaterialButton btnGenerarActa;
         private MaterialSkin.Controls.MaterialButton btnSubirActa;
         private MaterialSkin.Controls.MaterialButton btnDescargarActa;
@@ -1095,5 +1087,14 @@ namespace PJ.Inf.InventoryValidation.Win
         private DataGridViewTextBoxColumn Column14;
         private DataGridViewTextBoxColumn Column15;
         private DataGridViewTextBoxColumn Column16;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
     }
 }

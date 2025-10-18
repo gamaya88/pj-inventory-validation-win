@@ -187,7 +187,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
             await CargaTrabajadoresInventariadosPorUsuario(false);
 
-            toolStripProgressBar1.Visible = true;            
+            toolStripProgressBar1.Visible = true;
 
             toolStripProgressBar1.Visible = false;
         }
@@ -533,12 +533,12 @@ namespace PJ.Inf.InventoryValidation.Win
                 await CambiarEstadoActa(EstadoActaEnum.APROBADA, actaSeleccionada.AbpId);
 
                 btnAprobarActa.Enabled = true;
-            }                
+            }
         }
 
         private async void btnSubirFirmada_Click(object sender, EventArgs e)
         {
-            if (dgvActas.SelectedRows.Count > 0) 
+            if (dgvActas.SelectedRows.Count > 0)
             {
                 btnSubirFirmada.Enabled = false;
 
@@ -1078,6 +1078,63 @@ namespace PJ.Inf.InventoryValidation.Win
                 var actaSeleccionada = dgvActas.SelectedRows[0].DataBoundItem as ActaBienPatrimonialView;
 
                 ActivarBotonesActas(actaSeleccionada);
+            }
+        }
+
+        private async void dgvListado_KeyDown(object sender, KeyEventArgs e)
+        {
+            var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
+
+            if (e.KeyCode == Keys.Delete && personaSeleccionada != null)
+            {
+                if (dgvListado.SelectedRows.Count > 0)
+                {
+                    var acta = await actaBienPatrimonialService.GetPorPersona(personaSeleccionada.PerId);
+
+                    if (acta != null && acta.AbpEstadoActa != EstadoActaEnum.CREADA)
+                    {
+                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeNoSePuedeEliminarBienActaNoCreada, "OK", true);
+                        SnackBarMessage.Show(this);
+                        return;
+                    }
+
+                    var bienSeleccionado = dgvListado.SelectedRows[0].DataBoundItem as BienPatrimonialReporteView;
+
+                    MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", string.Format(SystemMessages.MensajeConfirmacionEliminacion, bienSeleccionado.DebDescripcion, bienSeleccionado.BptCodigoPatrimonial), "OK", true, "Cancel");
+
+                    DialogResult result = materialDialog.ShowDialog(this);
+
+                    if (result != DialogResult.OK)
+                    {
+                        return;
+                    }
+
+                    toolStripProgressBar1.Visible = true;
+
+                    var bienPatrimonial = await bienPatrimonialService.Get(bienSeleccionado.BptId);
+
+                    bienPatrimonial.PerNuevoId = null;
+                    bienPatrimonial.UsrInventariaId = null;
+                    bienPatrimonial.OfiNuevoId = null;
+                    bienPatrimonial.BptInventariadoTipo = InventariadoTipoEnum.SIN_INVENTARIAR;
+                    bienPatrimonial.BptNuevoEstadoConservacionTipo = null;
+                    bienPatrimonial.BptNuevaSerie = string.Empty;
+                    bienPatrimonial.BptObservacion = string.Empty;
+
+                    bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
+                    bienPatrimonial.SecFechaActualizacion = DateTime.Now;
+
+                    bienPatrimonial.AbpId = null;
+
+                    await bienPatrimonialService.Modifica(bienPatrimonial);
+
+                    await CargaTrabajadoresInventariadosPorUsuario();
+
+                    MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeElementoEliminadoCorrectamente, "OK", true);
+                    SnackBarMessage2.Show(this);
+
+                    toolStripProgressBar1.Visible = false;
+                }
             }
         }
     }

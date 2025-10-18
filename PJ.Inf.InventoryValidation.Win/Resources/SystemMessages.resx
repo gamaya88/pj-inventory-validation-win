@@ -156,4 +156,13 @@
   <data name="MensajeActaSubidaPorTrabajador" xml:space="preserve">
     <value>Ya existe un acta generada para este trabajador</value>
   </data>
+  <data name="MensajeConfirmacionEliminacion" xml:space="preserve">
+    <value>¿Esta seguro que desea quitar el elemento {0} con codigo patrimonial {1}?</value>
+  </data>
+  <data name="MensajeElementoEliminadoCorrectamente" xml:space="preserve">
+    <value>Elemento eliminado correctamente</value>
+  </data>
+  <data name="MensajeNoSePuedeEliminarBienActaNoCreada" xml:space="preserve">
+    <value>No se puede eliminar bien de un acta que ya fue impresa</value>
+  </data>
 </root>

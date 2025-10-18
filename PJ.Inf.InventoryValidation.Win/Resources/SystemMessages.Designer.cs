@@ -59,24 +59,40 @@ namespace PJ.Inf.InventoryValidation.Win.Resources {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a Ya existe un acta generada para este trabajador.
         /// </summary>
-        internal static string MensajeActaSubidaPorTrabajador
-        {
-            get
-            {
+        internal static string MensajeActaSubidaPorTrabajador {
+            get {
                 return ResourceManager.GetString("MensajeActaSubidaPorTrabajador", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Esta seguro que desea quitar el elemento {0} con codigo patrimonial {1}?.
+        /// </summary>
+        internal static string MensajeConfirmacionEliminacion {
+            get {
+                return ResourceManager.GetString("MensajeConfirmacionEliminacion", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Busca una cadena traducida similar a Desea confirmar la información de inventario.
         /// </summary>
         internal static string MensajeConfirmarInformacion {
             get {
                 return ResourceManager.GetString("MensajeConfirmarInformacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Elemento eliminado correctamente.
+        /// </summary>
+        internal static string MensajeElementoEliminadoCorrectamente {
+            get {
+                return ResourceManager.GetString("MensajeElementoEliminadoCorrectamente", resourceCulture);
             }
         }
         
@@ -140,6 +156,15 @@ namespace PJ.Inf.InventoryValidation.Win.Resources {
         internal static string MensajeNoCoincidenciaBienPatrimonial {
             get {
                 return ResourceManager.GetString("MensajeNoCoincidenciaBienPatrimonial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se puede eliminar bien de un acta que ya fue impresa.
+        /// </summary>
+        internal static string MensajeNoSePuedeEliminarBienActaNoCreada {
+            get {
+                return ResourceManager.GetString("MensajeNoSePuedeEliminarBienActaNoCreada", resourceCulture);
             }
         }
         

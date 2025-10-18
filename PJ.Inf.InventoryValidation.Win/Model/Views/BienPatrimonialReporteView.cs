@@ -8,7 +8,7 @@ namespace PJ.Inf.InventoryValidation.Win.Model.Views
 {
     internal class BienPatrimonialReporteView
     {
-        Guid BptId { get; set; }
+        public Guid BptId { get; set; }
 
         public string DebDescripcion { get; set; } = null!;
 

@@ -50,6 +50,8 @@ namespace PJ.Inf.InventoryValidation.Win.Model.Views
 
         public byte BptEstadoConservacionTipo { get; set; }
 
+        public byte? BptNuevoEstadoConservacionTipo { get; set; }
+
         public byte BptColorTipo { get; set; }
 
         public string? BptSerie { get; set; }
