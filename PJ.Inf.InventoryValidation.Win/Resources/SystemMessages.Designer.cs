@@ -70,6 +70,15 @@ namespace PJ.Inf.InventoryValidation.Win.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Se ha realizado con éxito las correcciones del bien.
+        /// </summary>
+        internal static string MensajeBienCorregido {
+            get {
+                return ResourceManager.GetString("MensajeBienCorregido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Esta seguro que desea quitar el elemento {0} con codigo patrimonial {1}?.
         /// </summary>
         internal static string MensajeConfirmacionEliminacion {

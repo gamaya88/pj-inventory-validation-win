@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MaterialSkin.Controls;
 using Microsoft.IdentityModel.Tokens;
-using PJ.Inf.InventoryValidation.Win.Model;
 using PJ.Inf.InventoryValidation.Win.Model.HelpDeskDb;
 using PJ.Inf.InventoryValidation.Win.Model.Views;
 using PJ.Inf.InventoryValidation.Win.Registrars;
@@ -9,13 +8,8 @@ using PJ.Inf.InventoryValidation.Win.Report;
 using PJ.Inf.InventoryValidation.Win.Resources;
 using PJ.Inf.InventoryValidation.Win.Service;
 using PJ.Inf.InventoryValidation.Win.Utils.Enums;
-using PJ.Inf.InventoryValidation.Win.Views;
 using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PJ.Inf.InventoryValidation.Win
 {
@@ -63,11 +57,14 @@ namespace PJ.Inf.InventoryValidation.Win
 
         List<BienPatrimonialReporteView> bienesAListar = new List<BienPatrimonialReporteView>();
 
+        List<BienPatrimonialReporteView> bienesObservadosAListar = new List<BienPatrimonialReporteView>();
+
         public frmMain()
         {
             InitializeComponent();
 
             dgvListado.Configurar();
+            dgvBienesObservados.Configurar();
             dgvActas.Configurar();
 
             ConfigureCombo();
@@ -90,8 +87,9 @@ namespace PJ.Inf.InventoryValidation.Win
 
             this.SetMaterialSkin();
 
-            groupBox5.Font =
             toolStrip1.Font =
+            groupBox6.Font =
+            groupBox5.Font =
             groupBox1.Font =
             groupBox2.Font =
             groupBox3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -123,15 +121,18 @@ namespace PJ.Inf.InventoryValidation.Win
 
             if (!usuariosAdmin.Contains(usuarioDetectado.UsrIdentificador))
             {
-                // Guardamos una referencia a la tercera pestaña (índice 2)
                 var tabOculta = mtcMain.TabPages[2];
+                var tabOculta2 = mtcMain.TabPages[3];
 
-                // Ahora la eliminamos del control para que no sea visible
                 mtcMain.TabPages.Remove(tabOculta);
+
+                mtcMain.TabPages.Remove(tabOculta2);
             }
             else
             {
                 await ListarActas();
+
+                await ListarBienesObservados();
             }
 
             EndLoad();
@@ -334,7 +335,7 @@ namespace PJ.Inf.InventoryValidation.Win
                 bienPatrimonial.BptObservacion = txtObservaciones.Text.Trim();
 
                 bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
-                bienPatrimonial.SecFechaCreacion = DateTime.Now;
+                bienPatrimonial.SecFechaActualizacion = DateTime.Now;
 
                 if (acta != null)
                 {
@@ -441,7 +442,7 @@ namespace PJ.Inf.InventoryValidation.Win
             bienPatrimonial.BptObservacion = txtObservaciones.Text.Trim();
 
             bienPatrimonial.SecUsuarioActualizacionId = usuarioDetectado.UsrIdentificador;
-            bienPatrimonial.SecFechaCreacion = DateTime.Now;
+            bienPatrimonial.SecFechaActualizacion = DateTime.Now;
 
             await bienPatrimonialService.Modifica(bienPatrimonial);
 
@@ -583,6 +584,30 @@ namespace PJ.Inf.InventoryValidation.Win
         #endregion Aprobar actas
 
         #region Métodos propios
+
+        private async Task ListarBienesObservados()
+        {
+            toolStripProgressBar1.Visible = true;
+
+            var bienesObservardos = await bienPatrimonialService.GetByObservados();
+
+            bienesObservadosAListar = mapper.Map<List<BienPatrimonialReporteView>>(bienesObservardos.ToList());
+
+            bienesObservadosAListar.ForEach(x =>
+            {
+                x.BptEstadoConservacionDescripcionTipo = estadoConservacion.FirstOrDefault(y => y.DfvValor == x.BptEstadoConservacionTipo)?.DfvDescripcion ?? "";
+
+                x.BptNuevoEstadoConservacionDescripcionTipo = estadoConservacion.FirstOrDefault(y => y.DfvValor == x.BptNuevoEstadoConservacionTipo)?.DfvDescripcion ?? "";
+
+                x.BptColorDescripcionTipo = color.FirstOrDefault(y => y.DfvValor == x.BptColorTipo)?.DfvDescripcion ?? "";
+            });
+
+            btnEditarBien.Enabled = bienesObservadosAListar.Any();
+
+            dgvBienesObservados.DataSource = bienesObservadosAListar;
+
+            toolStripProgressBar1.Visible = false;
+        }
 
         private async Task ListarActas()
         {
@@ -1060,9 +1085,11 @@ namespace PJ.Inf.InventoryValidation.Win
             switch (indiceSeleccionado)
             {
 
-                case 2: // Tercera pestaña
+                case 2:
                 await ListarActas();
-                // Cargar datos de la Pestaña 3
+                break;
+                case 3:
+                await ListarBienesObservados();
                 break;
             }
         }
@@ -1136,6 +1163,52 @@ namespace PJ.Inf.InventoryValidation.Win
                     toolStripProgressBar1.Visible = false;
                 }
             }
+        }
+
+        private async void btnEditarBien_Click(object sender, EventArgs e)
+        {
+            if (dgvBienesObservados.SelectedRows.Count > 0)
+            {
+                var bienSeleccionado = dgvBienesObservados.SelectedRows[0].DataBoundItem as BienPatrimonialReporteView;
+
+                using (var frm = new frmBienPatrimonial(bienSeleccionado.BptCodigoPatrimonial, usuarioDetectado.UsrIdentificador))
+                {
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    var result = frm.ShowDialog(this);
+                    if (result == DialogResult.OK)
+                    {
+                        MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeBienCorregido, "OK", true);
+                        SnackBarMessage2.Show(this);
+
+                        txtBusquedaBien.Text = "";
+
+                        await ListarBienesObservados();
+                    }
+                }
+            }
+        }
+
+        private void txtBusquedaBien_TextChanged(object sender, EventArgs e)
+        {
+            var filtro = txtBusquedaBien.Text.Trim().ToLower();
+
+            if(filtro == string.Empty)
+            {
+                dgvBienesObservados.DataSource = bienesObservadosAListar;
+                return;
+            }
+
+            var bienesFiltrados = bienesObservadosAListar
+                .Where(x =>
+                    x.BptCodigoPatrimonial.ToLower().Contains(filtro) ||
+                    x.DebDescripcion.ToLower().Contains(filtro) ||
+                    x.MarDescripcion.ToLower().Contains(filtro) ||
+                    x.ModDescripcion.ToLower().Contains(filtro) ||
+                    x.BptCodigoPatrimonial.ToLower().Contains(filtro) ||
+                    x.BptSerie.ToLower().Contains(filtro)
+                )
+                .ToList();
+            dgvBienesObservados.DataSource = bienesFiltrados;
         }
     }
 }

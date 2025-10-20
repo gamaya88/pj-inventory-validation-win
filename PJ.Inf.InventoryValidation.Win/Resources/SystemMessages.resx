@@ -165,4 +165,7 @@
   <data name="MensajeNoSePuedeEliminarBienActaNoCreada" xml:space="preserve">
     <value>No se puede eliminar bien de un acta que ya fue impresa</value>
   </data>
+  <data name="MensajeBienCorregido" xml:space="preserve">
+    <value>Se ha realizado con éxito las correcciones del bien</value>
+  </data>
 </root>

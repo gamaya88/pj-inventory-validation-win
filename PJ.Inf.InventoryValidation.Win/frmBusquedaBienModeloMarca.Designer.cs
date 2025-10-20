@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBusquedaBienModeloMarca));
             tableLayoutPanel1 = new TableLayoutPanel();
             txtDenominacion = new MaterialSkin.Controls.MaterialTextBox();
             dgvSearch = new DataGridView();
@@ -93,6 +94,9 @@
             dgvSearch.Name = "dgvSearch";
             dgvSearch.Size = new Size(994, 317);
             dgvSearch.TabIndex = 3;
+            dgvSearch.RowEnter += dgvSearch_RowEnter;
+            dgvSearch.DoubleClick += dgvSearch_DoubleClick;
+            dgvSearch.KeyDown += dgvSearch_KeyDown;
             // 
             // Column1
             // 
@@ -189,6 +193,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 450);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmBusquedaBienModeloMarca";
             Text = "frmBusquedaBienModeloMarca";
             tableLayoutPanel1.ResumeLayout(false);

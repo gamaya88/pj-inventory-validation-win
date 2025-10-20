@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using PJ.Inf.InventoryValidation.Win.Model.Views;
 using PJ.Inf.InventoryValidation.Win.Service;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace PJ.Inf.InventoryValidation.Win
     public partial class frmBusquedaBienModeloMarca : MaterialForm
     {
         private DenominacionBienModeloService denominacionBienModeloService;
+
+        public DenominacionBienModeloView denominacionSeleccionada;
 
         public frmBusquedaBienModeloMarca()
         {
@@ -39,7 +42,32 @@ namespace PJ.Inf.InventoryValidation.Win
             {
                 var data = await denominacionBienModeloService.GetDenominaciones(txtDenominacion.Text, txtMarca.Text, txtModelo.Text);
 
+                denominacionSeleccionada = data.FirstOrDefault();
+
                 dgvSearch.DataSource = data;
+            }
+        }
+
+        private void dgvSearch_DoubleClick(object sender, EventArgs e)
+        {
+            denominacionSeleccionada = (DenominacionBienModeloView)dgvSearch.SelectedRows[0].DataBoundItem;
+            this.CloseDev();
+        }
+
+        private void dgvSearch_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSearch.SelectedRows.Count > 0)
+            {
+                denominacionSeleccionada = (DenominacionBienModeloView)dgvSearch.SelectedRows[0].DataBoundItem;
+            }
+        }
+
+        private void dgvSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                this.CloseDev();
             }
         }
     }

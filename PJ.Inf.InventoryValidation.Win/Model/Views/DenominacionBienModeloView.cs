@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PJ.Inf.InventoryValidation.Win.Model.Views
 {
-    internal class DenominacionBienModeloView
+    public class DenominacionBienModeloView
     {
         public Guid DbmId { get; set; }
 

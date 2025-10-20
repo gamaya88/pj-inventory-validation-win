@@ -86,6 +86,22 @@ namespace PJ.Inf.InventoryValidation.Win
             Column14 = new DataGridViewTextBoxColumn();
             Column15 = new DataGridViewTextBoxColumn();
             Column16 = new DataGridViewTextBoxColumn();
+            tabPage4 = new TabPage();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            panel2 = new Panel();
+            groupBox6 = new GroupBox();
+            txtBusquedaBien = new MaterialSkin.Controls.MaterialTextBox();
+            btnEditarBien = new MaterialSkin.Controls.MaterialButton();
+            dgvBienesObservados = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
             imageList1 = new ImageList(components);
             toolStrip1 = new ToolStrip();
             ttsUsuario = new ToolStripLabel();
@@ -108,6 +124,11 @@ namespace PJ.Inf.InventoryValidation.Win
             tableLayoutPanel2.SuspendLayout();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvActas).BeginInit();
+            tabPage4.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            panel2.SuspendLayout();
+            groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBienesObservados).BeginInit();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epInventario).BeginInit();
             SuspendLayout();
@@ -117,6 +138,7 @@ namespace PJ.Inf.InventoryValidation.Win
             mtcMain.Controls.Add(tabPage1);
             mtcMain.Controls.Add(tabPage2);
             mtcMain.Controls.Add(tabPage3);
+            mtcMain.Controls.Add(tabPage4);
             mtcMain.Depth = 0;
             mtcMain.Dock = DockStyle.Fill;
             mtcMain.ImageList = imageList1;
@@ -125,7 +147,7 @@ namespace PJ.Inf.InventoryValidation.Win
             mtcMain.Multiline = true;
             mtcMain.Name = "mtcMain";
             mtcMain.SelectedIndex = 0;
-            mtcMain.Size = new Size(1062, 609);
+            mtcMain.Size = new Size(1073, 609);
             mtcMain.TabIndex = 0;
             mtcMain.SelectedIndexChanged += mtcMain_SelectedIndexChanged;
             // 
@@ -135,7 +157,7 @@ namespace PJ.Inf.InventoryValidation.Win
             tabPage1.ImageKey = "format_list_numbered_24dp_FFFFFF.png";
             tabPage1.Location = new Point(4, 31);
             tabPage1.Name = "tabPage1";
-            tabPage1.Size = new Size(1054, 574);
+            tabPage1.Size = new Size(1065, 574);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Listado de bienes";
             // 
@@ -153,7 +175,7 @@ namespace PJ.Inf.InventoryValidation.Win
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel1.Size = new Size(1054, 574);
+            tableLayoutPanel1.Size = new Size(1065, 574);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -162,7 +184,7 @@ namespace PJ.Inf.InventoryValidation.Win
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1048, 94);
+            panel1.Size = new Size(1059, 94);
             panel1.TabIndex = 0;
             // 
             // groupBox3
@@ -175,7 +197,7 @@ namespace PJ.Inf.InventoryValidation.Win
             groupBox3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             groupBox3.Location = new Point(0, 0);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1048, 94);
+            groupBox3.Size = new Size(1059, 94);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "DATOS DE BUSQUEDA";
@@ -275,7 +297,7 @@ namespace PJ.Inf.InventoryValidation.Win
             dgvListado.Dock = DockStyle.Fill;
             dgvListado.Location = new Point(3, 103);
             dgvListado.Name = "dgvListado";
-            dgvListado.Size = new Size(1048, 438);
+            dgvListado.Size = new Size(1059, 438);
             dgvListado.TabIndex = 1;
             dgvListado.KeyDown += dgvListado_KeyDown;
             // 
@@ -349,7 +371,7 @@ namespace PJ.Inf.InventoryValidation.Win
             tabPage2.ImageKey = "add_shopping_cart_24dp_FFFFFF.png";
             tabPage2.Location = new Point(4, 31);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(1054, 574);
+            tabPage2.Size = new Size(1065, 574);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Ingreso de bien";
             // 
@@ -725,7 +747,7 @@ namespace PJ.Inf.InventoryValidation.Win
             tabPage3.ImageKey = "fact_check_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png";
             tabPage3.Location = new Point(4, 31);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1054, 574);
+            tabPage3.Size = new Size(1065, 574);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Aprobar Actas";
             tabPage3.UseVisualStyleBackColor = true;
@@ -744,7 +766,7 @@ namespace PJ.Inf.InventoryValidation.Win
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel2.Size = new Size(1054, 574);
+            tableLayoutPanel2.Size = new Size(1065, 574);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox5
@@ -760,7 +782,7 @@ namespace PJ.Inf.InventoryValidation.Win
             groupBox5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             groupBox5.Location = new Point(3, 3);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(1048, 94);
+            groupBox5.Size = new Size(1059, 94);
             groupBox5.TabIndex = 0;
             groupBox5.TabStop = false;
             groupBox5.Text = "DATOS DE BÚSQUEDA DE ACTA";
@@ -891,7 +913,7 @@ namespace PJ.Inf.InventoryValidation.Win
             dgvActas.Dock = DockStyle.Fill;
             dgvActas.Location = new Point(3, 103);
             dgvActas.Name = "dgvActas";
-            dgvActas.Size = new Size(1048, 438);
+            dgvActas.Size = new Size(1059, 438);
             dgvActas.TabIndex = 1;
             dgvActas.RowEnter += dgvActas_RowEnter;
             // 
@@ -943,6 +965,168 @@ namespace PJ.Inf.InventoryValidation.Win
             Column16.HeaderText = "CANT. IMPRESIONES";
             Column16.Name = "Column16";
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(tableLayoutPanel3);
+            tabPage4.ImageKey = "feedback_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png";
+            tabPage4.Location = new Point(4, 31);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1065, 574);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Bienes observados";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel3.Controls.Add(dgvBienesObservados, 0, 1);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 3;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel3.Size = new Size(1059, 568);
+            tableLayoutPanel3.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(groupBox6);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1053, 94);
+            panel2.TabIndex = 0;
+            // 
+            // groupBox6
+            // 
+            groupBox6.BackColor = SystemColors.Control;
+            groupBox6.Controls.Add(txtBusquedaBien);
+            groupBox6.Controls.Add(btnEditarBien);
+            groupBox6.Dock = DockStyle.Fill;
+            groupBox6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            groupBox6.Location = new Point(0, 0);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(1053, 94);
+            groupBox6.TabIndex = 3;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "DATOS DE BUSQUEDA";
+            // 
+            // txtBusquedaBien
+            // 
+            txtBusquedaBien.AnimateReadOnly = false;
+            txtBusquedaBien.BorderStyle = BorderStyle.None;
+            txtBusquedaBien.Depth = 0;
+            txtBusquedaBien.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtBusquedaBien.Hint = "Ingrese dato del producto";
+            txtBusquedaBien.LeadingIcon = null;
+            txtBusquedaBien.Location = new Point(5, 30);
+            txtBusquedaBien.MaxLength = 50;
+            txtBusquedaBien.MouseState = MaterialSkin.MouseState.OUT;
+            txtBusquedaBien.Multiline = false;
+            txtBusquedaBien.Name = "txtBusquedaBien";
+            txtBusquedaBien.Size = new Size(478, 50);
+            txtBusquedaBien.TabIndex = 9;
+            txtBusquedaBien.Text = "";
+            txtBusquedaBien.TrailingIcon = null;
+            txtBusquedaBien.TextChanged += txtBusquedaBien_TextChanged;
+            // 
+            // btnEditarBien
+            // 
+            btnEditarBien.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnEditarBien.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnEditarBien.Depth = 0;
+            btnEditarBien.Enabled = false;
+            btnEditarBien.HighEmphasis = true;
+            btnEditarBien.Icon = Properties.Resources.edit_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
+            btnEditarBien.Location = new Point(490, 33);
+            btnEditarBien.Margin = new Padding(4, 6, 4, 6);
+            btnEditarBien.MouseState = MaterialSkin.MouseState.HOVER;
+            btnEditarBien.Name = "btnEditarBien";
+            btnEditarBien.NoAccentTextColor = Color.Empty;
+            btnEditarBien.Size = new Size(135, 36);
+            btnEditarBien.TabIndex = 3;
+            btnEditarBien.Text = "Editar bien";
+            btnEditarBien.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnEditarBien.UseAccentColor = false;
+            btnEditarBien.UseVisualStyleBackColor = true;
+            btnEditarBien.Click += btnEditarBien_Click;
+            // 
+            // dgvBienesObservados
+            // 
+            dgvBienesObservados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBienesObservados.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9 });
+            dgvBienesObservados.Dock = DockStyle.Fill;
+            dgvBienesObservados.Location = new Point(3, 103);
+            dgvBienesObservados.Name = "dgvBienesObservados";
+            dgvBienesObservados.Size = new Size(1053, 432);
+            dgvBienesObservados.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "DebDescripcion";
+            dataGridViewTextBoxColumn1.HeaderText = "DESCRIPCIÓN";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "BptCodigoPatrimonial";
+            dataGridViewTextBoxColumn2.HeaderText = "CÓD. PATRIMONIAL";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "BptEstadoConservacionDescripcionTipo";
+            dataGridViewTextBoxColumn3.HeaderText = "ESTADO";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "MarDescripcion";
+            dataGridViewTextBoxColumn4.HeaderText = "MARCA";
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.DataPropertyName = "ModDescripcion";
+            dataGridViewTextBoxColumn5.HeaderText = "MODELO";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.DataPropertyName = "BptSerie";
+            dataGridViewTextBoxColumn6.HeaderText = "SERIE";
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.DataPropertyName = "BptEstadoConservacionTipo";
+            dataGridViewTextBoxColumn7.HeaderText = "Column8";
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.DataPropertyName = "BptColorTipo";
+            dataGridViewTextBoxColumn8.HeaderText = "Column9";
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.DataPropertyName = "BptColorDescripcionTipo";
+            dataGridViewTextBoxColumn9.HeaderText = "COLOR";
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
@@ -951,6 +1135,7 @@ namespace PJ.Inf.InventoryValidation.Win
             imageList1.Images.SetKeyName(0, "add_shopping_cart_24dp_FFFFFF.png");
             imageList1.Images.SetKeyName(1, "format_list_numbered_24dp_FFFFFF.png");
             imageList1.Images.SetKeyName(2, "fact_check_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png");
+            imageList1.Images.SetKeyName(3, "feedback_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png");
             // 
             // toolStrip1
             // 
@@ -959,7 +1144,7 @@ namespace PJ.Inf.InventoryValidation.Win
             toolStrip1.Items.AddRange(new ToolStripItem[] { ttsUsuario, toolStripSeparator1, ttsSede, toolStripSeparator2, toolStripProgressBar1 });
             toolStrip1.Location = new Point(3, 648);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1062, 25);
+            toolStrip1.Size = new Size(1073, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -998,11 +1183,12 @@ namespace PJ.Inf.InventoryValidation.Win
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1068, 676);
+            ClientSize = new Size(1079, 676);
             Controls.Add(toolStrip1);
             Controls.Add(mtcMain);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = mtcMain;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MdiChildrenMinimizedAnchorBottom = false;
             Name = "frmMain";
             Text = "Registro de inventario";
@@ -1025,6 +1211,12 @@ namespace PJ.Inf.InventoryValidation.Win
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvActas).EndInit();
+            tabPage4.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBienesObservados).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)epInventario).EndInit();
@@ -1096,5 +1288,23 @@ namespace PJ.Inf.InventoryValidation.Win
         private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
+        private TabPage tabPage4;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Panel panel2;
+        private GroupBox groupBox6;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton btnEditarBien;
+        private DataGridView dgvBienesObservados;
+        private MaterialSkin.Controls.MaterialTextBox txtBusquedaBien;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

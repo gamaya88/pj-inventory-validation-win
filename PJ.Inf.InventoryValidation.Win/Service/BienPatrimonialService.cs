@@ -83,6 +83,30 @@ namespace PJ.Inf.InventoryValidation.Win.Service
             }
         }
 
+        public async Task<List<BienPatrimonialView>> GetByObservados()
+        {
+            using (var context = new HelpDeskDbContext())
+            {
+                var bienesInvetariadoPor = await context.BienPatrimonials
+                    .Include(x => x.Per)
+                    .Include(x => x.PerNuevo)
+                    .Include(x => x.Ofi)
+                        .ThenInclude(x => x.Dep)
+                    .Include(x => x.Dbm)
+                        .ThenInclude(x => x.Mar)
+                    .Include(x => x.Dbm)
+                        .ThenInclude(x => x.Mod)
+                    .Include(x => x.Dbm)
+                        .ThenInclude(x => x.Deb)
+                    .Where(x => x.BptInventariadoTipo == InventariadoTipoEnum.REPORTADO_POR_REVISAR && x.SecActivo == true)
+                    .ToListAsync();
+
+                var bienesPatrimonial = mapper.Map<List<BienPatrimonialView>>(bienesInvetariadoPor);
+
+                return bienesPatrimonial;
+            }
+        }
+
         public async Task<List<BienPatrimonialView>> GetBySerie(Guid BptId, string BptSerie)
         {
             using (var context = new HelpDeskDbContext())
