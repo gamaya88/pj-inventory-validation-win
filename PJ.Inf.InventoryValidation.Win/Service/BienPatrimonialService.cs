@@ -4,12 +4,6 @@ using PJ.Inf.InventoryValidation.Win.Model.HelpDeskDb;
 using PJ.Inf.InventoryValidation.Win.Model.Views;
 using PJ.Inf.InventoryValidation.Win.Registrars;
 using PJ.Inf.InventoryValidation.Win.Utils.Enums;
-using PJ.Inf.InventoryValidation.Win.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PJ.Inf.InventoryValidation.Win.Service
 {
@@ -57,6 +51,33 @@ namespace PJ.Inf.InventoryValidation.Win.Service
                     .FirstOrDefaultAsync(x => x.BptId == bptId);
 
                 return bien;
+            }
+        }
+
+        public async Task<List<BienPatrimonialView>> GetBySerie(string serie)
+        {
+            using (var context = new HelpDeskDbContext())
+            {
+                var bienes = await context.BienPatrimonials
+                    .Include(x => x.Per)
+                    .Include(x => x.PerNuevo)
+                    .Include(x => x.Ofi)
+                        .ThenInclude(x => x.Dep)
+                    .Include(x => x.Dbm)
+                        .ThenInclude(x => x.Mar)
+                    .Include(x => x.Dbm)
+                        .ThenInclude(x => x.Mod)
+                    .Include(x => x.Dbm)
+                        .ThenInclude(x => x.Deb)
+                    .Where(x => 
+                        ((x.BptNuevaSerie != null && x.BptNuevaSerie.Contains(serie)) || (x.BptSerie != null && 
+                        x.BptSerie.Contains(serie))) && x.BptInventariadoTipo == InventariadoTipoEnum.SIN_INVENTARIAR
+                    )
+                    .ToListAsync();
+
+                var bienesPatrimonial = mapper.Map<List<BienPatrimonialView>>(bienes);
+
+                return bienesPatrimonial;
             }
         }
 

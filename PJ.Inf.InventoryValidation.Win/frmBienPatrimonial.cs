@@ -145,6 +145,5 @@ namespace PJ.Inf.InventoryValidation.Win
             this.DialogResult = DialogResult.OK;
             this.Close(); // Cierra el diálogo
         }
-
     }
 }

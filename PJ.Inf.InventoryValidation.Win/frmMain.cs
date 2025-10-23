@@ -204,7 +204,7 @@ namespace PJ.Inf.InventoryValidation.Win
             var personaSeleccionada = cmbTrabajadorSearch.SelectedItem as PersonaView;
             if (personaSeleccionada == null)
             {
-                MaterialSnackBar SnackBarMessage = new MaterialSnackBar("Seleccione un trabajador.", "OK", true);
+                MaterialSnackBar SnackBarMessage = new("Seleccione un trabajador.", "OK", true);
                 SnackBarMessage.Show(this);
                 btnGenerarActa.Enabled = true;
                 toolStripProgressBar1.Visible = false;
@@ -263,12 +263,12 @@ namespace PJ.Inf.InventoryValidation.Win
 
                         await actaBienPatrimonialService.Modifica(acta);
 
-                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar("Acta generada y guardada correctamente.", "OK", true);
+                        MaterialSnackBar SnackBarMessage = new("Acta generada y guardada correctamente.", "OK", true);
                         SnackBarMessage.Show(this);
                     }
                     else
                     {
-                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar($"No se pudo generar el acta en {path}", "OK", true);
+                        MaterialSnackBar SnackBarMessage = new($"No se pudo generar el acta en {path}", "OK", true);
                         SnackBarMessage.Show(this);
                     }
                 }
@@ -294,7 +294,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
                     if (bienConMismaSerie.Any())
                     {
-                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeExisteSerie, "OK", true);
+                        MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeExisteSerie, "OK", true);
                         SnackBarMessage.Show(this);
 
                         epInventario.SetError(txtSerie, SystemMessages.MensajeExisteSerie);
@@ -308,7 +308,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
                 if (acta != null && acta.AbpEstadoActa >= EstadoActaEnum.SUBIDA)
                 {
-                    MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeActaSubidaPorTrabajador, "OK", true);
+                    MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeActaSubidaPorTrabajador, "OK", true);
                     SnackBarMessage.Show(this);
                     return;
                 }
@@ -361,7 +361,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
                 await CargaTrabajadoresInventariadosPorUsuario();
 
-                MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeInventariadoCorrectamente, "OK", true);
+                MaterialSnackBar SnackBarMessage2 = new(SystemMessages.MensajeInventariadoCorrectamente, "OK", true);
                 SnackBarMessage2.Show(this);
 
                 toolStripProgressBar1.Visible = false;
@@ -379,31 +379,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            using (var frm = new frmBusquedaBienModeloMarca())
-            {
-                frm.StartPosition = FormStartPosition.CenterParent;
-                var result = frm.ShowDialog(this);
-                if (result == DialogResult.OK)
-                {
-                    // Aquí puedes manejar lo que sucede después de cerrar el formulario
-                    // Por ejemplo, actualizar algún control en el formulario principal
-                }
-            }
-        }
-
-        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var modelo = cmbModelo.SelectedItem as ModeloView;
-
-            if (modelo != null && denominacionBienModeloViews != null)
-            {
-                var denominaciones = denominacionBienModeloViews
-                    .Where(x => x.ModId == modelo.ModId)
-                    .ToList();
-
-
-                cmbDenominacionBienModelo.DataSource = denominaciones;
-            }
+            
         }
 
         private async void cmbMarca_SelectedValueChanged(object sender, EventArgs e)
@@ -412,6 +388,13 @@ namespace PJ.Inf.InventoryValidation.Win
 
             if (marca != null)
             {
+                marca.Modelos.Add(new ModeloView()
+                {
+                    ModId = Guid.Empty,
+                    MarId = marca.MarId,
+                    ModDescripcion = "SIN MODELO"
+                });
+
                 cmbModelo.DataSource = marca.Modelos.OrderBy(m => m.ModDescripcion).ToList();
 
                 denominacionBienModeloViews = await denominacionBienModeloService.GetDenominacionesPorMarca(marca.MarId);
@@ -422,7 +405,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private async void btnBienEncontrado_Click(object sender, EventArgs e)
         {
-            MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", SystemMessages.MensajeNoCoincidenciaBienPatrimonial, "OK", true, "Cancel");
+            MaterialDialog materialDialog = new(this, "Validación de inventario", SystemMessages.MensajeNoCoincidenciaBienPatrimonial, "OK", true, "Cancel");
 
             DialogResult result = materialDialog.ShowDialog(this);
 
@@ -450,7 +433,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
             UtilService.EnviarEmailNoCoincideBienPatrimonial(correosDestino, bienEncontrado, emailEnvio, credencialEnvio, usuarioDetectado);
 
-            MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeEmailEnviado, "OK", true);
+            MaterialSnackBar SnackBarMessage2 = new(SystemMessages.MensajeEmailEnviado, "OK", true);
             SnackBarMessage2.Show(this);
 
             toolStripProgressBar1.Visible = false;
@@ -458,49 +441,15 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private async void cmbCodigoPatrimonial_Leave(object sender, EventArgs e)
         {
-            // Para buscar por código patrimonial
-            var codigoPatrimonial = txtCodigoPatrimonial.Text.Trim();
-
-            toolStripProgressBar1.Visible = true;
-            bienEncontrado = await bienPatrimonialService.GetByCodigoPatrimonial(codigoPatrimonial);
-
-            btnBuscar.Visible = bienEncontrado == null;
-
-            epInventario.Clear();
-
-            if (bienEncontrado == null)
-            {
-                MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeExisteBien, "OK", true);
-                SnackBarMessage.Show(this);
-            }
-            else
-            {
-                cmbMarca.SelectedValue = bienEncontrado.MarId;
-                cmbMarca.Refresh();
-                CargaBienPatrimonial();
-
-                btnGuardar.Enabled = bienEncontrado.BptInventariadoTipo == InventariadoTipoEnum.SIN_INVENTARIAR;
-
-                if (bienEncontrado.BptInventariadoTipo == InventariadoTipoEnum.INVENTARIADO)
-                {
-                    MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeElementoInventariado, "OK", true);
-                    SnackBarMessage.Show(this);
-                }
-
-                if (bienEncontrado.BptInventariadoTipo == InventariadoTipoEnum.REPORTADO_POR_REVISAR)
-                {
-                    MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeElementoObservado, "OK", true);
-                    SnackBarMessage.Show(this);
-                }
-            }
-
-            toolStripProgressBar1.Visible = false;
+            await CargaBien();
         }
 
-        private void cmbCodigoPatrimonial_KeyPress(object sender, KeyPressEventArgs e)
+        private async void cmbCodigoPatrimonial_KeyPress(object sender, KeyPressEventArgs e)
         {
-            bienEncontrado = null;
-            btnBienEncontrado.Visible = false;
+            if (e.KeyChar == ((char)Keys.Enter))
+            {
+                await CargaBien();
+            }
 
             e.Handled = UtilService.KeyPressInteger(sender, e, 12);
         }
@@ -584,6 +533,55 @@ namespace PJ.Inf.InventoryValidation.Win
         #endregion Aprobar actas
 
         #region Métodos propios
+
+        private async Task CargaBien()
+        {
+            bienEncontrado = null;
+            btnBienEncontrado.Visible = false;
+            btnBuscar.Visible = false;
+
+            // Para buscar por código patrimonial
+            var codigoPatrimonial = txtCodigoPatrimonial.Text.Trim();
+
+            if (codigoPatrimonial != string.Empty)
+            {
+                toolStripProgressBar1.Visible = true;
+                bienEncontrado = await bienPatrimonialService.GetByCodigoPatrimonial(codigoPatrimonial);
+
+                epInventario.Clear();
+
+                if (bienEncontrado == null)
+                {
+                    btnBuscar.Visible = true;
+                    MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeExisteBien, "OK", true);
+                    SnackBarMessage.Show(this);
+                }
+                else
+                {
+                    denominacionBienModeloViews = await denominacionBienModeloService.GetDenominacionesPorMarca(bienEncontrado.MarId);
+
+                    cmbMarca.SelectedValue = bienEncontrado.MarId;
+                    cmbMarca.Refresh();
+                    CargaBienPatrimonial();
+
+                    btnGuardar.Enabled = bienEncontrado.BptInventariadoTipo == InventariadoTipoEnum.SIN_INVENTARIAR;
+
+                    if (bienEncontrado.BptInventariadoTipo == InventariadoTipoEnum.INVENTARIADO)
+                    {
+                        MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeElementoInventariado, "OK", true);
+                        SnackBarMessage.Show(this);
+                    }
+
+                    if (bienEncontrado.BptInventariadoTipo == InventariadoTipoEnum.REPORTADO_POR_REVISAR)
+                    {
+                        MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeElementoObservado, "OK", true);
+                        SnackBarMessage.Show(this);
+                    }
+                }
+
+                toolStripProgressBar1.Visible = false;
+            }
+        }
 
         private async Task ListarBienesObservados()
         {
@@ -670,7 +668,6 @@ namespace PJ.Inf.InventoryValidation.Win
         private void EndLoad()
         {
             btnGuardar.Enabled = false;
-            btnBuscar.Enabled =
             cmbTrabajadorSearch.Enabled =
             cmbTrabajador.Enabled =
             cmbOficinaInterna.Enabled =
@@ -779,7 +776,16 @@ namespace PJ.Inf.InventoryValidation.Win
             if (bienEncontrado != null && usuarioDetectado != null)
             {
                 cmbMarca.SelectedValue = bienEncontrado.MarId;
-                cmbModelo.SelectedValue = bienEncontrado.ModId;
+
+                if (bienEncontrado.ModId != null)
+                {
+                    cmbModelo.SelectedValue = bienEncontrado.ModId;
+                }
+                else
+                {
+                    cmbModelo.SelectedValue = Guid.Empty;
+                }
+
                 cmbDenominacionBienModelo.SelectedValue = bienEncontrado.DbmId;
                 cmbEstadoConversacion.SelectedValue = bienEncontrado.BptEstadoConservacionTipo;
                 cmbColor.SelectedValue = bienEncontrado.BptColorTipo;
@@ -793,7 +799,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
                 if (bienEncontrado.SedId != usuarioDetectado.Per.SedId)
                 {
-                    MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeSedeDiferente, "OK", true);
+                    MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeSedeDiferente, "OK", true);
                     SnackBarMessage.Show(this);
                 }
                 else
@@ -877,7 +883,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private async Task LoadParametros()
         {
-            List<string> configuraciones = new List<string> { ParametroEnum.CREDENTIAL_ENVIO_MAIL, ParametroEnum.EMAIL_ENVIO_MAIL, ParametroEnum.EMAILS_ENVIO_MAIL_INVENTARIO, ParametroEnum.CARPETA_SUBIDA_ACTAS, ParametroEnum.USUARIOS_ADMIN_INVENTARIO };
+            List<string> configuraciones = [ParametroEnum.CREDENTIAL_ENVIO_MAIL, ParametroEnum.EMAIL_ENVIO_MAIL, ParametroEnum.EMAILS_ENVIO_MAIL_INVENTARIO, ParametroEnum.CARPETA_SUBIDA_ACTAS, ParametroEnum.USUARIOS_ADMIN_INVENTARIO];
 
             var parametros = await parametroService.Retorna(configuraciones);
 
@@ -888,24 +894,24 @@ namespace PJ.Inf.InventoryValidation.Win
                     switch (parametro.ParIdentificador)
                     {
                         case ParametroEnum.EMAIL_ENVIO_MAIL:
-                        emailEnvio = parametro.ParValor;
-                        break;
+                            emailEnvio = parametro.ParValor;
+                            break;
 
                         case ParametroEnum.CREDENTIAL_ENVIO_MAIL:
-                        credencialEnvio = parametro.ParValor;
-                        break;
+                            credencialEnvio = parametro.ParValor;
+                            break;
 
                         case ParametroEnum.EMAILS_ENVIO_MAIL_INVENTARIO:
-                        correosDestino = parametro.ParValor.Split(",").ToList();
-                        break;
+                            correosDestino = parametro.ParValor.Split(",").ToList();
+                            break;
 
                         case ParametroEnum.CARPETA_SUBIDA_ACTAS:
-                        carpetaSubidaActas = parametro.ParValor;
-                        break;
+                            carpetaSubidaActas = parametro.ParValor;
+                            break;
 
                         case ParametroEnum.USUARIOS_ADMIN_INVENTARIO:
-                        usuariosAdmin = parametro.ParValor.Split(",").ToList();
-                        break;
+                            usuariosAdmin = parametro.ParValor.Split(",").ToList();
+                            break;
                     }
                 }
             }
@@ -918,7 +924,7 @@ namespace PJ.Inf.InventoryValidation.Win
             {
                 if (string.IsNullOrWhiteSpace(carpetaSubidaActas))
                 {
-                    MaterialSnackBar msg1 = new MaterialSnackBar("No se ha configurado la carpeta de subida de actas.", "OK", true);
+                    MaterialSnackBar msg1 = new("No se ha configurado la carpeta de subida de actas.", "OK", true);
                     msg1.Show(this);
                     return;
                 }
@@ -944,41 +950,41 @@ namespace PJ.Inf.InventoryValidation.Win
                 {
                     case EstadoActaEnum.IMPRESA:
 
-                    acta.AbpEstadoActa = EstadoActaEnum.SUBIDA;
-                    acta.AbpArchivoSubido = nombreArchivo;
-                    acta.AbpArchivoDescargado = nombreOriginal;
-                    acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                    acta.SecFechaActualizacion = DateTime.Now;
+                        acta.AbpEstadoActa = EstadoActaEnum.SUBIDA;
+                        acta.AbpArchivoSubido = nombreArchivo;
+                        acta.AbpArchivoDescargado = nombreOriginal;
+                        acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                        acta.SecFechaActualizacion = DateTime.Now;
 
-                    await actaBienPatrimonialService.Modifica(acta);
+                        await actaBienPatrimonialService.Modifica(acta);
 
-                    await CargaTrabajadoresInventariadosPorUsuario();
+                        await CargaTrabajadoresInventariadosPorUsuario();
 
-                    break;
+                        break;
 
                     case EstadoActaEnum.SUBIDA:
 
-                    acta.AbpEstadoActa = EstadoActaEnum.FIRMADA_PATRIMONIO;
-                    acta.AbpArchivoFirmado = nombreArchivo;
-                    acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                    acta.SecFechaActualizacion = DateTime.Now;
+                        acta.AbpEstadoActa = EstadoActaEnum.FIRMADA_PATRIMONIO;
+                        acta.AbpArchivoFirmado = nombreArchivo;
+                        acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                        acta.SecFechaActualizacion = DateTime.Now;
 
-                    await actaBienPatrimonialService.Modifica(acta);
+                        await actaBienPatrimonialService.Modifica(acta);
 
-                    await CargaTrabajadoresInventariadosPorUsuario();
+                        await CargaTrabajadoresInventariadosPorUsuario();
 
-                    break;
+                        break;
 
                     default:
-                    break;
+                        break;
                 }
 
-                MaterialSnackBar msg2 = new MaterialSnackBar("Archivo PDF subido correctamente.", "OK", true);
+                MaterialSnackBar msg2 = new("Archivo PDF subido correctamente.", "OK", true);
                 msg2.Show(this);
             }
             catch (Exception ex)
             {
-                MaterialSnackBar msg3 = new MaterialSnackBar($"Error al subir el archivo: {ex.Message}", "OK", true);
+                MaterialSnackBar msg3 = new($"Error al subir el archivo: {ex.Message}", "OK", true);
                 msg3.Show(this);
             }
 
@@ -992,7 +998,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
             if (acta == null || string.IsNullOrWhiteSpace(rutaADescargar) || string.IsNullOrWhiteSpace(carpetaSubidaActas))
             {
-                MaterialSnackBar msg = new MaterialSnackBar("No hay archivo para descargar.", "OK", true);
+                MaterialSnackBar msg = new("No hay archivo para descargar.", "OK", true);
                 msg.Show(this);
                 return;
             }
@@ -1001,7 +1007,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
             if (!File.Exists(origen))
             {
-                MaterialSnackBar msg = new MaterialSnackBar("El archivo no existe en el servidor.", "OK", true);
+                MaterialSnackBar msg = new("El archivo no existe en el servidor.", "OK", true);
                 msg.Show(this);
                 return;
             }
@@ -1035,12 +1041,12 @@ namespace PJ.Inf.InventoryValidation.Win
                             }
                         }
 
-                        MaterialSnackBar msg = new MaterialSnackBar("Archivo descargado correctamente.", "OK", true);
+                        MaterialSnackBar msg = new("Archivo descargado correctamente.", "OK", true);
                         msg.Show(this);
                     }
                     catch (Exception ex)
                     {
-                        MaterialSnackBar msg = new MaterialSnackBar($"Error al descargar el archivo: {ex.Message}", "OK", true);
+                        MaterialSnackBar msg = new($"Error al descargar el archivo: {ex.Message}", "OK", true);
                         msg.Show(this);
                     }
                 }
@@ -1055,7 +1061,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
             string mensaje = $"Esta seguro que desea {(estadoActa == EstadoActaEnum.CREADA ? "liberar" : "aprobar")} acta de {acta.PerNombre}";
 
-            MaterialDialog materialDialog = new MaterialDialog(this, "Validación de inventario", mensaje, "OK", true, "Cancel");
+            MaterialDialog materialDialog = new(this, "Validación de inventario", mensaje, "OK", true, "Cancel");
 
             DialogResult result = materialDialog.ShowDialog(this);
 
@@ -1084,13 +1090,16 @@ namespace PJ.Inf.InventoryValidation.Win
 
             switch (indiceSeleccionado)
             {
-
+                case 1:
+                    txtCodigoPatrimonial.Focus();
+                    txtCodigoPatrimonial.SelectAll();
+                    break;
                 case 2:
-                await ListarActas();
-                break;
+                    await ListarActas();
+                    break;
                 case 3:
-                await ListarBienesObservados();
-                break;
+                    await ListarBienesObservados();
+                    break;
             }
         }
 
@@ -1120,7 +1129,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
                     if (acta != null && acta.AbpEstadoActa != EstadoActaEnum.CREADA)
                     {
-                        MaterialSnackBar SnackBarMessage = new MaterialSnackBar(SystemMessages.MensajeNoSePuedeEliminarBienActaNoCreada, "OK", true);
+                        MaterialSnackBar SnackBarMessage = new(SystemMessages.MensajeNoSePuedeEliminarBienActaNoCreada, "OK", true);
                         SnackBarMessage.Show(this);
                         return;
                     }
@@ -1157,7 +1166,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
                     await CargaTrabajadoresInventariadosPorUsuario();
 
-                    MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeElementoEliminadoCorrectamente, "OK", true);
+                    MaterialSnackBar SnackBarMessage2 = new(SystemMessages.MensajeElementoEliminadoCorrectamente, "OK", true);
                     SnackBarMessage2.Show(this);
 
                     toolStripProgressBar1.Visible = false;
@@ -1177,7 +1186,7 @@ namespace PJ.Inf.InventoryValidation.Win
                     var result = frm.ShowDialog(this);
                     if (result == DialogResult.OK)
                     {
-                        MaterialSnackBar SnackBarMessage2 = new MaterialSnackBar(SystemMessages.MensajeBienCorregido, "OK", true);
+                        MaterialSnackBar SnackBarMessage2 = new(SystemMessages.MensajeBienCorregido, "OK", true);
                         SnackBarMessage2.Show(this);
 
                         txtBusquedaBien.Text = "";
@@ -1192,7 +1201,7 @@ namespace PJ.Inf.InventoryValidation.Win
         {
             var filtro = txtBusquedaBien.Text.Trim().ToLower();
 
-            if(filtro == string.Empty)
+            if (filtro == string.Empty)
             {
                 dgvBienesObservados.DataSource = bienesObservadosAListar;
                 return;
@@ -1209,6 +1218,44 @@ namespace PJ.Inf.InventoryValidation.Win
                 )
                 .ToList();
             dgvBienesObservados.DataSource = bienesFiltrados;
+        }
+
+        private void cmbModelo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var modelo = cmbModelo.SelectedItem as ModeloView;
+
+            if (modelo != null && denominacionBienModeloViews != null)
+            {
+                if (modelo.ModId != Guid.Empty)
+                {
+                    var denominaciones = denominacionBienModeloViews
+                    .Where(x => x.ModId == modelo.ModId)
+                    .ToList();
+
+
+                    cmbDenominacionBienModelo.DataSource = denominaciones;
+                }
+                else
+                {
+                    cmbDenominacionBienModelo.DataSource = denominacionBienModeloViews;
+                }
+            }
+
+        }
+
+        private async void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            using (var frm = new frmBusquedaBienPatrimonial(estadoConservacion, color))
+            {
+                frm.StartPosition = FormStartPosition.CenterParent;
+                var result = frm.ShowDialog(this);
+                if (result == DialogResult.OK)
+                {
+                    txtCodigoPatrimonial.Text = frm.BienPatrimonialReporteView.BptCodigoPatrimonial;
+
+                    await CargaBien();
+                }
+            }
         }
     }
 }

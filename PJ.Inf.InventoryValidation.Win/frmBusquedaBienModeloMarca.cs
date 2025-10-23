@@ -1,15 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using PJ.Inf.InventoryValidation.Win.Model.Views;
 using PJ.Inf.InventoryValidation.Win.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PJ.Inf.InventoryValidation.Win
 {

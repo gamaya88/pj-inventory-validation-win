@@ -133,6 +133,16 @@ namespace PJ.Inf.InventoryValidation.Win.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap manage_search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 {
+            get {
+                object obj = ResourceManager.GetObject("manage_search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap picture_as_pdf_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("picture_as_pdf_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24", resourceCulture);

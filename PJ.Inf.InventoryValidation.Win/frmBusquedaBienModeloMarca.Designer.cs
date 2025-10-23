@@ -195,7 +195,7 @@
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmBusquedaBienModeloMarca";
-            Text = "frmBusquedaBienModeloMarca";
+            Text = "Búsqueda por denominacion marca o modelo";
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSearch).EndInit();
             ResumeLayout(false);

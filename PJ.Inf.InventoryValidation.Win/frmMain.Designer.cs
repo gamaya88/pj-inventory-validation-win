@@ -56,8 +56,8 @@ namespace PJ.Inf.InventoryValidation.Win
             cmbTrabajador = new MaterialSkin.Controls.MaterialComboBox();
             btnGuardar = new MaterialSkin.Controls.MaterialButton();
             groupBox2 = new GroupBox();
-            btnBienEncontrado = new MaterialSkin.Controls.MaterialButton();
             btnBuscar = new MaterialSkin.Controls.MaterialButton();
+            btnBienEncontrado = new MaterialSkin.Controls.MaterialButton();
             cmbColor = new MaterialSkin.Controls.MaterialComboBox();
             cmbEstadoConversacion = new MaterialSkin.Controls.MaterialComboBox();
             txtObservaciones = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
@@ -432,8 +432,8 @@ namespace PJ.Inf.InventoryValidation.Win
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnBienEncontrado);
             groupBox2.Controls.Add(btnBuscar);
+            groupBox2.Controls.Add(btnBienEncontrado);
             groupBox2.Controls.Add(cmbColor);
             groupBox2.Controls.Add(cmbEstadoConversacion);
             groupBox2.Controls.Add(txtObservaciones);
@@ -449,6 +449,27 @@ namespace PJ.Inf.InventoryValidation.Win
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "CARACTERISTICAS FÍSICAS DEL BIEN A INVENTARIAR";
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnBuscar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnBuscar.Depth = 0;
+            btnBuscar.HighEmphasis = true;
+            btnBuscar.Icon = Properties.Resources.manage_search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
+            btnBuscar.Location = new Point(402, 28);
+            btnBuscar.Margin = new Padding(4, 6, 4, 6);
+            btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.NoAccentTextColor = Color.Empty;
+            btnBuscar.Size = new Size(105, 36);
+            btnBuscar.TabIndex = 13;
+            btnBuscar.Text = "Buscar por serie";
+            btnBuscar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnBuscar.UseAccentColor = false;
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Visible = false;
+            btnBuscar.Click += btnBuscar_Click_1;
             // 
             // btnBienEncontrado
             // 
@@ -470,28 +491,6 @@ namespace PJ.Inf.InventoryValidation.Win
             btnBienEncontrado.UseVisualStyleBackColor = true;
             btnBienEncontrado.Visible = false;
             btnBienEncontrado.Click += btnBienEncontrado_Click;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnBuscar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnBuscar.Depth = 0;
-            btnBuscar.Enabled = false;
-            btnBuscar.HighEmphasis = true;
-            btnBuscar.Icon = Properties.Resources.view_in_ar_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24;
-            btnBuscar.Location = new Point(862, 85);
-            btnBuscar.Margin = new Padding(4, 6, 4, 6);
-            btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.NoAccentTextColor = Color.Empty;
-            btnBuscar.Size = new Size(105, 36);
-            btnBuscar.TabIndex = 11;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnBuscar.UseAccentColor = false;
-            btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Visible = false;
-            btnBuscar.Click += btnBuscar_Click;
             // 
             // cmbColor
             // 
@@ -590,7 +589,7 @@ namespace PJ.Inf.InventoryValidation.Win
             cmbModelo.Size = new Size(265, 49);
             cmbModelo.StartIndex = 0;
             cmbModelo.TabIndex = 4;
-            cmbModelo.SelectedIndexChanged += cmbModelo_SelectedIndexChanged;
+            cmbModelo.SelectedValueChanged += cmbModelo_SelectedValueChanged;
             // 
             // cmbMarca
             // 
@@ -705,7 +704,7 @@ namespace PJ.Inf.InventoryValidation.Win
             cmbOficinaInterna.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cmbOficinaInterna.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmbOficinaInterna.FormattingEnabled = true;
-            cmbOficinaInterna.Hint = "Oficina Interna";
+            cmbOficinaInterna.Hint = "Ubicación";
             cmbOficinaInterna.IntegralHeight = false;
             cmbOficinaInterna.ItemHeight = 43;
             cmbOficinaInterna.Location = new Point(492, 22);
@@ -1191,7 +1190,7 @@ namespace PJ.Inf.InventoryValidation.Win
             Icon = (Icon)resources.GetObject("$this.Icon");
             MdiChildrenMinimizedAnchorBottom = false;
             Name = "frmMain";
-            Text = "Registro de inventario";
+            Text = "VALIDACIÓN DE BIENES PATRIMONIALES ASIGNADOS";
             Load += frmMain_Load;
             mtcMain.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
@@ -1252,7 +1251,6 @@ namespace PJ.Inf.InventoryValidation.Win
         private ToolStrip toolStrip1;
         private ToolStripLabel ttsSede;
         private ToolStripLabel ttsUsuario;
-        private MaterialSkin.Controls.MaterialButton btnBuscar;
         private MaterialSkin.Controls.MaterialButton btnBienEncontrado;
         private GroupBox groupBox4;
         private ToolStripSeparator toolStripSeparator1;
@@ -1306,5 +1304,6 @@ namespace PJ.Inf.InventoryValidation.Win
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private MaterialSkin.Controls.MaterialButton btnBuscar;
     }
 }

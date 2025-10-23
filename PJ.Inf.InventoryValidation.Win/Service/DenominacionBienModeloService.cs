@@ -39,7 +39,7 @@ namespace PJ.Inf.InventoryValidation.Win.Service
                         .ToListAsync();
 
                     cacheDenominaciones = mapper.Map<List<Model.Views.DenominacionBienModeloView>>(denominaciones);
-                    DenominacionBienModeloCacheService.GetInstance().SetDenominaciones(Guid.Empty, cacheDenominaciones);
+                    DenominacionBienModeloCacheService.GetInstance().SetDenominaciones(MarId , cacheDenominaciones);
                 }
             }
             return cacheDenominaciones;
