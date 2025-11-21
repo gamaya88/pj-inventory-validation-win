@@ -3,7 +3,6 @@ using MaterialSkin.Controls;
 using PJ.Inf.InventoryValidation.Win.Model.Views;
 using PJ.Inf.InventoryValidation.Win.Registrars;
 using PJ.Inf.InventoryValidation.Win.Service;
-using System.Threading.Tasks;
 
 namespace PJ.Inf.InventoryValidation.Win
 {
