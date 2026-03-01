@@ -379,7 +379,7 @@ namespace PJ.Inf.InventoryValidation.Win
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private async void cmbMarca_SelectedValueChanged(object sender, EventArgs e)
@@ -894,24 +894,24 @@ namespace PJ.Inf.InventoryValidation.Win
                     switch (parametro.ParIdentificador)
                     {
                         case ParametroEnum.EMAIL_ENVIO_MAIL:
-                            emailEnvio = parametro.ParValor;
-                            break;
+                        emailEnvio = parametro.ParValor;
+                        break;
 
                         case ParametroEnum.CREDENTIAL_ENVIO_MAIL:
-                            credencialEnvio = parametro.ParValor;
-                            break;
+                        credencialEnvio = parametro.ParValor;
+                        break;
 
                         case ParametroEnum.EMAILS_ENVIO_MAIL_INVENTARIO:
-                            correosDestino = parametro.ParValor.Split(",").ToList();
-                            break;
+                        correosDestino = parametro.ParValor.Split(",").ToList();
+                        break;
 
                         case ParametroEnum.CARPETA_SUBIDA_ACTAS:
-                            carpetaSubidaActas = parametro.ParValor;
-                            break;
+                        carpetaSubidaActas = parametro.ParValor;
+                        break;
 
                         case ParametroEnum.USUARIOS_ADMIN_INVENTARIO:
-                            usuariosAdmin = parametro.ParValor.Split(",").ToList();
-                            break;
+                        usuariosAdmin = parametro.ParValor.Split(",").ToList();
+                        break;
                     }
                 }
             }
@@ -950,33 +950,33 @@ namespace PJ.Inf.InventoryValidation.Win
                 {
                     case EstadoActaEnum.IMPRESA:
 
-                        acta.AbpEstadoActa = EstadoActaEnum.SUBIDA;
-                        acta.AbpArchivoSubido = nombreArchivo;
-                        acta.AbpArchivoDescargado = nombreOriginal;
-                        acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                        acta.SecFechaActualizacion = DateTime.Now;
+                    acta.AbpEstadoActa = EstadoActaEnum.SUBIDA;
+                    acta.AbpArchivoSubido = nombreArchivo;
+                    acta.AbpArchivoDescargado = nombreOriginal;
+                    acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                    acta.SecFechaActualizacion = DateTime.Now;
 
-                        await actaBienPatrimonialService.Modifica(acta);
+                    await actaBienPatrimonialService.Modifica(acta);
 
-                        await CargaTrabajadoresInventariadosPorUsuario();
+                    await CargaTrabajadoresInventariadosPorUsuario();
 
-                        break;
+                    break;
 
                     case EstadoActaEnum.SUBIDA:
 
-                        acta.AbpEstadoActa = EstadoActaEnum.FIRMADA_PATRIMONIO;
-                        acta.AbpArchivoFirmado = nombreArchivo;
-                        acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
-                        acta.SecFechaActualizacion = DateTime.Now;
+                    acta.AbpEstadoActa = EstadoActaEnum.FIRMADA_PATRIMONIO;
+                    acta.AbpArchivoFirmado = nombreArchivo;
+                    acta.SecUsuarioActualizacionId = usuarioDetectado.SecUsuarioCreacionId;
+                    acta.SecFechaActualizacion = DateTime.Now;
 
-                        await actaBienPatrimonialService.Modifica(acta);
+                    await actaBienPatrimonialService.Modifica(acta);
 
-                        await CargaTrabajadoresInventariadosPorUsuario();
+                    await CargaTrabajadoresInventariadosPorUsuario();
 
-                        break;
+                    break;
 
                     default:
-                        break;
+                    break;
                 }
 
                 MaterialSnackBar msg2 = new("Archivo PDF subido correctamente.", "OK", true);
@@ -1091,15 +1091,15 @@ namespace PJ.Inf.InventoryValidation.Win
             switch (indiceSeleccionado)
             {
                 case 1:
-                    txtCodigoPatrimonial.Focus();
-                    txtCodigoPatrimonial.SelectAll();
-                    break;
+                txtCodigoPatrimonial.Focus();
+                txtCodigoPatrimonial.SelectAll();
+                break;
                 case 2:
-                    await ListarActas();
-                    break;
+                await ListarActas();
+                break;
                 case 3:
-                    await ListarBienesObservados();
-                    break;
+                await ListarBienesObservados();
+                break;
             }
         }
 

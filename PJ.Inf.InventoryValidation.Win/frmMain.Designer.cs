@@ -462,7 +462,7 @@ namespace PJ.Inf.InventoryValidation.Win
             btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             btnBuscar.Name = "btnBuscar";
             btnBuscar.NoAccentTextColor = Color.Empty;
-            btnBuscar.Size = new Size(105, 36);
+            btnBuscar.Size = new Size(181, 36);
             btnBuscar.TabIndex = 13;
             btnBuscar.Text = "Buscar por serie";
             btnBuscar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;

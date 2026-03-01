@@ -1,4 +1,4 @@
 {
-  "ConnectionString": "Server=localhost\\SQLEXPRESS2022;Database=HELPDESK;Trusted_Connection=False;uid=sa;password=123..abc;TrustServerCertificate=True",
-  "User": "GAMAYA"
+  "ConnectionString": "Server=localhost\\SQLEXPRESS2022;Database=HELPDESK_PROD;Trusted_Connection=False;uid=sa;password=123..abc;TrustServerCertificate=True",
+  "User": "GAMAYA88@GMAIL.COM"
 }
